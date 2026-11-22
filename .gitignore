@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Downloaded models, datasets, and experiment artifacts
+models/
+data/
+runs/
+.cache/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
