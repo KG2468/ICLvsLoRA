@@ -50,3 +50,19 @@ def test_answer_boundaries():
     assert answer("ANSWER: 1,000", "aime2024") is None
     assert answer("ANSWER: CAT", "gpqa") is None
     assert answer("ANSWER: 12.", "aime2024") == "12"
+
+
+@pytest.mark.parametrize("text", ["B.", "**B**", "(B)", "ANSWER: **B**"])
+def test_formatted_gpqa(text):
+    assert answer(text, "gpqa") == "B"
+
+
+def test_prose_and_trailing_period():
+    assert answer("answer: a careful calculation", "gpqa") is None
+    assert answer("42.", "aime2025") == "42"
+
+
+@pytest.mark.parametrize("text", ["", "import math", "<think>def f(): pass"])
+def test_unfinished_code_is_not_parse_valid(text):
+    result = score(text, {"entry_point": "f"}, "humaneval_python", Language(), 2)
+    assert not result["parse_valid"]

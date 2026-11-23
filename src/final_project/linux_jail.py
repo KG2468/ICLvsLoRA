@@ -10,6 +10,8 @@ from pathlib import Path
 
 
 def main():
+    completed = sys.argv.pop().encode("ascii")
+    write = os.write
     root, candidate, timeout = sys.argv[1:]
     code = Path(candidate).read_bytes()
     if os.geteuid() != 0:
@@ -88,6 +90,7 @@ def main():
     if sec.seccomp_load(rules):
         raise RuntimeError("Failed to activate seccomp")
     exec(compile(code, "candidate.py", "exec"), {"__name__": "__main__"})  # noqa: S102 -- isolated candidate
+    write(1, completed)
 
 
 if __name__ == "__main__":

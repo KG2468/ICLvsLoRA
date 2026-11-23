@@ -6,6 +6,7 @@ import ast
 import json
 import os
 import re
+import secrets
 import signal
 import subprocess
 import sys
@@ -33,21 +34,19 @@ def extract_code(text: str) -> str:
 
 def answer(text: str, benchmark: str) -> str | None:
     text = final_text(text)
-    pattern = (
-        r"(?:ANSWER\s*:\s*|\\boxed\{)([A-D])\}?(?!\w)"
-        if benchmark == "gpqa"
-        else (r"(?:ANSWER\s*:\s*|\\boxed\{)(\d{1,3})\}?(?!\w|[.,]\d)")
-    )
-    matches = re.findall(pattern, text, flags=re.IGNORECASE)
-    if matches:
-        return matches[-1].upper() if benchmark == "gpqa" else str(int(matches[-1]))
-    bare = r"[A-D]" if benchmark == "gpqa" else r"\d{1,3}"
-    if re.fullmatch(bare, text, flags=re.IGNORECASE):
-        return text.upper() if benchmark == "gpqa" else str(int(text))
-    return None
+    token = r"[A-D]" if benchmark == "gpqa" else r"[0-9]{1,3}"
+    # A marked or standalone answer must consume the rest of its line.
+    value = rf"(?:\*\*({token})\*\*|\(({token})\)|({token}))[.]?"
+    marked = rf"\bANSWER[ \t]*:[ \t]*{value}[ \t]*$|\\boxed\{{({token})\}}"
+    matches = list(re.finditer(marked, text, re.IGNORECASE | re.MULTILINE))
+    match = matches[-1] if matches else re.fullmatch(value, text, re.IGNORECASE)
+    if match is None:
+        return None
+    extracted = next(group for group in match.groups() if group is not None)
+    return extracted.upper() if benchmark == "gpqa" else str(int(extracted))
 
 
-def sandbox_command(directory: Path, timeout: int) -> list[str]:
+def sandbox_command(directory: Path, timeout: int, marker: str) -> list[str]:
     if sys.platform == "linux":
         import shutil
         import sysconfig
@@ -75,6 +74,7 @@ def sandbox_command(directory: Path, timeout: int) -> list[str]:
             str(root),
             str(directory / "candidate.py"),
             str(timeout),
+            marker,
         ]
     if sys.platform != "darwin" or not Path("/usr/bin/sandbox-exec").exists():
         raise RuntimeError(
@@ -111,7 +111,10 @@ resource.setrlimit(resource.RLIMIT_CPU, (__TIMEOUT__, __TIMEOUT__))
 resource.setrlimit(resource.RLIMIT_FSIZE, (1048576, 1048576))
 resource.setrlimit(resource.RLIMIT_NOFILE, (64, 64))
 resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
+completed = sys.argv.pop().encode("ascii")
+write = os.write
 runpy.run_path(sys.argv[1], run_name="__main__")
+write(1, completed)
 """.replace("__TIMEOUT__", str(max(1, int(timeout))))
     return [
         "/usr/bin/sandbox-exec",
@@ -123,6 +126,7 @@ runpy.run_path(sys.argv[1], run_name="__main__")
         "-c",
         runner,
         str(directory / "candidate.py"),
+        marker,
     ]
 
 
@@ -131,10 +135,11 @@ def execute(source: str, tests: str, entry_point: str, timeout: int) -> dict:
         raise ValueError("Invalid entry point")
     with tempfile.TemporaryDirectory(prefix="cs182-score-") as tmp:
         directory = Path(tmp)
+        marker = secrets.token_hex(24)
         (directory / "candidate.py").write_text(source + "\n" + tests + f"\ncheck({entry_point})\n")
-        command = sandbox_command(directory, timeout)
+        command = sandbox_command(directory, timeout, marker)
         # Output goes to bounded files, not an unbounded subprocess PIPE.
-        with (directory / "stdout").open("w+") as out, (directory / "stderr").open("w+") as err:
+        with (directory / "stdout").open("w+b") as out, (directory / "stderr").open("w+") as err:
             process = subprocess.Popen(
                 command,
                 cwd=directory,
@@ -146,9 +151,11 @@ def execute(source: str, tests: str, entry_point: str, timeout: int) -> dict:
             )
             try:
                 process.wait(timeout=timeout + 2)
+                out.seek(0)
+                completed = marker.encode("ascii") in out.read(1048576)
                 status = (
                     "passed"
-                    if process.returncode == 0
+                    if process.returncode == 0 and completed
                     else (
                         "timeout"
                         if process.returncode in (-signal.SIGXCPU, -signal.SIGKILL)
@@ -193,7 +200,7 @@ def score(text: str, task: dict, benchmark: str, lang: Language, timeout: int) -
             isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.name == task["entry_point"]
             for n in tree.body
         ):
-            return {"passed": False, "parse_valid": True, "status": "entry_point_missing"}
+            return {"passed": False, "parse_valid": False, "status": "entry_point_missing"}
     except (
         SyntaxError,
         ValueError,

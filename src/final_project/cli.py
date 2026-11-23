@@ -49,7 +49,7 @@ def main():
 
         job = json.loads(args.job.read_text())
         cfg = job["cfg"]
-        lang = Language(cfg["experiment"]["language_seed"])
+        lang = Language(job["seed"])
         train, valid = examples(cfg, lang, job["seed"])
         train_adapter(cfg, lang, train[: job["n"]], valid, job["seed"], Path(job["adapter"]))
         return
@@ -67,13 +67,10 @@ def main():
         convert(cfg)
     else:
         from .experiment import plan, preflight, run
-        from .language import Language
 
         if args.command == "plan":
             print(json.dumps(plan(cfg), indent=2))
         elif args.command == "preflight":
-            print(
-                json.dumps(preflight(cfg, Language(cfg["experiment"]["language_seed"])), indent=2)
-            )
+            print(json.dumps(preflight(cfg), indent=2))
         else:
             run(cfg, stage=args.stage)

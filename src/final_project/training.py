@@ -13,7 +13,7 @@ from .prompts import training_messages
 
 
 class SupervisedDataset:
-    """Explicit assistant-only loss; identical nonthinking template to inference."""
+    """Assistant-only loss on direct solutions without reasoning traces."""
 
     def __init__(self, rows, tokenizer, lang, cfg):
         self.rows = []

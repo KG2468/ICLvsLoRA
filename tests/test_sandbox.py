@@ -33,3 +33,9 @@ def test_private_files_and_network_are_denied():
     result = execute(source, "def check(f): f()", "f", 2)
     assert not result["passed"]
     assert "PermissionError" in result["stderr"]
+
+
+@pytest.mark.parametrize("early_exit", ["raise SystemExit(0)", "import os; os._exit(0)"])
+def test_early_exit_cannot_pass(early_exit):
+    result = execute("def f(): " + early_exit, "def check(f): assert f() == 42", "f", 2)
+    assert result["returncode"] == 0 and not result["passed"]

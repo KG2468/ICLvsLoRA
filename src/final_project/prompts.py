@@ -11,8 +11,7 @@ def demonstration(row: dict) -> list[dict]:
 
 
 def prefix(lang: Language, condition: str, examples: list[dict], synthetic: bool) -> list[dict]:
-    # Persistent ICL keeps BOTH the grammar and demonstrations for unrelated tasks.
-    system = lang.header() if synthetic or condition == "icl" else "You are a helpful assistant."
+    system = lang.header() if synthetic else "You are a helpful assistant."
     messages = [{"role": "system", "content": system}]
     if condition == "icl":
         for row in examples:

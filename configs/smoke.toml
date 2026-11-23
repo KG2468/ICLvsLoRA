@@ -5,10 +5,9 @@ directory = "models/qwen3.5-2b"
 precision = "fp16" # fp8 = MXFP8 weight quantization; int8 = affine integer weights
 
 [experiment]
-name = "smoke-keywords-v4"
+name = "smoke-keywords-v4-reviewed"
 data_dir = "data/benchmarks"
 output_dir = "runs"
-language_seed = 182
 sizes = [2]
 seeds = [0]
 benchmarks = ["humaneval_synthetic", "humaneval_python"]

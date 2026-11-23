@@ -31,7 +31,7 @@ def test_retry_uses_original_work_and_scores_short_answer(benchmark, expected):
     [
         ("length", "ANSWER: A", "gpqa"),
         ("stop", "unfinished", "gpqa"),
-        ("length", "def f(", "humaneval_python"),
+        ("stop", "def f(", "humaneval_python"),
     ],
 )
 def test_no_second_guess_or_code_retry(reason, text, benchmark):
@@ -48,3 +48,28 @@ def test_no_second_guess_or_code_retry(reason, text, benchmark):
     )
     backend.generate.assert_not_called()
     assert not result["passed"] and "followup" not in result
+
+
+@pytest.mark.parametrize("benchmark", ["humaneval_python", "humaneval_synthetic"])
+@pytest.mark.parametrize("tight", [False, True])
+def test_code_at_limit_gets_full_final_budget(benchmark, tight):
+    lang = Language(2)
+    backend = Mock()
+    backend.tokens.side_effect = [[1] * 400, [1] * 100] if tight else [[1] * 100]
+    backend.generate.return_value = {"text": "import math", "finish_reason": "stop"}
+    prompt = [{"role": "user", "content": "question"}]
+    first = {"text": "def f(): return 1", "thinking": True, "finish_reason": "length"}
+    result = score_with_followup(
+        backend,
+        prompt,
+        first,
+        {"entry_point": "f"},
+        benchmark,
+        lang,
+        1,
+        {"evaluation": {"timeout": 2}, "generation": {"max_context": 1000}},
+    )
+    assert not result["initial_score"]["parse_valid"]
+    assert not result["parse_valid"]
+    assert result["followup"]["includes_draft_turn"] == (not tight)
+    assert backend.generate.call_args.kwargs == {"max_tokens": 750, "thinking": False}

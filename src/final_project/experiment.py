@@ -16,25 +16,52 @@ from .prompts import prefix, query
 from .scoring import execute, score
 from .training import SupervisedDataset
 
+CODE_FINAL_TOKENS = 750
+
+
+def final_instruction(benchmark):
+    if benchmark.startswith("humaneval"):
+        dialect = "synthetic" if benchmark.endswith("synthetic") else "standard"
+        form = f"the complete {dialect} Python program, including any imports"
+    elif benchmark == "gpqa":
+        form = "a single letter A, B, C, or D"
+    else:
+        form = "a single integer from 0 to 999"
+    return f"Give your best final answer now. Reply only with {form}. No reasoning."
+
+
+def final_only_prompt(prompt, instruction):
+    return prompt[:-1] + [{"role": "user", "content": prompt[-1]["content"] + "\n" + instruction}]
+
 
 def score_with_followup(backend, prompt, generated, task, benchmark, lang, seed, cfg):
     timeout = cfg["evaluation"]["timeout"]
-    initial = score(generated["text"], task, benchmark, lang, timeout)
-    if (
-        benchmark not in {"gpqa", "aime2024", "aime2025"}
-        or generated.get("finish_reason") != "length"
-        or initial["status"] != "answer_missing"
+    coding = benchmark.startswith("humaneval")
+    output = generated["text"]
+    # Qwen puts the opening think tag in the prompt, outside the raw trace.
+    if generated.get("thinking") and "</think>" not in output:
+        output = ""
+    initial = score(output, task, benchmark, lang, timeout)
+    if generated.get("finish_reason") != "length" or (
+        not coding and initial["status"] != "answer_missing"
     ):
         return initial
-    form = (
-        "a single letter A, B, C, or D" if benchmark == "gpqa" else "a single integer from 0 to 999"
-    )
-    instruction = f"Give your best final answer now. Reply only with {form}. No reasoning."
+    limit = CODE_FINAL_TOKENS if coding else 25
+    instruction = final_instruction(benchmark)
     turns = prompt + [
         {"role": "assistant", "content": generated["text"]},
         {"role": "user", "content": instruction},
     ]
-    budget = min(25, cfg["generation"]["max_context"] - len(backend.tokens(turns, thinking=False)))
+    remaining = cfg["generation"]["max_context"] - len(backend.tokens(turns, thinking=False))
+    include_draft = True
+    if coding and remaining < limit:
+        # Preflight reserves room for this version even with the longest ICL context.
+        turns = final_only_prompt(prompt, instruction)
+        include_draft = False
+        remaining = cfg["generation"]["max_context"] - len(backend.tokens(turns, thinking=False))
+        if remaining < limit:
+            raise ValueError("Context too small for the 750-token final code budget")
+    budget = min(limit, remaining)
     if budget < 1:
         return {**initial, "initial_score": initial, "followup": {"status": "context_full"}}
     reply = backend.generate(turns, seed, max_tokens=budget, thinking=False)
@@ -42,7 +69,12 @@ def score_with_followup(backend, prompt, generated, task, benchmark, lang, seed,
     return {
         **final,
         "initial_score": initial,
-        "followup": {"instruction": instruction, "budget": budget, **reply},
+        "followup": {
+            "instruction": instruction,
+            "includes_draft_turn": include_draft,
+            "budget": budget,
+            **reply,
+        },
     }
 
 
@@ -60,7 +92,7 @@ def plan(cfg: dict) -> dict:
     }
 
 
-def preflight(cfg: dict, lang: Language) -> dict:
+def preflight(cfg: dict) -> dict:
     from transformers import AutoTokenizer
 
     from .backend import verify_model
@@ -73,6 +105,7 @@ def preflight(cfg: dict, lang: Language) -> dict:
     tokenizer = AutoTokenizer.from_pretrained(str(model_path(cfg)), local_files_only=True)
     longest, max_training = 0, 0
     for seed in cfg["experiment"]["seeds"]:
+        lang = Language(seed)
         train, valid = examples(cfg, lang, seed)
         processed = SupervisedDataset(train + valid, tokenizer, lang, cfg)
         max_training = max(max_training, max(len(row[0]) for row in processed.rows))
@@ -80,14 +113,26 @@ def preflight(cfg: dict, lang: Language) -> dict:
             # The maximum N ICL prompt bounds the smaller nested prefixes.
             messages = prefix(lang, "icl", train, benchmark.endswith("synthetic"))
             for task in tasks(cfg, benchmark):
+                prompt = messages + [query(task, benchmark, lang)]
                 tokens = tokenizer.apply_chat_template(
-                    messages + [query(task, benchmark, lang)],
+                    prompt,
                     tokenize=True,
                     return_dict=False,
                     add_generation_prompt=True,
-                    enable_thinking=cfg["generation"]["enable_thinking"],
+                    enable_thinking=benchmark.startswith("humaneval")
+                    or cfg["generation"]["enable_thinking"],
                 )
                 longest = max(longest, len(tokens))
+                if benchmark.startswith("humaneval"):
+                    final_tokens = tokenizer.apply_chat_template(
+                        final_only_prompt(prompt, final_instruction(benchmark)),
+                        tokenize=True,
+                        return_dict=False,
+                        add_generation_prompt=True,
+                        enable_thinking=False,
+                    )
+                    if len(final_tokens) + CODE_FINAL_TOKENS > cfg["generation"]["max_context"]:
+                        raise ValueError("Context too small for the 750-token final code budget")
     if longest + cfg["generation"]["max_tokens"] > cfg["generation"]["max_context"]:
         raise ValueError(
             f"Largest ICL prompt is {longest} tokens, exceeding context budget "
@@ -133,7 +178,6 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
     from .report import report
 
     exp = cfg["experiment"]
-    lang = Language(exp["language_seed"])
     data_root = Path(exp["data_dir"])
     dataset_names = {"mbpp_train", "mbpp_valid"} | {
         "humaneval" if b.startswith("humaneval") else b for b in exp["benchmarks"]
@@ -164,7 +208,7 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
             "Run inputs/code changed; choose a new experiment.name to avoid mixing results"
         )
     print("Checking context budgets, training lengths, and code sandbox...", flush=True)
-    checks = preflight(cfg, lang)
+    checks = preflight(cfg)
     manifest = {
         "identity": identity,
         "config": cfg,
@@ -175,8 +219,8 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
         "platform": platform.platform(),
         "plan": plan(cfg),
         "preflight": checks,
-        "language_mapping": lang.mapping,
-        "language_version": lang.version,
+        "language_mappings_by_seed": {seed: Language(seed).mapping for seed in exp["seeds"]},
+        "language_version": Language.version,
     }
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     results_path = root / "results.jsonl"
@@ -187,6 +231,7 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
     print(json.dumps(manifest["plan"] | checks, indent=2), flush=True)
 
     def evaluate(condition: str, n: int, seed: int, rows: list[dict], adapter=None):
+        lang = Language(seed)
         pending = [
             (b, t)
             for b in exp["benchmarks"]
@@ -208,7 +253,10 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
                     generation_seed = int(digest([seed, benchmark, task["id"]])[:8], 16)
                     prompt = messages + [query(task, benchmark, lang)]
                     print(f"Generating {key}", flush=True)
-                    generated = backend.generate(prompt, generation_seed)
+                    thinking = (
+                        benchmark.startswith("humaneval") or cfg["generation"]["enable_thinking"]
+                    )
+                    generated = backend.generate(prompt, generation_seed, thinking=thinking)
                     scored = score_with_followup(
                         backend, prompt, generated, task, benchmark, lang, generation_seed, cfg
                     )
@@ -244,7 +292,7 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
             if condition == "base":
                 evaluate("base", 0, seed, [])
                 continue
-            train, valid = examples(cfg, lang, seed)
+            train, valid = examples(cfg, Language(seed), seed)
             for n in exp["sizes"]:
                 selected = train[:n]
                 selection = {

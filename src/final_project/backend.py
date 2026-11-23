@@ -198,6 +198,7 @@ class MLXBackend:
             last = response
         result = {
             "text": text,
+            "thinking": gen["enable_thinking"] if thinking is None else thinking,
             "prompt_tokens": len(tokens),
             "cached_tokens": cached,
             "generation_tokens": last.generation_tokens if last else 0,

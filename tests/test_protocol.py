@@ -8,6 +8,7 @@ def test_persistent_icl_and_clean_lora():
     example = {"prompt": "Return one", "synthetic": "some code"}
     icl = prefix(Language(), "icl", [example], False)
     lora = prefix(Language(), "lora", [example], False)
+    assert icl[0] == lora[0] == prefix(Language(), "base", [], False)[0]
     assert len(icl) == 3
     assert icl[-1]["content"] == "some code"
     assert len(lora) == 1
