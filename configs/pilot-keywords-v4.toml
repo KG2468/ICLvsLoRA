@@ -5,7 +5,7 @@ directory = "models/qwen3.5-2b"
 precision = "fp16" # fp8 = MXFP8 weight quantization; int8 = affine integer weights
 
 [experiment]
-name = "pilot-keywords-v4-reviewed"
+name = "pilot-keywords-v4-reviewed-gpu"
 data_dir = "data/benchmarks"
 output_dir = "runs"
 sizes = [16]
@@ -33,6 +33,7 @@ max_context = 131072
 prefill_step_size = 512
 enable_thinking = false
 prefix_cache = true
+max_workers = 2 # automatic memory-based admission; 1 forces serial evaluation
 
 [evaluation]
 limit = 32 # fixed exploratory calibration subset, per seed

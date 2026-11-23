@@ -4,13 +4,17 @@ import fcntl
 import hashlib
 import importlib.metadata
 import json
+import multiprocessing
 import os
 import platform
+from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
+from concurrent.futures.process import BrokenProcessPool
 from pathlib import Path
 
 from .backend import MLXBackend
 from .config import digest, model_path, resume_results
 from .data import examples, tasks
+from .gpu import available_bytes, replica_count
 from .language import Language
 from .prompts import prefix, query
 from .scoring import execute, score
@@ -174,6 +178,61 @@ def run(cfg: dict, stage: str = "all"):
         _run(cfg, root, stage)
 
 
+def generate_row(backend, cfg, condition, n, seed, benchmark, lang, messages, example_ids, task):
+    key = f"{condition}/{n}/{seed}/{benchmark}/{task['id']}"
+    generation_seed = int(digest([seed, benchmark, task["id"]])[:8], 16)
+    prompt = messages + [query(task, benchmark, lang)]
+    print(f"Generating {key}", flush=True)
+    thinking = benchmark.startswith("humaneval") or cfg["generation"]["enable_thinking"]
+    generated = backend.generate(prompt, generation_seed, thinking=thinking)
+    scored = score_with_followup(
+        backend, prompt, generated, task, benchmark, lang, generation_seed, cfg
+    )
+    return {
+        "key": key,
+        "condition": condition,
+        "n": n,
+        "seed": seed,
+        "generation_seed": generation_seed,
+        "benchmark": benchmark,
+        "task_id": task["id"],
+        "example_ids": example_ids,
+        "messages": prompt,
+        **generated,
+        **scored,
+    }
+
+
+# Each spawned process owns its model, adapter, RNG and mutable MLX cache.
+def init_replica(cfg, adapter, condition, n, seed, benchmark, messages, example_ids):
+    global _replica
+    backend = MLXBackend(cfg, adapter)
+    backend.set_prefix(messages)
+    _replica = (backend, cfg, condition, n, seed, benchmark, Language(seed), messages, example_ids)
+
+
+def replica_task(task):
+    return generate_row(*_replica, task)
+
+
+def parallel_rows(count, initargs, tasks):
+    with ProcessPoolExecutor(
+        max_workers=count,
+        mp_context=multiprocessing.get_context("spawn"),
+        initializer=init_replica,
+        initargs=initargs,
+    ) as pool:
+        remaining = iter(tasks)
+        active = {pool.submit(replica_task, task) for _, task in zip(range(count), remaining)}
+        while active:
+            done, active = wait(active, return_when=FIRST_COMPLETED)
+            for future in done:
+                yield future.result()
+                task = next(remaining, None)
+                if task is not None:
+                    active.add(pool.submit(replica_task, task))
+
+
 def _run(cfg: dict, root: Path, stage: str = "all"):
     from .report import report
 
@@ -228,63 +287,101 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
     completed = {r["key"] for r in results}
     if len(completed) != len(results):
         raise ValueError("Duplicate result keys in run log")
+    del results
     print(json.dumps(manifest["plan"] | checks, indent=2), flush=True)
+
+    def commit(row, workers):
+        row["generation_workers"] = workers
+        with results_path.open("a") as handle:
+            handle.write(json.dumps(row) + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        completed.add(row["key"])
+        print(
+            f"  {row['key']} {row['status']}; {row['generation_tokens']} tokens, "
+            f"{row['seconds']:.1f}s",
+            flush=True,
+        )
 
     def evaluate(condition: str, n: int, seed: int, rows: list[dict], adapter=None):
         lang = Language(seed)
-        pending = [
-            (b, t)
-            for b in exp["benchmarks"]
-            for t in tasks(cfg, b)
-            if f"{condition}/{n}/{seed}/{b}/{t['id']}" not in completed
-        ]
-        if not pending:
-            return
-        backend = MLXBackend(cfg, adapter)
+        example_ids = [row["id"] for row in rows]
+        backend = None
+        cap = cfg["generation"].get("max_workers", 2)
         try:
             for benchmark in exp["benchmarks"]:
-                batch = [t for b, t in pending if b == benchmark]
+                key_prefix = f"{condition}/{n}/{seed}/{benchmark}/"
+                batch = [t for t in tasks(cfg, benchmark) if key_prefix + t["id"] not in completed]
                 if not batch:
                     continue
                 messages = prefix(lang, condition, rows, benchmark.endswith("synthetic"))
+                args = (cfg, condition, n, seed, benchmark, lang, messages, example_ids)
+                if backend is None:
+                    backend = MLXBackend(cfg, adapter)
                 backend.set_prefix(messages)
-                for task in batch:
-                    key = f"{condition}/{n}/{seed}/{benchmark}/{task['id']}"
-                    generation_seed = int(digest([seed, benchmark, task["id"]])[:8], 16)
-                    prompt = messages + [query(task, benchmark, lang)]
-                    print(f"Generating {key}", flush=True)
-                    thinking = (
-                        benchmark.startswith("humaneval") or cfg["generation"]["enable_thinking"]
+                pilot = generate_row(backend, *args, batch[0])
+                commit(pilot, 1)
+                remaining = batch[1:]
+                workers = 1
+                if cap > 1 and len(remaining) > 1:
+                    peak = max(
+                        r.get("gpu", {}).get("mlx_peak_bytes", 0)
+                        for r in (pilot, pilot.get("followup", {}))
                     )
-                    generated = backend.generate(prompt, generation_seed, thinking=thinking)
-                    scored = score_with_followup(
-                        backend, prompt, generated, task, benchmark, lang, generation_seed, cfg
+                    free = available_bytes()
+                    gpu = pilot.get("gpu", {})
+                    utilization = (
+                        gpu.get("device_utilization_mean_pct")
+                        if gpu.get("samples", 0) >= 3
+                        else None
                     )
-                    row = {
-                        "key": key,
-                        "condition": condition,
-                        "n": n,
-                        "seed": seed,
-                        "generation_seed": generation_seed,
-                        "benchmark": benchmark,
-                        "task_id": task["id"],
-                        "example_ids": [r["id"] for r in rows],
-                        "messages": prompt,
-                        **generated,
-                        **scored,
-                    }
-                    with results_path.open("a") as handle:
-                        handle.write(json.dumps(row) + "\n")
-                        handle.flush()
-                        os.fsync(handle.fileno())
-                    completed.add(key)
+                    workers = replica_count(
+                        cap,
+                        len(remaining),
+                        peak,
+                        free,
+                        utilization,
+                        utilization_source=gpu.get("utilization_source"),
+                    )
                     print(
-                        f"  {scored['status']}; {generated['generation_tokens']} tokens, "
-                        f"{generated['seconds']:.1f}s",
+                        f"{benchmark}: {workers} generation worker(s), "
+                        f"pilot peak {peak / 1e9:.1f} GB, free {free / 1e9:.1f} GB",
                         flush=True,
                     )
+                if workers > 1:
+                    backend.close()
+                    backend = None
+                    initargs = (cfg, adapter, condition, n, seed, benchmark, messages, example_ids)
+                    try:
+                        for row in parallel_rows(workers, initargs, remaining):
+                            commit(row, workers)
+                        continue
+                    except (RuntimeError, MemoryError) as exc:
+                        oom = isinstance(exc, (MemoryError, BrokenProcessPool)) or any(
+                            term in str(exc).lower()
+                            for term in (
+                                "out of memory",
+                                "out_of_memory",
+                                "insufficient memory",
+                                "allocation failed",
+                                "bad_alloc",
+                                "cudaerrormemoryallocation",
+                            )
+                        )
+                        if not oom:
+                            raise
+                        print(
+                            f"Replica pool failed ({exc}); resuming this group serially", flush=True
+                        )
+                        cap = 1
+                        remaining = [t for t in remaining if key_prefix + t["id"] not in completed]
+                        backend = MLXBackend(cfg, adapter)
+                        backend.set_prefix(messages)
+                for task in remaining:
+                    commit(generate_row(backend, *args, task), 1)
         finally:
-            backend.close()
+            if backend is not None:
+                backend.close()
 
     for condition in stages(stage):
         print(f"Starting {condition.upper()} stage", flush=True)

@@ -86,7 +86,7 @@ Outputs go to `runs/<experiment.name>/`:
 # Same command resumes completed evaluations/adapters without duplicating them.
 uv run final-project run --config configs/smoke.toml
 # Regenerate a report (also works for a partial results log).
-uv run final-project report runs/smoke-keywords-v4-reviewed
+uv run final-project report runs/smoke-keywords-v4-reviewed-gpu
 # Inspect the language directly.
 uv run final-project transpile example.py > example.synthetic
 uv run final-project transpile example.synthetic --decode
@@ -119,7 +119,7 @@ uv run final-project run --config configs/pilot-keywords-v4.toml --stage icl
 
 The initial calibration uses N=16 and the first 32 HumanEval tasks across three seeds (96 generations). The other 132 tasks are reserved for confirmation after the grammar/prompt are frozen. The 5–10% pass-rate goal is empirical: scoring remains strict and ordinary-Python keywords are not silently accepted. This is exploratory calibration, so report these 32 tasks separately when interpreting the later full HumanEval sweep. The pilot report marks the overall comparison partial because base and LoRA are intentionally not part of this ICL-only calibration.
 
-The fully seeded grammar writes full runs to `runs/full-keywords-v4-reviewed/`, and the new smoke directory is `runs/smoke-keywords-v4-reviewed/`. Both use ICL → LoRA → base execution order. No old run is resumed under the new grammar.
+The fully seeded grammar writes full runs to `runs/full-keywords-v4-reviewed-gpu-v2/`, and the new smoke directory is `runs/smoke-keywords-v4-reviewed-gpu/`. Both use ICL → LoRA → base execution order. No old run is resumed under the new grammar.
 
 ## Historical smoke runs (old grammar)
 
@@ -136,4 +136,10 @@ Both `runs/smoke/` (FP16) and `runs/smoke-fp8/` (MXFP8) completed all six evalua
 
 On AIME and GPQA, when a generation ends at its token limit and the scorer cannot extract an answer, the runner continues the conversation once. It includes the original problem, demonstrations and generated work, then requests a bare integer or option letter with thinking disabled. The follow-up has a maximum of 25 tokens and uses the remaining context window. If the window is full, the trace records `context_full`. An extractable answer is scored immediately, even if incorrect. On either HumanEval variant, every length-limited first attempt gets one 750-token code-only turn with reasoning disabled. If the draft crowds out that budget, the runner keeps all demonstrations and the original question and drops the draft. The final turn determines the score. Code counts as parse-valid when it parses and defines the requested entry point. The scorer also checks that the test harness reached the end of its checks.
 
-In results.jsonl, `text` and the top-level token counts and timings describe the first generation. For a retry, `initial_score` records the first score and `followup` holds the instruction, second output and its generation statistics. Top-level accuracy uses the final score. Include both generations when reporting compute costs. The full configuration writes this protocol to `runs/full-keywords-v4-reviewed/`.
+In results.jsonl, `text` and the top-level token counts and timings describe the first generation. For a retry, `initial_score` records the first score and `followup` holds the instruction, second output and its generation statistics. Top-level accuracy uses the final score. Include both generations when reporting compute costs. The full configuration writes this protocol to `runs/full-keywords-v4-reviewed-gpu-v2/`.
+
+### GPU measurements and parallel evaluation
+
+Each generation in `results.jsonl`, including a final-answer follow-up, has a `gpu` object. It records the worker PID, MLX active memory before and after generation, peak active memory during the call, and cached memory at the end, all in bytes. The runner also samples device-wide busy percentage about once a second using macOS IORegistry or NVIDIA's `nvidia-smi`. The trace includes the sample count, mean, and maximum. The CSV and JSON summaries include the highest per-worker MLX peak, sample-weighted device utilization, sample count, and maximum worker count. Generation seconds sum worker time across first attempts and follow-ups. Missing utilization readings are null. Concurrent workers observe the same device, so their utilization percentages should never be added.
+
+For each benchmark, seed, and condition/size, the runner measures the first pending task on one replica. It can assign the remaining tasks to independent model processes on the same GPU when the pilot peak and available memory leave room. On CUDA, a pilot averaging at least 95% device utilization across three or more samples stays serial. On Metal, memory headroom determines admission and IORegistry busy percentage is recorded as telemetry. The default limit is two workers. Set `generation.max_workers` in TOML or `MAX_WORKERS` in the notebook to change the ceiling. A value of one forces serial generation. Each committed row records the selected worker count. The coordinator writes the results and preserves task seeds and stage order. A failed worker pool due to an allocation error or lost process falls back to serial evaluation of uncommitted tasks. LoRA training remains sequential.

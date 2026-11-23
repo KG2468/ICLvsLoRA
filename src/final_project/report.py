@@ -30,13 +30,24 @@ def summarize(rows: list[dict]) -> list[dict]:
         paired = base_ids.get((benchmark, seed)) == {
             r.get("task_id", i) for i, r in enumerate(group)
         }
+        generations = [attempt for row in group for attempt in (row, row.get("followup", {}))]
+        gpu = [attempt["gpu"] for attempt in generations if "gpu" in attempt]
         aggregated[(benchmark, condition, n)].append(
             {
                 "accuracy": accuracy,
                 "parse_validity": statistics.mean(parse) if parse else None,
                 "delta": accuracy - base[(benchmark, seed)] if paired else None,
                 "tasks": len(group),
-                "seconds": sum(r.get("seconds", 0) for r in group),
+                "seconds": sum(attempt.get("seconds", 0) for attempt in generations),
+                "peak_bytes": max((g["mlx_peak_bytes"] for g in gpu), default=None),
+                "samples": sum(g["samples"] for g in gpu),
+                "busy_sum": sum(
+                    g["samples"] * (g["device_utilization_mean_pct"] or 0) for g in gpu
+                ),
+                "workers": max(
+                    (r["generation_workers"] for r in group if "generation_workers" in r),
+                    default=None,
+                ),
             }
         )
     summary = []
@@ -44,6 +55,7 @@ def summarize(rows: list[dict]) -> list[dict]:
         accuracy = [v["accuracy"] for v in values]
         parses = [v["parse_validity"] for v in values if v["parse_validity"] is not None]
         deltas = [v["delta"] for v in values if v["delta"] is not None]
+        samples = sum(v["samples"] for v in values)
         summary.append(
             {
                 "benchmark": benchmark,
@@ -57,6 +69,17 @@ def summarize(rows: list[dict]) -> list[dict]:
                 "delta_from_base": statistics.mean(deltas) if deltas else None,
                 "paired_seeds": len(deltas),
                 "generation_seconds": sum(v["seconds"] for v in values),
+                "worker_peak_mlx_gb": max(
+                    (v["peak_bytes"] / 1e9 for v in values if v["peak_bytes"] is not None),
+                    default=None,
+                ),
+                "device_utilization_mean_pct": sum(v["busy_sum"] for v in values) / samples
+                if samples
+                else None,
+                "gpu_samples": samples,
+                "max_generation_workers": max(
+                    (v["workers"] for v in values if v["workers"] is not None), default=None
+                ),
             }
         )
     return summary

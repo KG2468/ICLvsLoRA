@@ -46,3 +46,18 @@ def test_mxfp8_generation():
         assert "4" in result["text"]
     finally:
         backend.close()
+
+
+def test_parallel_generation_and_telemetry():
+    from final_project.experiment import parallel_rows
+
+    cfg = load_config("configs/smoke.toml")
+    cfg["model"]["precision"] = "fp8"
+    cfg["generation"].update(temperature=0, max_tokens=32)
+    messages = prefix(Language(0), "base", [], False)
+    batch = [{"id": str(i), "prompt": "What is 2+2?", "answer": "4"} for i in range(8)]
+    initargs = (cfg, None, "base", 0, 0, "aime2024", messages, [])
+    rows = list(parallel_rows(2, initargs, batch))
+    assert len({r["key"] for r in rows}) == len(batch)
+    assert len({r["gpu"]["worker_pid"] for r in rows}) == 2
+    assert all(r["gpu"]["mlx_peak_bytes"] >= r["gpu"]["mlx_active_before_bytes"] > 0 for r in rows)

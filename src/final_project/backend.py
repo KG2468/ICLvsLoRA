@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import time
 from pathlib import Path
 
 from .config import model_path
+from .gpu import DeviceSamples
 
 
 def convert(cfg: dict):
@@ -166,6 +168,8 @@ class MLXBackend:
                 f"Prompt ({len(tokens)} tokens) plus output exceeds context budget; "
                 "no examples were truncated"
             )
+        mx.reset_peak_memory()
+        active_before = mx.get_active_memory()
         cached = 0
         cache = None
         prompt = tokens
@@ -185,24 +189,35 @@ class MLXBackend:
         start = time.monotonic()
         text = ""
         last = None
-        for response in stream_generate(
-            self.model,
-            self.tokenizer,
-            prompt,
-            max_tokens=budget,
-            sampler=sampler,
-            prompt_cache=cache,
-            prefill_step_size=gen["prefill_step_size"],
-        ):
-            text += response.text
-            last = response
+        with DeviceSamples() as samples:
+            for response in stream_generate(
+                self.model,
+                self.tokenizer,
+                prompt,
+                max_tokens=budget,
+                sampler=sampler,
+                prompt_cache=cache,
+                prefill_step_size=gen["prefill_step_size"],
+            ):
+                text += response.text
+                last = response
+            seconds = time.monotonic() - start
         result = {
             "text": text,
             "thinking": gen["enable_thinking"] if thinking is None else thinking,
             "prompt_tokens": len(tokens),
             "cached_tokens": cached,
             "generation_tokens": last.generation_tokens if last else 0,
-            "seconds": time.monotonic() - start,
+            "seconds": seconds,
+            "gpu": {
+                **samples.summary(),
+                "device": mx.device_info().get("device_name"),
+                "worker_pid": os.getpid(),
+                "mlx_active_before_bytes": active_before,
+                "mlx_active_after_bytes": mx.get_active_memory(),
+                "mlx_peak_bytes": mx.get_peak_memory(),
+                "mlx_cache_after_bytes": mx.get_cache_memory(),
+            },
             "peak_memory_gb": mx.get_peak_memory() / 1e9,
             "finish_reason": getattr(last, "finish_reason", None),
         }

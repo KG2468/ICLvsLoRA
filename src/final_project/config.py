@@ -63,6 +63,8 @@ def load_config(path: str | Path) -> dict:
         raise ValueError("Unknown or empty benchmark selection")
     if cfg["model"]["precision"] not in {"fp16", "fp8", "int8"}:
         raise ValueError("precision must be fp16, fp8 (MXFP8), or int8 (affine)")
+    if type(gen.get("max_workers", 2)) is not int or gen.get("max_workers", 2) < 1:
+        raise ValueError("generation.max_workers must be a positive integer")
     if gen["max_tokens"] <= 0 or gen["max_context"] <= gen["max_tokens"]:
         raise ValueError("max_context must exceed positive max_tokens")
     if train["rank"] <= 0 or train["batch_size"] <= 0 or train["epochs"] <= 0:
