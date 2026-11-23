@@ -116,9 +116,9 @@ def test_force_four_resumes_previous_scheduler(tmp_path, monkeypatch):
     results = tmp_path / "results.jsonl"
     results.write_text('{"key":"base/0/0/gpqa/0","generation_workers":2}\n')
 
-    def pool(count, args, batch):
+    def pool(executor, fn, batch, count):
         assert count == 4
-        for task in batch:
+        for _, task in batch:
             yield {
                 "key": "base/0/0/gpqa/" + task["id"],
                 "seconds": 1,
@@ -128,7 +128,7 @@ def test_force_four_resumes_previous_scheduler(tmp_path, monkeypatch):
             if task["id"] == "1":
                 raise MemoryError("out of memory")
 
-    monkeypatch.setattr(experiment, "parallel_rows", pool)
+    monkeypatch.setattr(experiment, "pool_rows", pool)
     with pytest.raises(MemoryError):
         experiment._run(cfg, tmp_path, "base", workers=4)
     experiment._run(cfg, tmp_path, "base", workers=4)

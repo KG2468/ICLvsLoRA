@@ -61,3 +61,27 @@ def test_parallel_generation_and_telemetry():
     assert len({r["key"] for r in rows}) == len(batch)
     assert len({r["gpu"]["worker_pid"] for r in rows}) == 2
     assert all(r["gpu"]["mlx_peak_bytes"] >= r["gpu"]["mlx_active_before_bytes"] > 0 for r in rows)
+
+
+@pytest.mark.parametrize("budget", [1, 19, 96])
+def test_device_block_matches_streaming(budget):
+    cfg = load_config("configs/smoke.toml")
+    cfg["model"]["precision"] = "fp8"
+    backend = MLXBackend(cfg)
+    messages = [
+        {"role": "system", "content": "Answer briefly."},
+        {"role": "user", "content": "What is 2+2?"},
+        {"role": "assistant", "content": "4"},
+    ]
+    try:
+        backend.set_prefix(messages)
+        request = messages + [{"role": "user", "content": "What is 3+3? Reply with one digit."}]
+        for seed in [0, 7]:
+            backend.decode_block_size = 1
+            expected = backend.generate(request, seed, max_tokens=budget)
+            backend.decode_block_size = 8
+            actual = backend.generate(request, seed, max_tokens=budget)
+            for field in ["text", "finish_reason", "generation_tokens", "cached_tokens"]:
+                assert expected[field] == actual[field]
+    finally:
+        backend.close()
