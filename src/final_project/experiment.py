@@ -17,6 +17,35 @@ from .scoring import execute, score
 from .training import SupervisedDataset
 
 
+def score_with_followup(backend, prompt, generated, task, benchmark, lang, seed, cfg):
+    timeout = cfg["evaluation"]["timeout"]
+    initial = score(generated["text"], task, benchmark, lang, timeout)
+    if (
+        benchmark not in {"gpqa", "aime2024", "aime2025"}
+        or generated.get("finish_reason") != "length"
+        or initial["status"] != "answer_missing"
+    ):
+        return initial
+    form = (
+        "a single letter A, B, C, or D" if benchmark == "gpqa" else "a single integer from 0 to 999"
+    )
+    instruction = f"Give your best final answer now. Reply only with {form}. No reasoning."
+    turns = prompt + [
+        {"role": "assistant", "content": generated["text"]},
+        {"role": "user", "content": instruction},
+    ]
+    budget = min(25, cfg["generation"]["max_context"] - len(backend.tokens(turns, thinking=False)))
+    if budget < 1:
+        return {**initial, "initial_score": initial, "followup": {"status": "context_full"}}
+    reply = backend.generate(turns, seed, max_tokens=budget, thinking=False)
+    final = score(reply["text"], task, benchmark, lang, timeout)
+    return {
+        **final,
+        "initial_score": initial,
+        "followup": {"instruction": instruction, "budget": budget, **reply},
+    }
+
+
 def plan(cfg: dict) -> dict:
     exp = cfg["experiment"]
     counts = {b: len(tasks(cfg, b)) for b in exp["benchmarks"]}
@@ -180,8 +209,8 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
                     prompt = messages + [query(task, benchmark, lang)]
                     print(f"Generating {key}", flush=True)
                     generated = backend.generate(prompt, generation_seed)
-                    scored = score(
-                        generated["text"], task, benchmark, lang, cfg["evaluation"]["timeout"]
+                    scored = score_with_followup(
+                        backend, prompt, generated, task, benchmark, lang, generation_seed, cfg
                     )
                     row = {
                         "key": key,

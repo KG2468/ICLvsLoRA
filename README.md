@@ -1,5 +1,8 @@
 # LoRA vs persistent in-context learning, locally on MLX
 
+For Google Colab, open [Full_Sweep.ipynb](Full_Sweep.ipynb) with the project checkout available to the runtime. Select a GPU, set `PROJECT_DIR` if the working directory is outside the checkout, and run all cells. The notebook imports the project source from that checkout, manages Python with uv, handles Hugging Face login, and persists the sweep to Google Drive.
+
+
 A reproducible CS182 experiment comparing **base**, **persistent ICL**, and **LoRA** on a synthetic Python language, followed by interference measurements on ordinary Python, math, and QA. Designed for Apple Silicon; the default model is Qwen3.5-2B converted to **FP16**, with separate **MXFP8** and **INT8** configurations.
 
 Python is pinned to 3.12 and managed with **uv**. `uv.lock` pins dependencies. Run commands from this repository's root.
@@ -58,7 +61,7 @@ MLX uses Metal, one resident model per evaluation condition, chunked prompt pref
 ## Experimental protocol
 
 - **Training:** official MBPP `full/train`; validation from `validation`, excluding normalized solutions duplicated in training. Each seed creates a shuffled ordering; N=16 is a prefix of N=64 and N=256. LoRA and ICL use exactly the same N problem/solution examples. HumanEval solutions are never used for training.
-- **Synthetic language (`keywords-v3`):** a seeded bijection replaces Python hard keywords except `import`, `from`, `as`, `True`, `False`, and `None` with short, pronounceable pseudo-words (2–5 letters, never longer than the original keyword). For the default seed, `def → pil` and `return → wert`. All punctuation and operators, including `*=`, `()`, `[]`, `:`, `.`, and `+`, remain unchanged. Indentation, identifiers, numbers, strings, and complete f-string literals remain Python-like. Soft keywords (`match`, `case`, `_`, `type`) remain unchanged. AST normalization removes comments and formatting; round trips preserve the AST, not source bytes. Every prepared training program is checked for AST equivalence. Reserved-name collisions fail explicitly.
+- **Synthetic language (`keywords-v4`):** a seeded bijection replaces Python hard keywords except `import`, `from`, `as`, `True`, `False`, and `None` with short, pronounceable pseudo-words (2–5 letters, never longer than the original keyword). The configured `language_seed` determines every replacement, including those for `def` and `return`. All punctuation and operators, including `*=`, `()`, `[]`, `:`, `.`, and `+`, remain unchanged. Indentation, identifiers, numbers, strings, and complete f-string literals remain Python-like. Soft keywords (`match`, `case`, `_`, `type`) remain unchanged. AST normalization removes comments and formatting; round trips preserve the AST, not source bytes. Every prepared training program is checked for AST equivalence. Reserved-name collisions fail explicitly.
 - **Intentional scope change:** this is token substitution, as requested. It does not implement the proposal's postfix expressions, explicit block markers, or special `#` attributes. Remapping syntax does not remove possible pretraining contamination of the underlying benchmark problems.
 - **Targeted task:** the function signature/imports are translated to synthetic syntax; the docstring remains unchanged. The model is asked for a complete program in the same syntax. This avoids presenting an ordinary-Python signature that encourages copying Python keywords. The grammar header is supplied to all three targeted conditions. Raw Python output is rejected as invalid synthetic syntax.
 - **Interference:** ICL retains its grammar and N demonstrations before the unrelated task; base and active LoRA receive a clean general system prompt. The task explicitly requests standard Python, a math integer, or a QA option. All tasks are independent; previous evaluation answers never enter later contexts.
@@ -83,7 +86,7 @@ Outputs go to `runs/<experiment.name>/`:
 # Same command resumes completed evaluations/adapters without duplicating them.
 uv run final-project run --config configs/smoke.toml
 # Regenerate a report (also works for a partial results log).
-uv run final-project report runs/smoke-keywords-v3
+uv run final-project report runs/smoke-keywords-v4
 # Inspect the language directly.
 uv run final-project transpile example.py > example.synthetic
 uv run final-project transpile example.synthetic --decode
@@ -111,12 +114,12 @@ The repository ignores model weights, downloaded datasets, and run artifacts. Ke
 The old all-token grammar produced 0/164 passes on the first synthetic HumanEval sweep. That run was stopped and preserved in `runs/full/`. Its long keyword/operator replacements were removed in `keywords-v3`; operators, imports, and literal words now retain their Python spelling. Old results and adapters must not be combined with the new language.
 
 ```sh
-uv run final-project run --config configs/pilot-keywords-v3.toml --stage icl
+uv run final-project run --config configs/pilot-keywords-v4.toml --stage icl
 ```
 
 The initial calibration uses N=16 and the first 32 HumanEval tasks across three seeds (96 generations). The other 132 tasks are reserved for confirmation after the grammar/prompt are frozen. The 5–10% pass-rate goal is empirical: scoring remains strict and ordinary-Python keywords are not silently accepted. This is exploratory calibration, so report these 32 tasks separately when interpreting the later full HumanEval sweep. The pilot report marks the overall comparison partial because base and LoRA are intentionally not part of this ICL-only calibration.
 
-The new full-run output directory is `runs/full-keywords-v3/`, and the new smoke directory is `runs/smoke-keywords-v3/`. Both use ICL → LoRA → base execution order. No old run is resumed under the new grammar.
+The fully seeded grammar writes full runs to `runs/full-keywords-v4-final-answer/`, and the new smoke directory is `runs/smoke-keywords-v4/`. Both use ICL → LoRA → base execution order. No old run is resumed under the new grammar.
 
 ## Historical smoke runs (old grammar)
 
@@ -128,3 +131,9 @@ Both `runs/smoke/` (FP16) and `runs/smoke-fp8/` (MXFP8) completed all six evalua
 - [Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B)
 - [MBPP](https://huggingface.co/datasets/google-research-datasets/mbpp) and [HumanEval](https://huggingface.co/datasets/openai/openai_humaneval)
 - [AIME validation](https://huggingface.co/datasets/project-numina/aimo-validation-aime) (2024 questions selected by source URL), [AIME 2025](https://huggingface.co/datasets/yentinglin/aime_2025), and [GPQA Diamond](https://huggingface.co/datasets/Idavidrein/gpqa)
+
+### Final-answer follow-up for AIME and GPQA
+
+When a generation ends at its token limit and the scorer cannot extract an answer, the runner continues the conversation once. It includes the original problem, demonstrations and generated work, then requests a bare integer or option letter with thinking disabled. The follow-up has a maximum of 25 tokens and uses the remaining context window. If the window is full, the trace records `context_full`. An extractable answer is scored immediately, even if incorrect. HumanEval uses the original single completion.
+
+In results.jsonl, `text` and the top-level token counts and timings describe the first generation. For a retry, `initial_score` records the first score and `followup` holds the instruction, second output and its generation statistics. Top-level accuracy uses the final score. Include both generations when reporting compute costs. The full configuration writes this protocol to `runs/full-keywords-v4-final-answer/`.

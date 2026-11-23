@@ -5,7 +5,7 @@ directory = "models/qwen3.5-2b"
 precision = "fp16" # fp8 = MXFP8 weight quantization; int8 = affine integer weights
 
 [experiment]
-name = "smoke-keywords-v3"
+name = "smoke-keywords-v4"
 data_dir = "data/benchmarks"
 output_dir = "runs"
 language_seed = 182

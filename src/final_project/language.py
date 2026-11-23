@@ -1,6 +1,6 @@
 """Seeded, token-aware syntax substitution. Never modify literal/comment contents.
 
-Version keywords-v3 retains Python operators, punctuation, indentation,
+Version keywords-v4 retains Python operators, punctuation, indentation,
 imports and literal words. Other hard keywords become short pseudo-words.
 AST equivalence is checked when encoding programs.
 """
@@ -21,34 +21,30 @@ PRESERVED_WORDS = frozenset({"import", "from", "as", "True", "False", "None"})
 @dataclass(frozen=True)
 class Language:
     seed: int = 182
-    version = "keywords-v3"
+    version = "keywords-v4"
 
     @property
     def mapping(self) -> dict[str, str]:
         rng = random.Random(self.seed)
-        symbols = sorted(keyword.kwlist)
-        names = set(keyword.kwlist) | set(keyword.softkwlist) | set(dir(builtins)) | {"wert"}
+        symbols = sorted(set(keyword.kwlist) - PRESERVED_WORDS)
+        names = set(keyword.kwlist) | set(keyword.softkwlist) | set(dir(builtins))
         result = {}
         for symbol in symbols:
-            if symbol == "return":
-                result[symbol] = "wert"
-                continue
             while True:
                 length = min(len(symbol), 5)
                 name = "".join(
                     rng.choice("bcdfghjklmnprstvwz" if i % 2 == 0 else "aeiou")
                     for i in range(length)
                 )
-                if symbol[0].isupper():
-                    name = name.capitalize()
                 if name not in names:
                     break
             names.add(name)
             result[symbol] = name
-        return {key: value for key, value in result.items() if key not in PRESERVED_WORDS}
+        return result
 
     def _translate(self, source: str, reverse: bool) -> str:
         mapping = self.mapping
+        reserved = set(mapping if reverse else mapping.values())
         if reverse:
             mapping = {v: k for k, v in mapping.items()}
         # Token positions preserve whitespace, literals, comments, and f-strings.
@@ -67,9 +63,9 @@ class Language:
                 continue
             if tok.type not in (tokenize.NAME, tokenize.OP):
                 continue
-            if not reverse and tok.type == tokenize.NAME and tok.string in self.mapping.values():
+            if not reverse and tok.type == tokenize.NAME and tok.string in reserved:
                 raise ValueError(f"Identifier collides with reserved synthetic token: {tok.string}")
-            if reverse and tok.type == tokenize.NAME and tok.string in self.mapping:
+            if reverse and tok.type == tokenize.NAME and tok.string in reserved:
                 raise ValueError(f"Untranslated Python syntax in synthetic output: {tok.string}")
             if tok.string in mapping:
                 start = offsets[tok.start[0] - 1] + tok.start[1]

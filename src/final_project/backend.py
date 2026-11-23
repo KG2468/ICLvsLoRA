@@ -98,13 +98,17 @@ class MLXBackend:
         self.prefix_tokens: list[int] = []
         self.prefix_cache = None
 
-    def tokens(self, messages: list[dict], generation: bool = True) -> list[int]:
+    def tokens(
+        self, messages: list[dict], generation: bool = True, *, thinking: bool | None = None
+    ) -> list[int]:
         return self.tokenizer.apply_chat_template(
             messages,
             tokenize=True,
             return_dict=False,
             add_generation_prompt=generation,
-            enable_thinking=self.cfg["generation"]["enable_thinking"],
+            enable_thinking=self.cfg["generation"]["enable_thinking"]
+            if thinking is None
+            else thinking,
         )
 
     def set_prefix(self, messages: list[dict]):
@@ -142,14 +146,22 @@ class MLXBackend:
         self.prefix_tokens, self.prefix_cache = tokens, cache
         print(f"Cached {len(tokens)} prefix tokens in {time.monotonic() - start:.1f}s", flush=True)
 
-    def generate(self, messages: list[dict], seed: int) -> dict:
+    def generate(
+        self,
+        messages: list[dict],
+        seed: int,
+        *,
+        max_tokens: int | None = None,
+        thinking: bool | None = None,
+    ) -> dict:
         import mlx.core as mx
         from mlx_lm import stream_generate
         from mlx_lm.sample_utils import make_sampler
 
         gen = self.cfg["generation"]
-        tokens = self.tokens(messages)
-        if len(tokens) + gen["max_tokens"] > gen["max_context"]:
+        budget = gen["max_tokens"] if max_tokens is None else max_tokens
+        tokens = self.tokens(messages, thinking=thinking)
+        if len(tokens) + budget > gen["max_context"]:
             raise ValueError(
                 f"Prompt ({len(tokens)} tokens) plus output exceeds context budget; "
                 "no examples were truncated"
@@ -177,7 +189,7 @@ class MLXBackend:
             self.model,
             self.tokenizer,
             prompt,
-            max_tokens=gen["max_tokens"],
+            max_tokens=budget,
             sampler=sampler,
             prompt_cache=cache,
             prefill_step_size=gen["prefill_step_size"],

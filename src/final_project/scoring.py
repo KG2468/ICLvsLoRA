@@ -48,6 +48,34 @@ def answer(text: str, benchmark: str) -> str | None:
 
 
 def sandbox_command(directory: Path, timeout: int) -> list[str]:
+    if sys.platform == "linux":
+        import shutil
+        import sysconfig
+
+        # Ephemeral, root-owned jail on the VM. Never put credentials or Drive here.
+        root = Path(sys.base_prefix) / "cs182-scoring-root"
+        if os.geteuid() != 0:
+            raise RuntimeError("Linux scoring requires Colab root privileges")
+        if not (root / "stdlib").exists():
+            root.mkdir(exist_ok=True)
+            with tempfile.TemporaryDirectory(dir=root) as staging:
+                stdlib = Path(staging) / "stdlib"
+                shutil.copytree(
+                    sysconfig.get_path("stdlib"),
+                    stdlib,
+                    ignore=shutil.ignore_patterns("site-packages", "__pycache__", "test", "tests"),
+                )
+                stdlib.rename(root / "stdlib")
+        return [
+            sys.executable,
+            "-I",
+            "-S",
+            "-B",
+            str(Path(__file__).with_name("linux_jail.py")),
+            str(root),
+            str(directory / "candidate.py"),
+            str(timeout),
+        ]
     if sys.platform != "darwin" or not Path("/usr/bin/sandbox-exec").exists():
         raise RuntimeError(
             "Code scoring requires macOS sandbox-exec; no unsafe fallback is enabled"
@@ -110,6 +138,7 @@ def execute(source: str, tests: str, entry_point: str, timeout: int) -> dict:
             process = subprocess.Popen(
                 command,
                 cwd=directory,
+                stdin=subprocess.DEVNULL,
                 stdout=out,
                 stderr=err,
                 env={"PATH": "/usr/bin:/bin", "HOME": tmp, "TMPDIR": tmp},

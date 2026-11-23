@@ -69,8 +69,8 @@ def load_config(path: str | Path) -> dict:
         raise ValueError("rank, batch_size and epochs must be positive")
     if cfg["evaluation"]["limit"] < 0 or cfg["evaluation"]["timeout"] <= 0:
         raise ValueError("limit must be nonnegative and timeout positive")
-    if cfg["evaluation"].get("sandbox") != "macos":
-        raise ValueError("Only the macos sandbox is supported; there is no unsafe execution mode")
+    if cfg["evaluation"].get("sandbox") not in {"macos", "linux-chroot"}:
+        raise ValueError("Unknown code-scoring sandbox")
     if len(set(exp["benchmarks"])) != len(exp["benchmarks"]):
         raise ValueError("benchmarks must be unique")
     if not exp["name"] or Path(exp["name"]).name != exp["name"] or exp["name"] in {".", ".."}:

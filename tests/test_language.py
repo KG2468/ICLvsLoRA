@@ -31,7 +31,9 @@ def test_round_trip(source):
 
 def test_mapping_seed_and_literals():
     assert Language(1).mapping == Language(1).mapping
-    assert Language(1).mapping != Language(2).mapping
+    mappings = [Language(seed).mapping for seed in range(4)]
+    for word in set(keyword.kwlist) - PRESERVED_WORDS:
+        assert len({mapping[word] for mapping in mappings}) > 1, word
     assert len(set(Language().mapping.values())) == len(Language().mapping)
     assert "'return + def'" in Language().encode("s = 'return + def'")
 
@@ -47,7 +49,6 @@ def test_collision_and_invalid_syntax():
 def test_keywords_are_short_and_operators_are_unchanged():
     lang = Language()
     assert set(lang.mapping) == set(keyword.kwlist) - PRESERVED_WORDS
-    assert lang.mapping["return"] == "wert"
     assert all(2 <= len(value) <= len(key) for key, value in lang.mapping.items())
     source = "def f(x):\n    x *= 2\n    return x[0] + x.real ** 2 != 1\n"
     canonical = ast.unparse(ast.parse(source)) + "\n"
@@ -62,7 +63,7 @@ def test_keywords_are_short_and_operators_are_unchanged():
 
     assert operators(encoded) == operators(canonical)
     assert "x *= 2" in encoded
-    assert "wert x[0] + x.real ** 2 != 1" in encoded
+    assert f"{lang.mapping['return']} x[0] + x.real ** 2 != 1" in encoded
 
 
 def test_imports_and_literal_words_are_preserved():
