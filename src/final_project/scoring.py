@@ -46,6 +46,57 @@ def answer(text: str, benchmark: str) -> str | None:
     return extracted.upper() if benchmark == "gpqa" else str(int(extracted))
 
 
+def _bubblewrap_command(directory: Path, timeout: int, marker: str) -> list[str]:
+    import shutil
+    import sysconfig
+
+    bwrap = shutil.which("bwrap")
+    if not bwrap:
+        raise RuntimeError(
+            "Unprivileged Linux scoring requires bubblewrap. On Ubuntu, install "
+            "bubblewrap and libseccomp2, then rerun preflight."
+        )
+    python = Path(sys.executable).resolve()
+    command = [bwrap, "--unshare-all", "--die-with-parent", "--new-session", "--cap-drop", "ALL"]
+    # Use the sweep's Python and its shared libraries; expose individual files
+    # from the scoring directory so candidates cannot reopen the output files.
+    system_dirs = [Path(p) for p in ("/lib", "/lib64", "/usr/lib", "/usr/lib64")]
+    for lib in dict.fromkeys([*system_dirs, Path(sys.base_prefix) / "lib"]):
+        if lib.is_dir():
+            command.extend(["--ro-bind", str(lib), str(lib)])
+    command.extend(
+        [
+            "--ro-bind",
+            str(python),
+            str(python),
+            "--ro-bind",
+            sysconfig.get_path("stdlib"),
+            "/stdlib",
+            "--ro-bind",
+            str(Path(__file__).with_name("linux_jail.py")),
+            "/scorer.py",
+            "--ro-bind",
+            str(directory / "candidate.py"),
+            "/candidate.py",
+            "--chdir",
+            "/",
+            "--remount-ro",
+            "/",
+            "--",
+            str(python),
+            "-I",
+            "-S",
+            "-B",
+            "/scorer.py",
+            "--bubblewrap",
+            "/candidate.py",
+            str(timeout),
+            marker,
+        ]
+    )
+    return command
+
+
 def sandbox_command(directory: Path, timeout: int, marker: str) -> list[str]:
     if sys.platform == "linux":
         import shutil
@@ -54,7 +105,7 @@ def sandbox_command(directory: Path, timeout: int, marker: str) -> list[str]:
         # Ephemeral, root-owned jail on the VM. Never put credentials or Drive here.
         root = Path(sys.base_prefix) / "cs182-scoring-root"
         if os.geteuid() != 0:
-            raise RuntimeError("Linux scoring requires Colab root privileges")
+            return _bubblewrap_command(directory, timeout, marker)
         if not (root / "stdlib").exists():
             root.mkdir(exist_ok=True)
             with tempfile.TemporaryDirectory(dir=root) as staging:
@@ -153,14 +204,14 @@ def execute(source: str, tests: str, entry_point: str, timeout: int) -> dict:
                 process.wait(timeout=timeout + 2)
                 out.seek(0)
                 completed = marker.encode("ascii") in out.read(1048576)
+                # Bubblewrap's PID-namespace supervisor encodes child signals as 128 + signal.
+                timeouts = {-signal.SIGXCPU, -signal.SIGKILL}
+                if "--bubblewrap" in command:
+                    timeouts.update((128 + signal.SIGXCPU, 128 + signal.SIGKILL))
                 status = (
                     "passed"
                     if process.returncode == 0 and completed
-                    else (
-                        "timeout"
-                        if process.returncode in (-signal.SIGXCPU, -signal.SIGKILL)
-                        else "failed"
-                    )
+                    else ("timeout" if process.returncode in timeouts else "failed")
                 )
             except subprocess.TimeoutExpired:
                 status = "timeout"

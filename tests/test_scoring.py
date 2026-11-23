@@ -66,3 +66,26 @@ def test_prose_and_trailing_period():
 def test_unfinished_code_is_not_parse_valid(text):
     result = score(text, {"entry_point": "f"}, "humaneval_python", Language(), 2)
     assert not result["parse_valid"]
+
+
+def test_nonroot_linux_scoring_requires_isolated_runner(monkeypatch, tmp_path):
+    import os
+    import shutil
+    import sys
+    import sysconfig
+
+    from final_project.scoring import sandbox_command
+
+    stdlib = sysconfig.get_path("stdlib")
+    monkeypatch.setattr(sysconfig, "get_path", lambda _: stdlib)
+    monkeypatch.setattr(sys, "platform", "linux")
+    monkeypatch.setattr(os, "geteuid", lambda: 1000)
+    monkeypatch.setattr(shutil, "which", lambda _: None)
+    with pytest.raises(RuntimeError, match="bubblewrap"):
+        sandbox_command(tmp_path, 3, "done")
+    monkeypatch.setattr(shutil, "which", lambda _: "/usr/bin/bwrap")
+    command = sandbox_command(tmp_path, 3, "done")
+    assert command[0] == "/usr/bin/bwrap"
+    assert "--unshare-all" in command and "--cap-drop" in command
+    assert "--bind" not in command
+    assert command[-4:] == ["--bubblewrap", "/candidate.py", "3", "done"]
