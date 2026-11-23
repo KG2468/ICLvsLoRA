@@ -15,6 +15,13 @@ def main():
         command.add_argument("--config", default="configs/smoke.toml")
         if name == "run":
             command.add_argument(
+                "--workers",
+                type=int,
+                metavar="N",
+                help="Require N generation workers, up to the number of pending tasks. "
+                "Overrides automatic admission for this invocation.",
+            )
+            command.add_argument(
                 "--stage",
                 choices=["all", "icl", "lora", "base"],
                 default="all",
@@ -73,4 +80,6 @@ def main():
         elif args.command == "preflight":
             print(json.dumps(preflight(cfg), indent=2))
         else:
-            run(cfg, stage=args.stage)
+            if args.workers is not None and args.workers < 1:
+                parser.error("--workers must be at least 1")
+            run(cfg, stage=args.stage, workers=args.workers)

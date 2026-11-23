@@ -165,7 +165,7 @@ def stages(stage: str = "all") -> tuple[str, ...]:
     return ("icl", "lora", "base") if stage == "all" else (stage,)
 
 
-def run(cfg: dict, stage: str = "all"):
+def run(cfg: dict, stage: str = "all", *, workers: int | None = None):
     stages(stage)
     exp = cfg["experiment"]
     root = Path(exp["output_dir"]) / exp["name"]
@@ -175,7 +175,7 @@ def run(cfg: dict, stage: str = "all"):
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError as exc:
             raise RuntimeError("This experiment is already running") from exc
-        _run(cfg, root, stage)
+        _run(cfg, root, stage, workers=workers)
 
 
 def generate_row(backend, cfg, condition, n, seed, benchmark, lang, messages, example_ids, task):
@@ -233,7 +233,17 @@ def parallel_rows(count, initargs, tasks):
                     active.add(pool.submit(replica_task, task))
 
 
-def _run(cfg: dict, root: Path, stage: str = "all"):
+def compatible_scheduler_identity(inputs, previous):
+    # Reconstruct the prior digest only for the exact scheduling-only source revision.
+    migration = json.loads(Path(__file__).with_name("scheduler_compat.json").read_text())
+    implementation = inputs["implementation"]
+    if any(implementation.get(k) != v for k, v in migration["after"].items()):
+        return False
+    old_inputs = {**inputs, "implementation": {**implementation, **migration["before"]}}
+    return digest(old_inputs) == previous
+
+
+def _run(cfg: dict, root: Path, stage: str = "all", *, workers: int | None = None):
     from .report import report
 
     exp = cfg["experiment"]
@@ -250,22 +260,23 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
     packages = {
         p: importlib.metadata.version(p) for p in ("mlx", "mlx-lm", "transformers", "datasets")
     }
-    identity = digest(
-        {
-            "cfg": cfg,
-            "data": data_hashes,
-            "weights": weight_hashes,
-            "packages": packages,
-            "implementation": {
-                p.name: file_hash(p) for p in sorted(Path(__file__).parent.glob("*.py"))
-            },
-        }
-    )
+    inputs = {
+        "cfg": cfg,
+        "data": data_hashes,
+        "weights": weight_hashes,
+        "packages": packages,
+        "implementation": {
+            p.name: file_hash(p) for p in sorted(Path(__file__).parent.glob("*.py"))
+        },
+    }
+    identity = digest(inputs)
     manifest_path = root / "manifest.json"
-    if manifest_path.exists() and json.loads(manifest_path.read_text())["identity"] != identity:
-        raise ValueError(
-            "Run inputs/code changed; choose a new experiment.name to avoid mixing results"
-        )
+    if manifest_path.exists():
+        previous = json.loads(manifest_path.read_text())["identity"]
+        if previous != identity and not compatible_scheduler_identity(inputs, previous):
+            raise ValueError(
+                "Run inputs/code changed; choose a new experiment.name to avoid mixing results"
+            )
     print("Checking context budgets, training lengths, and code sandbox...", flush=True)
     checks = preflight(cfg)
     manifest = {
@@ -281,7 +292,9 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
         "language_mappings_by_seed": {seed: Language(seed).mapping for seed in exp["seeds"]},
         "language_version": Language.version,
     }
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    temporary_manifest = manifest_path.with_suffix(".tmp")
+    temporary_manifest.write_text(json.dumps(manifest, indent=2) + "\n")
+    temporary_manifest.replace(manifest_path)
     results_path = root / "results.jsonl"
     results = resume_results(results_path)
     completed = {r["key"] for r in results}
@@ -307,7 +320,7 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
         lang = Language(seed)
         example_ids = [row["id"] for row in rows]
         backend = None
-        cap = cfg["generation"].get("max_workers", 2)
+        cap = cfg["generation"].get("max_workers", 2) if workers is None else workers
         try:
             for benchmark in exp["benchmarks"]:
                 key_prefix = f"{condition}/{n}/{seed}/{benchmark}/"
@@ -316,14 +329,23 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
                     continue
                 messages = prefix(lang, condition, rows, benchmark.endswith("synthetic"))
                 args = (cfg, condition, n, seed, benchmark, lang, messages, example_ids)
-                if backend is None:
-                    backend = MLXBackend(cfg, adapter)
-                backend.set_prefix(messages)
-                pilot = generate_row(backend, *args, batch[0])
-                commit(pilot, 1)
-                remaining = batch[1:]
-                workers = 1
-                if cap > 1 and len(remaining) > 1:
+                remaining = batch
+                count = min(cap, len(batch))
+                if workers is not None:
+                    print(
+                        f"{benchmark}: forcing {count} generation worker(s) for {len(batch)} pending tasks",
+                        flush=True,
+                    )
+                if workers is None or count == 1:
+                    if backend is None:
+                        backend = MLXBackend(cfg, adapter)
+                    backend.set_prefix(messages)
+                if workers is None:
+                    pilot = generate_row(backend, *args, batch[0])
+                    commit(pilot, 1)
+                    remaining = batch[1:]
+                    count = 1
+                if workers is None and cap > 1 and len(remaining) > 1:
                     peak = max(
                         r.get("gpu", {}).get("mlx_peak_bytes", 0)
                         for r in (pilot, pilot.get("followup", {}))
@@ -335,7 +357,7 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
                         if gpu.get("samples", 0) >= 3
                         else None
                     )
-                    workers = replica_count(
+                    count = replica_count(
                         cap,
                         len(remaining),
                         peak,
@@ -344,17 +366,18 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
                         utilization_source=gpu.get("utilization_source"),
                     )
                     print(
-                        f"{benchmark}: {workers} generation worker(s), "
+                        f"{benchmark}: {count} generation worker(s), "
                         f"pilot peak {peak / 1e9:.1f} GB, free {free / 1e9:.1f} GB",
                         flush=True,
                     )
-                if workers > 1:
-                    backend.close()
-                    backend = None
+                if count > 1:
+                    if backend is not None:
+                        backend.close()
+                        backend = None
                     initargs = (cfg, adapter, condition, n, seed, benchmark, messages, example_ids)
                     try:
-                        for row in parallel_rows(workers, initargs, remaining):
-                            commit(row, workers)
+                        for row in parallel_rows(count, initargs, remaining):
+                            commit(row, count)
                         continue
                     except (RuntimeError, MemoryError) as exc:
                         oom = isinstance(exc, (MemoryError, BrokenProcessPool)) or any(
@@ -368,7 +391,7 @@ def _run(cfg: dict, root: Path, stage: str = "all"):
                                 "cudaerrormemoryallocation",
                             )
                         )
-                        if not oom:
+                        if workers is not None or not oom:
                             raise
                         print(
                             f"Replica pool failed ({exc}); resuming this group serially", flush=True
