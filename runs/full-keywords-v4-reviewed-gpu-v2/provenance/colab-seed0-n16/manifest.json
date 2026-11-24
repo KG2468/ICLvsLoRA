@@ -1,0 +1,83 @@
+{
+  "revision": "38daf7cd68699438c0a5b6f6400877572f4c0137",
+  "config": {
+    "model": {
+      "source": "Qwen/Qwen3.5-2B",
+      "revision": "main",
+      "directory": "models/qwen3.5-2b",
+      "precision": "fp16"
+    },
+    "experiment": {
+      "name": "full-keywords-v4-reviewed-gpu-v2",
+      "data_dir": "data/benchmarks",
+      "output_dir": "runs",
+      "sizes": [
+        16,
+        64,
+        256
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "benchmarks": [
+        "humaneval_synthetic",
+        "humaneval_python",
+        "aime2024",
+        "aime2025",
+        "gpqa"
+      ]
+    },
+    "training": {
+      "rank": 8,
+      "alpha": 16,
+      "num_layers": 16,
+      "batch_size": 1,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "max_seq_length": 8192,
+      "grad_checkpoint": true,
+      "validation_examples": 16
+    },
+    "generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "max_tokens": 2048,
+      "max_context": 131072,
+      "prefill_step_size": 512,
+      "enable_thinking": false,
+      "prefix_cache": true,
+      "max_workers": 2
+    },
+    "evaluation": {
+      "limit": 0,
+      "timeout": 10,
+      "sandbox": "linux-chroot"
+    }
+  },
+  "seed": 0,
+  "n": 16,
+  "checkpoint": {
+    "identity": "ffc458b67f1c95e4c50b834e8bef529836c84e2136a61b2018f5f1611d215ec6",
+    "iterations": 48,
+    "weights_sha256": "443c22ae70a1ba8d1254fbad7466c84052156b689ab113dd4f34fdbb4c189487"
+  },
+  "adapter_config": "2d1e9a8c147f63978b5f44671b5ff486cfdc0322f28ec6581db31e66c3ec55a3",
+  "model": {
+    "README.md": "e217128a8415f9eba26c68f042cf34bd916ed4d1c88d0932a02b182e78ee319a",
+    "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+    "config.json": "645848b5fc849a9f9c58c377edba49732a3bfafa015fe7086285e9508995d094",
+    "experiment_model.json": "3401eed65d5b96a93436b0711edc0c28e8b735213fd6201994099797f734d01b",
+    "model.safetensors": "a308f01f94b9dfbe470651479efb167cf0a08a6fbefd38c554095ff99d548ad2",
+    "model.safetensors.index.json": "6277d1d960b56488ca8b3f970f589fcd154102f338323ae521f50cdb8f7cbe94",
+    "tokenizer.json": "a5cd9732badce41de57e6efce8302930ded1c1188c5f81feb2bd6c24c4a1941f",
+    "tokenizer_config.json": "4d2fc7899270dc76b57a7aa1d5ec3234e6a25934c6e2aea6166f989f1d453892"
+  },
+  "tasks": "3746c4c12e63c7cf470aad01a6592e80359410abc3b21a937b4005d398e03125",
+  "plan": {
+    "evaluations": 586
+  }
+}

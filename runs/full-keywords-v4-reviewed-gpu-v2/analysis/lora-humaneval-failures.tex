@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Seed~0 LoRA failure modes on HumanEval (164 tasks per column).
+Counts use the final scored attempt. Each failure appears in one cause row.}
+\label{tab:lora-humaneval-failures}
+\begin{tabular}{@{}lrrrrrr@{}}
+\hline
+ & \multicolumn{3}{c}{Synthetic} & \multicolumn{3}{c}{Python} \\
+\cline{2-4}\cline{5-7}
+Training examples ($N$) & 16 & 64 & 256 & 16 & 64 & 256 \\
+\hline
+\textbf{Parse errors} & \textbf{150} & \textbf{5} & \textbf{18}
+                      & \textbf{142} & \textbf{85} & \textbf{149} \\
+\quad Missing \texttt{def} in header & 0 & 0 & 0 & 120 & 52 & 113 \\
+\quad Repeated \texttt{nu} as primary defect & 128 & 0 & 0 & 1 & 0 & 0 \\
+\quad Untranslated or misused keyword & 10 & 5 & 3 & 0 & 0 & 0 \\
+\quad Incomplete expression, string, or bad delimiter & 1 & 0 & 8 & 10 & 18 & 7 \\
+\quad Prose or Markdown reached parser & 0 & 0 & 0 & 6 & 1 & 9 \\
+\quad Other malformed code & 11 & 0 & 7 & 5 & 14 & 20 \\
+\hline
+\textbf{Missing entry point} & \textbf{4} & \textbf{158} & \textbf{106}
+                             & \textbf{14} & \textbf{72} & \textbf{13} \\
+\quad Stopped before \texttt{</think>} & 4 & 158 & 104 & 0 & 57 & 2 \\
+\quad Scored code lacked required definition & 0 & 0 & 2 & 14 & 15 & 11 \\
+\hline
+\end{tabular}
+\end{table}

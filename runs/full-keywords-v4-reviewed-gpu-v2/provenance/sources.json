@@ -1,0 +1,97 @@
+{
+  "local-base": {
+    "source_sha256": "eed28a8c4cc23e38e5ceaa73cd7f5037bd58580b4045948837d1bbcf3197c3b7",
+    "added": 1758,
+    "rows_by_group": {
+      "base/0/0/humaneval_synthetic": 164,
+      "base/0/0/humaneval_python": 164,
+      "base/0/0/aime2024": 30,
+      "base/0/0/aime2025": 30,
+      "base/0/0/gpqa": 198,
+      "base/0/1/humaneval_synthetic": 164,
+      "base/0/1/humaneval_python": 164,
+      "base/0/1/aime2024": 30,
+      "base/0/1/aime2025": 30,
+      "base/0/1/gpqa": 198,
+      "base/0/2/humaneval_synthetic": 164,
+      "base/0/2/humaneval_python": 164,
+      "base/0/2/aime2024": 30,
+      "base/0/2/aime2025": 30,
+      "base/0/2/gpqa": 198
+    }
+  },
+  "local-lora": {
+    "source_sha256": "bba2b63cea387372785b2914536e7e9384b58363e4fb93ca04e721e09f3fa253",
+    "added": 1758,
+    "rows_by_group": {
+      "lora/64/0/humaneval_synthetic": 164,
+      "lora/64/0/humaneval_python": 164,
+      "lora/64/0/aime2024": 30,
+      "lora/64/0/aime2025": 30,
+      "lora/64/0/gpqa": 198,
+      "lora/256/0/humaneval_synthetic": 164,
+      "lora/256/0/humaneval_python": 164,
+      "lora/256/0/aime2024": 30,
+      "lora/256/0/aime2025": 30,
+      "lora/256/0/gpqa": 198,
+      "lora/16/0/humaneval_synthetic": 164,
+      "lora/16/0/humaneval_python": 164,
+      "lora/16/0/aime2024": 30,
+      "lora/16/0/aime2025": 30,
+      "lora/16/0/gpqa": 198
+    }
+  },
+  "server-icl": {
+    "source_sha256": "27b31e12183d2029fea9ac92db5e08d72fa55bf1c4ade7db754e59868a779b6b",
+    "added": 4462,
+    "rows_by_group": {
+      "icl/16/0/humaneval_synthetic": 164,
+      "icl/16/0/humaneval_python": 164,
+      "icl/16/0/aime2024": 30,
+      "icl/16/0/aime2025": 30,
+      "icl/16/0/gpqa": 198,
+      "icl/64/0/humaneval_synthetic": 164,
+      "icl/64/0/humaneval_python": 164,
+      "icl/64/0/aime2024": 30,
+      "icl/64/0/aime2025": 30,
+      "icl/64/0/gpqa": 198,
+      "icl/256/0/humaneval_synthetic": 164,
+      "icl/256/0/humaneval_python": 164,
+      "icl/256/0/aime2024": 30,
+      "icl/256/0/aime2025": 30,
+      "icl/256/0/gpqa": 198,
+      "icl/16/1/humaneval_synthetic": 164,
+      "icl/16/1/humaneval_python": 164,
+      "icl/16/1/aime2024": 30,
+      "icl/16/1/aime2025": 30,
+      "icl/16/1/gpqa": 198,
+      "icl/64/1/humaneval_synthetic": 164,
+      "icl/64/1/humaneval_python": 164,
+      "icl/64/1/aime2024": 30,
+      "icl/64/1/aime2025": 30,
+      "icl/64/1/gpqa": 198,
+      "icl/256/1/humaneval_synthetic": 164,
+      "icl/256/1/humaneval_python": 164,
+      "icl/256/1/aime2024": 30,
+      "icl/256/1/aime2025": 30,
+      "icl/256/1/gpqa": 198,
+      "icl/16/2/humaneval_synthetic": 164,
+      "icl/16/2/humaneval_python": 164,
+      "icl/16/2/aime2024": 30,
+      "icl/16/2/aime2025": 30,
+      "icl/16/2/gpqa": 198,
+      "icl/64/2/humaneval_synthetic": 164,
+      "icl/64/2/humaneval_python": 164,
+      "icl/64/2/aime2024": 30,
+      "icl/64/2/aime2025": 2
+    }
+  },
+  "colab-seed0-n16": {
+    "source_sha256": "a9cae5af4b444eee7fbf0d3fd87f056b1a469102c09c5717944f900d871b7a1e",
+    "added": 0,
+    "rows_by_group": {
+      "lora/16/0/humaneval_synthetic": 164,
+      "lora/16/0/humaneval_python": 80
+    }
+  }
+}

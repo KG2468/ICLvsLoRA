@@ -1,0 +1,110 @@
+<unknown>:3: SyntaxWarning: invalid escape sequence '\B'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:15: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\A'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\A'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:15: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+Training seed=2, N=256, 768 updates
+╭─ [1mmlx_lm.lora[0m ────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│    model           [1mmodels/qwen3.5-2b/fp16[0m                                                                            │
+│    type            [1mlora · 16 layers · rank 8[0m                                                                         │
+│    dataset         [1mruns/full-keywords-v4-reviewed-gpu-v2/adapters/seed2-n256[0m                                         │
+│    optimizer       [1madam · lr 1.0e-04[0m                                                                                 │
+│    batch · iters   [1m1 · 768[0m                                                                                           │
+│    max seq         [1m8,192[0m                                                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Trainable parameters: 0.298% (5.606M/1881.825M)
+  [1miter   train_loss     tok/s     tokens[0m
+     1    [1mval[0m [1m2.024[0m    2.87s
+    10    [1m1.461 ▼[0m    [1m   18[0m      0.8k
+    20    [1m1.136 ▼[0m    [1m   22[0m      1.3k
+    30    [1m0.970 ▼[0m    [1m   28[0m      2.1k
+    40    [1m1.021 ▲[0m    [1m   31[0m      2.8k
+    50    [1m1.206 ▲[0m    [1m   28[0m      3.6k
+    60    [1m0.745 ▼[0m    [1m   37[0m      4.5k
+    70    [1m0.802 ▲[0m    [1m   30[0m      5.1k
+    80    [1m0.974 ▲[0m    [1m   35[0m      5.7k
+    90    [1m0.798 ▼[0m    [1m   29[0m      6.3k
+   100    [1m0.752 ▼[0m    [1m   43[0m      7.1k
+   110    [1m0.878 ▲[0m    [1m   36[0m      7.8k
+   120    [1m0.825 ▼[0m    [1m   29[0m      8.5k
+   130    [1m0.710 ▼[0m    [1m   35[0m      9.1k
+   140    [1m0.821 ▲[0m    [1m   32[0m      9.7k
+   150    [1m0.860 ▲[0m    [1m   34[0m     10.3k
+   160    [1m0.913 ▲[0m    [1m   34[0m     11.0k
+   170    [1m0.707 ▼[0m    [1m   35[0m     11.7k
+   180    [1m0.721 ▲[0m    [1m   45[0m     12.6k
+   190    [1m0.748 ▲[0m    [1m   29[0m     13.1k
+   200    [1m0.797 ▲[0m    [1m   23[0m     13.5k
+   210    [1m0.681 ▼[0m    [1m   32[0m     14.1k
+   220    [1m0.854 ▲[0m    [1m   32[0m     14.7k
+   230    [1m0.790 ▼[0m    [1m   37[0m     15.4k
+   240    [1m0.757 ▼[0m    [1m   33[0m     16.0k
+   250    [1m0.570 ▼[0m    [1m   33[0m     16.6k
+   260    [1m0.865 ▲[0m    [1m   28[0m     17.1k
+   270    [1m0.381 ▼[0m    [1m   40[0m     17.9k
+   280    [1m0.452 ▲[0m    [1m   34[0m     18.5k
+   290    [1m0.470 ▲[0m    [1m   32[0m     19.1k
+   300    [1m0.318 ▼[0m    [1m   28[0m     19.6k
+   310    [1m0.380 ▲[0m    [1m   42[0m     20.5k
+   320    [1m0.379 ▼[0m    [1m   25[0m     20.9k
+   330    [1m0.270 ▼[0m    [1m   42[0m     21.8k
+   340    [1m0.411 ▲[0m    [1m   31[0m     22.3k
+   350    [1m0.461 ▲[0m    [1m   20[0m     22.7k
+   360    [1m0.447 ▼[0m    [1m   43[0m     23.6k
+   370    [1m0.370 ▼[0m    [1m   24[0m     24.0k
+   380    [1m0.335 ▼[0m    [1m   43[0m     24.8k
+   390    [1m0.356 ▲[0m    [1m   35[0m     25.5k
+   400    [1m0.335 ▼[0m    [1m   37[0m     26.2k
+   410    [1m0.397 ▲[0m    [1m   36[0m     26.9k
+   420    [1m0.379 ▼[0m    [1m   38[0m     27.6k
+   430    [1m0.391 ▲[0m    [1m   39[0m     28.4k
+   440    [1m0.457 ▲[0m    [1m   22[0m     28.7k
+   450    [1m0.421 ▼[0m    [1m   38[0m     29.5k
+   460    [1m0.320 ▼[0m    [1m   30[0m     30.0k
+   470    [1m0.441 ▲[0m    [1m   43[0m     30.9k
+   480    [1m0.336 ▼[0m    [1m   34[0m     31.5k
+   490    [1m0.446 ▲[0m    [1m   29[0m     32.1k
+   500    [1m0.333 ▼[0m    [1m   40[0m     32.8k
+   510    [1m0.367 ▲[0m    [1m   39[0m     33.6k
+   520    [1m0.350 ▼[0m    [1m   50[0m     34.7k
+   530    [1m0.210 ▼[0m    [1m   28[0m     35.2k
+   540    [1m0.177 ▼[0m    [1m   39[0m     35.9k
+   550    [1m0.151 ▼[0m    [1m   39[0m     36.7k
+   560    [1m0.221 ▲[0m    [1m   38[0m     37.4k
+   570    [1m0.170 ▼[0m    [1m   42[0m     38.2k
+   580    [1m0.207 ▲[0m    [1m   32[0m     38.8k
+   590    [1m0.170 ▼[0m    [1m   42[0m     39.6k
+   600    [1m0.228 ▲[0m    [1m   34[0m     40.3k
+   610    [1m0.222 ▼[0m    [1m   49[0m     41.3k
+   620    [1m0.183 ▼[0m    [1m   25[0m     41.8k
+   630    [1m0.093 ▼[0m    [1m   26[0m     42.2k
+   640    [1m0.168 ▲[0m    [1m   35[0m     42.9k
+   650    [1m0.129 ▼[0m    [1m   32[0m     43.5k
+   660    [1m0.230 ▲[0m    [1m   45[0m     44.4k
+   670    [1m0.238 ▲[0m    [1m   37[0m     45.1k
+   680    [1m0.151 ▼[0m    [1m   28[0m     45.6k
+   690    [1m0.164 ▲[0m    [1m   30[0m     46.1k
+   700    [1m0.169 ▲[0m    [1m   33[0m     46.7k
+   710    [1m0.150 ▼[0m    [1m   44[0m     47.6k
+   720    [1m0.111 ▼[0m    [1m   27[0m     48.1k
+   730    [1m0.197 ▲[0m    [1m   24[0m     48.5k
+   740    [1m0.229 ▲[0m    [1m   31[0m     49.1k
+   750    [1m0.187 ▼[0m    [1m   38[0m     49.8k
+   760    [1m0.153 ▼[0m    [1m   25[0m     50.3k
+   768    [1mval[0m [1m0.777[0m    2.88s
+   768    [1m0.173 ▲[0m    [1m   41[0m     50.9k
+  [1msave[0m  0000768_adapters.safetensors
+[1mtrain[0m ██████████████████████████████ [1m100%[0m · [1m  768[0m/768

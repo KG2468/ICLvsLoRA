@@ -1,0 +1,207 @@
+{
+  "identity": "a52fa49f8c4cdff62c2b4aba58389bd99e1c9dd047d435a022ae87baffbc17e8",
+  "config": {
+    "model": {
+      "source": "Qwen/Qwen3.5-2B",
+      "revision": "main",
+      "directory": "models/qwen3.5-2b",
+      "precision": "fp16"
+    },
+    "experiment": {
+      "name": "full-keywords-v4-reviewed-gpu-v2",
+      "data_dir": "data/benchmarks",
+      "output_dir": "runs",
+      "sizes": [
+        16,
+        64,
+        256
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "benchmarks": [
+        "humaneval_synthetic",
+        "humaneval_python",
+        "aime2024",
+        "aime2025",
+        "gpqa"
+      ]
+    },
+    "training": {
+      "rank": 8,
+      "alpha": 16,
+      "num_layers": 16,
+      "batch_size": 1,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "max_seq_length": 8192,
+      "grad_checkpoint": true,
+      "validation_examples": 16
+    },
+    "generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "max_tokens": 2048,
+      "max_context": 131072,
+      "prefill_step_size": 512,
+      "enable_thinking": false,
+      "prefix_cache": true,
+      "max_workers": 2
+    },
+    "evaluation": {
+      "limit": 0,
+      "timeout": 10,
+      "sandbox": "macos"
+    }
+  },
+  "datasets": {
+    "aime2024": "cfdf6298fe08c7825e0a2d7bcd0f7167625ba7fffacfbbd64eba99caa43e1bb6",
+    "aime2025": "1b10ff741d0862160483a939e4d72735348f5984858f1b18db4da4b2a5dd5df8",
+    "gpqa": "44504e25523c4a5d4b6e871839d470428fe46c1b51c86e586169c6b2c0506843",
+    "humaneval": "7398be0156c6fad01cfb1a68fd4fecc0e66a47a15b4480f5ce3dc3e4783356c5",
+    "mbpp_train": "2eb71e9c2bbb6266a4495273817da3b627eb32ff26e657d5ac10fc4f4b961a8e",
+    "mbpp_valid": "4dccdca08d281bda36ab480fd0312b125b16ddb81e77ca251e5fd608772c9b9f"
+  },
+  "weights": {
+    "model.safetensors": "a308f01f94b9dfbe470651479efb167cf0a08a6fbefd38c554095ff99d548ad2",
+    "config.json": "645848b5fc849a9f9c58c377edba49732a3bfafa015fe7086285e9508995d094",
+    "tokenizer.json": "a5cd9732badce41de57e6efce8302930ded1c1188c5f81feb2bd6c24c4a1941f",
+    "tokenizer_config.json": "4d2fc7899270dc76b57a7aa1d5ec3234e6a25934c6e2aea6166f989f1d453892",
+    "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+  },
+  "packages": {
+    "mlx": "0.32.4",
+    "mlx-lm": "0.32.2",
+    "transformers": "5.23.0",
+    "datasets": "4.8.5"
+  },
+  "python": "3.12.16",
+  "platform": "Linux-6.8.0-1064-nvidia-x86_64-with-glibc2.35",
+  "plan": {
+    "model": "models/qwen3.5-2b/fp16",
+    "precision": "fp16",
+    "training_jobs": 9,
+    "evaluations": 12306,
+    "tasks_per_benchmark": {
+      "humaneval_synthetic": 164,
+      "humaneval_python": 164,
+      "aime2024": 30,
+      "aime2025": 30,
+      "gpqa": 198
+    },
+    "sizes": [
+      16,
+      64,
+      256
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "preflight": {
+    "max_prompt_tokens": 27614,
+    "max_training_tokens": 678
+  },
+  "language_mappings_by_seed": {
+    "0": {
+      "and": "roc",
+      "assert": "luvom",
+      "async": "vijug",
+      "await": "meful",
+      "break": "zugif",
+      "class": "divuf",
+      "continue": "ponuj",
+      "def": "zot",
+      "del": "wic",
+      "elif": "zado",
+      "else": "buvi",
+      "except": "kidek",
+      "finally": "kezod",
+      "for": "diw",
+      "global": "vamum",
+      "if": "fu",
+      "in": "nu",
+      "is": "ju",
+      "lambda": "zumod",
+      "nonlocal": "rikih",
+      "not": "jec",
+      "or": "lo",
+      "pass": "dage",
+      "raise": "cazow",
+      "return": "lukes",
+      "try": "lov",
+      "while": "panuf",
+      "with": "vune",
+      "yield": "kalak"
+    },
+    "1": {
+      "and": "gud",
+      "assert": "lavov",
+      "async": "refob",
+      "await": "robol",
+      "break": "kufib",
+      "class": "bazar",
+      "continue": "jobuk",
+      "def": "toz",
+      "del": "kik",
+      "elif": "koma",
+      "else": "sufe",
+      "except": "manus",
+      "finally": "wemiv",
+      "for": "woc",
+      "global": "veroh",
+      "if": "pu",
+      "in": "pa",
+      "is": "tu",
+      "lambda": "fewop",
+      "nonlocal": "vavam",
+      "not": "reh",
+      "or": "we",
+      "pass": "bezu",
+      "raise": "kowip",
+      "return": "tizub",
+      "try": "rug",
+      "while": "wujoc",
+      "with": "vize",
+      "yield": "wovis"
+    },
+    "2": {
+      "and": "cad",
+      "assert": "pemij",
+      "async": "cuhor",
+      "await": "wizow",
+      "break": "labit",
+      "class": "nosuh",
+      "continue": "zekeb",
+      "def": "hih",
+      "del": "guw",
+      "elif": "puze",
+      "else": "towi",
+      "except": "piter",
+      "finally": "tukol",
+      "for": "vuw",
+      "global": "potiz",
+      "if": "to",
+      "in": "ki",
+      "is": "hu",
+      "lambda": "lomiw",
+      "nonlocal": "zuwus",
+      "not": "mev",
+      "or": "wi",
+      "pass": "dibe",
+      "raise": "facik",
+      "return": "fugik",
+      "try": "jas",
+      "while": "capih",
+      "with": "kada",
+      "yield": "dacap"
+    }
+  },
+  "language_version": "keywords-v4"
+}

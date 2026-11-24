@@ -1,0 +1,38 @@
+{
+  "train_ids": [
+    "mbpp/761",
+    "mbpp/734",
+    "mbpp/890",
+    "mbpp/617",
+    "mbpp/709",
+    "mbpp/879",
+    "mbpp/956",
+    "mbpp/888",
+    "mbpp/967",
+    "mbpp/898",
+    "mbpp/751",
+    "mbpp/957",
+    "mbpp/932",
+    "mbpp/889",
+    "mbpp/929",
+    "mbpp/922"
+  ],
+  "valid_ids": [
+    "mbpp/530",
+    "mbpp/578",
+    "mbpp/515",
+    "mbpp/556",
+    "mbpp/599",
+    "mbpp/555",
+    "mbpp/575",
+    "mbpp/587",
+    "mbpp/549",
+    "mbpp/531",
+    "mbpp/558",
+    "mbpp/534",
+    "mbpp/598",
+    "mbpp/521",
+    "mbpp/581",
+    "mbpp/576"
+  ]
+}

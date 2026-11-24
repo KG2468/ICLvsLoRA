@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/kinjal/Code/cs182/final_project/src/final_project/__main__.py", line 3, in <module>
+    main()
+  File "/Users/kinjal/Code/cs182/final_project/src/final_project/cli.py", line 92, in main
+    run(cfg, stage="lora" if jobs else args.stage, workers=args.workers, lora_jobs=jobs)
+  File "/Users/kinjal/Code/cs182/final_project/src/final_project/experiment.py", line 187, in run
+    _run(cfg, root, stage, workers=workers, lora_jobs=lora_jobs)
+  File "/Users/kinjal/Code/cs182/final_project/src/final_project/experiment.py", line 331, in _run
+    raise ValueError(
+ValueError: Run inputs/code changed; choose a new experiment.name to avoid mixing results

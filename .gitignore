@@ -12,8 +12,10 @@ wheels/
 # Downloaded models, datasets, and experiment artifacts
 models/
 data/
-runs/
 .cache/
 .pytest_cache/
 .ruff_cache/
 .DS_Store
+
+# Full sweep results are too large to commit; split files under runs/*/splits/ are fine
+runs/**/results.jsonl

@@ -1,0 +1,3615 @@
+Checking context budgets, training lengths, and code sandbox...
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+<unknown>:3: SyntaxWarning: invalid escape sequence '\B'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:15: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\A'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:15: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\B'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:15: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\A'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\B'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\A'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\B'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:15: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\A'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\A'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:15: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:2: SyntaxWarning: invalid escape sequence '\.'
+{
+  "model": "models/qwen3.5-2b/fp16",
+  "precision": "fp16",
+  "training_jobs": 9,
+  "evaluations": 12306,
+  "tasks_per_benchmark": {
+    "humaneval_synthetic": 164,
+    "humaneval_python": 164,
+    "aime2024": 30,
+    "aime2025": 30,
+    "gpqa": 198
+  },
+  "sizes": [
+    16,
+    64,
+    256
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "max_prompt_tokens": 27614,
+  "max_training_tokens": 678
+}
+Starting BASE stage
+Generating base/0/0/humaneval_synthetic/HumanEval/0
+  base/0/0/humaneval_synthetic/HumanEval/0 parse_error; 2048 tokens, 25.3s
+humaneval_synthetic: 2 generation worker(s), pilot peak 4.3 GB, free 16.4 GB
+Generating base/0/0/humaneval_synthetic/HumanEval/1
+Generating base/0/0/humaneval_synthetic/HumanEval/2
+  base/0/0/humaneval_synthetic/HumanEval/1 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/3
+  base/0/0/humaneval_synthetic/HumanEval/2 parse_error; 2048 tokens, 46.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/4
+  base/0/0/humaneval_synthetic/HumanEval/3 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/5
+  base/0/0/humaneval_synthetic/HumanEval/4 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/6
+  base/0/0/humaneval_synthetic/HumanEval/5 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/7
+  base/0/0/humaneval_synthetic/HumanEval/6 parse_error; 2048 tokens, 44.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/8
+  base/0/0/humaneval_synthetic/HumanEval/7 parse_error; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/9
+  base/0/0/humaneval_synthetic/HumanEval/8 failed; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/10
+  base/0/0/humaneval_synthetic/HumanEval/9 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/11
+  base/0/0/humaneval_synthetic/HumanEval/10 parse_error; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/12
+  base/0/0/humaneval_synthetic/HumanEval/11 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/13
+  base/0/0/humaneval_synthetic/HumanEval/12 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/14
+  base/0/0/humaneval_synthetic/HumanEval/13 failed; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/15
+  base/0/0/humaneval_synthetic/HumanEval/14 parse_error; 2048 tokens, 45.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/16
+  base/0/0/humaneval_synthetic/HumanEval/15 failed; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/17
+  base/0/0/humaneval_synthetic/HumanEval/16 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/18
+  base/0/0/humaneval_synthetic/HumanEval/17 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/19
+  base/0/0/humaneval_synthetic/HumanEval/18 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/20
+  base/0/0/humaneval_synthetic/HumanEval/19 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/21
+  base/0/0/humaneval_synthetic/HumanEval/20 failed; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/22
+  base/0/0/humaneval_synthetic/HumanEval/21 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/23
+  base/0/0/humaneval_synthetic/HumanEval/22 failed; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/24
+  base/0/0/humaneval_synthetic/HumanEval/23 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/25
+  base/0/0/humaneval_synthetic/HumanEval/24 parse_error; 2048 tokens, 45.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/26
+  base/0/0/humaneval_synthetic/HumanEval/25 parse_error; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/27
+  base/0/0/humaneval_synthetic/HumanEval/26 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/28
+  base/0/0/humaneval_synthetic/HumanEval/27 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/29
+  base/0/0/humaneval_synthetic/HumanEval/28 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/30
+  base/0/0/humaneval_synthetic/HumanEval/29 failed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/31
+  base/0/0/humaneval_synthetic/HumanEval/30 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/32
+  base/0/0/humaneval_synthetic/HumanEval/31 failed; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/33
+  base/0/0/humaneval_synthetic/HumanEval/32 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/34
+  base/0/0/humaneval_synthetic/HumanEval/33 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/35
+  base/0/0/humaneval_synthetic/HumanEval/34 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/36
+  base/0/0/humaneval_synthetic/HumanEval/35 failed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/37
+  base/0/0/humaneval_synthetic/HumanEval/37 failed; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/38
+  base/0/0/humaneval_synthetic/HumanEval/36 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/39
+  base/0/0/humaneval_synthetic/HumanEval/38 failed; 2048 tokens, 45.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/40
+  base/0/0/humaneval_synthetic/HumanEval/39 parse_error; 2048 tokens, 45.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/41
+  base/0/0/humaneval_synthetic/HumanEval/41 parse_error; 2048 tokens, 45.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/42
+  base/0/0/humaneval_synthetic/HumanEval/40 parse_error; 2048 tokens, 45.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/43
+  base/0/0/humaneval_synthetic/HumanEval/42 parse_error; 2048 tokens, 45.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/44
+  base/0/0/humaneval_synthetic/HumanEval/43 parse_error; 2048 tokens, 45.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/45
+  base/0/0/humaneval_synthetic/HumanEval/45 parse_error; 2048 tokens, 45.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/46
+  base/0/0/humaneval_synthetic/HumanEval/44 parse_error; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/47
+  base/0/0/humaneval_synthetic/HumanEval/47 failed; 2048 tokens, 45.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/48
+  base/0/0/humaneval_synthetic/HumanEval/46 parse_error; 2048 tokens, 45.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/49
+  base/0/0/humaneval_synthetic/HumanEval/48 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/50
+  base/0/0/humaneval_synthetic/HumanEval/49 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/51
+  base/0/0/humaneval_synthetic/HumanEval/50 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/52
+  base/0/0/humaneval_synthetic/HumanEval/51 failed; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/53
+  base/0/0/humaneval_synthetic/HumanEval/52 parse_error; 2048 tokens, 45.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/54
+  base/0/0/humaneval_synthetic/HumanEval/53 parse_error; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/55
+  base/0/0/humaneval_synthetic/HumanEval/54 parse_error; 2048 tokens, 45.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/56
+  base/0/0/humaneval_synthetic/HumanEval/55 parse_error; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/57
+  base/0/0/humaneval_synthetic/HumanEval/56 failed; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/58
+  base/0/0/humaneval_synthetic/HumanEval/57 parse_error; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/59
+  base/0/0/humaneval_synthetic/HumanEval/58 parse_error; 2048 tokens, 45.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/60
+  base/0/0/humaneval_synthetic/HumanEval/59 parse_error; 2048 tokens, 45.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/61
+  base/0/0/humaneval_synthetic/HumanEval/60 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/62
+  base/0/0/humaneval_synthetic/HumanEval/61 failed; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/63
+  base/0/0/humaneval_synthetic/HumanEval/62 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/64
+  base/0/0/humaneval_synthetic/HumanEval/63 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/65
+  base/0/0/humaneval_synthetic/HumanEval/65 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/66
+  base/0/0/humaneval_synthetic/HumanEval/64 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/67
+  base/0/0/humaneval_synthetic/HumanEval/66 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/68
+  base/0/0/humaneval_synthetic/HumanEval/67 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/69
+  base/0/0/humaneval_synthetic/HumanEval/68 parse_error; 2048 tokens, 45.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/70
+  base/0/0/humaneval_synthetic/HumanEval/69 parse_error; 2048 tokens, 45.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/71
+  base/0/0/humaneval_synthetic/HumanEval/70 parse_error; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/72
+  base/0/0/humaneval_synthetic/HumanEval/71 parse_error; 2048 tokens, 45.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/73
+  base/0/0/humaneval_synthetic/HumanEval/72 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/74
+  base/0/0/humaneval_synthetic/HumanEval/73 parse_error; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/75
+  base/0/0/humaneval_synthetic/HumanEval/74 parse_error; 2048 tokens, 44.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/76
+  base/0/0/humaneval_synthetic/HumanEval/75 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/77
+  base/0/0/humaneval_synthetic/HumanEval/76 parse_error; 2048 tokens, 45.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/78
+  base/0/0/humaneval_synthetic/HumanEval/77 parse_error; 2048 tokens, 46.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/79
+  base/0/0/humaneval_synthetic/HumanEval/78 parse_error; 2048 tokens, 46.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/80
+  base/0/0/humaneval_synthetic/HumanEval/79 parse_error; 2048 tokens, 45.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/81
+  base/0/0/humaneval_synthetic/HumanEval/80 parse_error; 2048 tokens, 45.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/82
+  base/0/0/humaneval_synthetic/HumanEval/81 parse_error; 2048 tokens, 45.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/83
+  base/0/0/humaneval_synthetic/HumanEval/82 parse_error; 2048 tokens, 45.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/84
+  base/0/0/humaneval_synthetic/HumanEval/83 parse_error; 2048 tokens, 45.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/85
+  base/0/0/humaneval_synthetic/HumanEval/84 parse_error; 2048 tokens, 45.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/86
+  base/0/0/humaneval_synthetic/HumanEval/85 parse_error; 2048 tokens, 46.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/87
+  base/0/0/humaneval_synthetic/HumanEval/86 parse_error; 2048 tokens, 46.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/88
+  base/0/0/humaneval_synthetic/HumanEval/87 parse_error; 2048 tokens, 46.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/89
+  base/0/0/humaneval_synthetic/HumanEval/88 parse_error; 2048 tokens, 46.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/90
+  base/0/0/humaneval_synthetic/HumanEval/89 parse_error; 2048 tokens, 46.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/91
+  base/0/0/humaneval_synthetic/HumanEval/90 parse_error; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/92
+  base/0/0/humaneval_synthetic/HumanEval/91 parse_error; 2048 tokens, 45.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/93
+  base/0/0/humaneval_synthetic/HumanEval/92 failed; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/94
+  base/0/0/humaneval_synthetic/HumanEval/93 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/95
+  base/0/0/humaneval_synthetic/HumanEval/94 entry_point_missing; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/96
+  base/0/0/humaneval_synthetic/HumanEval/95 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/97
+  base/0/0/humaneval_synthetic/HumanEval/96 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/98
+  base/0/0/humaneval_synthetic/HumanEval/97 parse_error; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/99
+  base/0/0/humaneval_synthetic/HumanEval/98 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/100
+  base/0/0/humaneval_synthetic/HumanEval/99 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/101
+  base/0/0/humaneval_synthetic/HumanEval/100 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/102
+  base/0/0/humaneval_synthetic/HumanEval/101 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/103
+  base/0/0/humaneval_synthetic/HumanEval/102 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/104
+  base/0/0/humaneval_synthetic/HumanEval/103 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/105
+  base/0/0/humaneval_synthetic/HumanEval/104 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/106
+  base/0/0/humaneval_synthetic/HumanEval/105 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/107
+  base/0/0/humaneval_synthetic/HumanEval/106 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/108
+  base/0/0/humaneval_synthetic/HumanEval/107 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/109
+  base/0/0/humaneval_synthetic/HumanEval/108 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/110
+  base/0/0/humaneval_synthetic/HumanEval/109 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/111
+  base/0/0/humaneval_synthetic/HumanEval/110 parse_error; 2048 tokens, 44.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/112
+  base/0/0/humaneval_synthetic/HumanEval/111 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/113
+  base/0/0/humaneval_synthetic/HumanEval/112 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/114
+  base/0/0/humaneval_synthetic/HumanEval/113 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/115
+  base/0/0/humaneval_synthetic/HumanEval/114 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/116
+  base/0/0/humaneval_synthetic/HumanEval/115 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/117
+  base/0/0/humaneval_synthetic/HumanEval/116 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/118
+  base/0/0/humaneval_synthetic/HumanEval/117 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/119
+  base/0/0/humaneval_synthetic/HumanEval/118 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/120
+  base/0/0/humaneval_synthetic/HumanEval/119 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/121
+  base/0/0/humaneval_synthetic/HumanEval/120 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/122
+  base/0/0/humaneval_synthetic/HumanEval/122 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/123
+  base/0/0/humaneval_synthetic/HumanEval/121 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/124
+  base/0/0/humaneval_synthetic/HumanEval/123 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/125
+  base/0/0/humaneval_synthetic/HumanEval/124 failed; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/126
+  base/0/0/humaneval_synthetic/HumanEval/126 parse_error; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_synthetic/HumanEval/127
+  base/0/0/humaneval_synthetic/HumanEval/125 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/128
+  base/0/0/humaneval_synthetic/HumanEval/127 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/129
+  base/0/0/humaneval_synthetic/HumanEval/128 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/130
+  base/0/0/humaneval_synthetic/HumanEval/129 parse_error; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/131
+  base/0/0/humaneval_synthetic/HumanEval/130 parse_error; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/132
+  base/0/0/humaneval_synthetic/HumanEval/131 parse_error; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/133
+  base/0/0/humaneval_synthetic/HumanEval/132 parse_error; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/134
+  base/0/0/humaneval_synthetic/HumanEval/133 parse_error; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/135
+  base/0/0/humaneval_synthetic/HumanEval/134 parse_error; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/136
+  base/0/0/humaneval_synthetic/HumanEval/135 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/137
+  base/0/0/humaneval_synthetic/HumanEval/136 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/138
+  base/0/0/humaneval_synthetic/HumanEval/137 parse_error; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_synthetic/HumanEval/139
+  base/0/0/humaneval_synthetic/HumanEval/138 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/140
+  base/0/0/humaneval_synthetic/HumanEval/139 parse_error; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/141
+  base/0/0/humaneval_synthetic/HumanEval/140 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/142
+  base/0/0/humaneval_synthetic/HumanEval/141 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/143
+  base/0/0/humaneval_synthetic/HumanEval/142 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/144
+  base/0/0/humaneval_synthetic/HumanEval/143 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/145
+  base/0/0/humaneval_synthetic/HumanEval/144 failed; 2048 tokens, 44.9s
+Generating base/0/0/humaneval_synthetic/HumanEval/146
+  base/0/0/humaneval_synthetic/HumanEval/145 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/147
+  base/0/0/humaneval_synthetic/HumanEval/146 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_synthetic/HumanEval/148
+  base/0/0/humaneval_synthetic/HumanEval/147 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/149
+  base/0/0/humaneval_synthetic/HumanEval/148 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/150
+  base/0/0/humaneval_synthetic/HumanEval/149 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/151
+  base/0/0/humaneval_synthetic/HumanEval/150 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/152
+  base/0/0/humaneval_synthetic/HumanEval/151 parse_error; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/153
+  base/0/0/humaneval_synthetic/HumanEval/152 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/154
+  base/0/0/humaneval_synthetic/HumanEval/153 parse_error; 2048 tokens, 44.8s
+Generating base/0/0/humaneval_synthetic/HumanEval/155
+  base/0/0/humaneval_synthetic/HumanEval/154 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/156
+  base/0/0/humaneval_synthetic/HumanEval/155 parse_error; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_synthetic/HumanEval/157
+  base/0/0/humaneval_synthetic/HumanEval/156 parse_error; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_synthetic/HumanEval/158
+  base/0/0/humaneval_synthetic/HumanEval/157 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/159
+  base/0/0/humaneval_synthetic/HumanEval/158 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/160
+  base/0/0/humaneval_synthetic/HumanEval/159 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_synthetic/HumanEval/161
+  base/0/0/humaneval_synthetic/HumanEval/160 parse_error; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_synthetic/HumanEval/162
+  base/0/0/humaneval_synthetic/HumanEval/161 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_synthetic/HumanEval/163
+  base/0/0/humaneval_synthetic/HumanEval/162 parse_error; 2048 tokens, 43.8s
+  base/0/0/humaneval_synthetic/HumanEval/163 parse_error; 2048 tokens, 40.6s
+Generating base/0/0/humaneval_python/HumanEval/0
+  base/0/0/humaneval_python/HumanEval/0 passed; 2048 tokens, 24.8s
+humaneval_python: 2 generation worker(s), pilot peak 4.3 GB, free 12.8 GB
+Generating base/0/0/humaneval_python/HumanEval/1
+Generating base/0/0/humaneval_python/HumanEval/2
+  base/0/0/humaneval_python/HumanEval/2 passed; 2048 tokens, 45.5s
+Generating base/0/0/humaneval_python/HumanEval/3
+  base/0/0/humaneval_python/HumanEval/1 failed; 2048 tokens, 45.2s
+Generating base/0/0/humaneval_python/HumanEval/4
+  base/0/0/humaneval_python/HumanEval/3 passed; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_python/HumanEval/5
+  base/0/0/humaneval_python/HumanEval/4 passed; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_python/HumanEval/6
+  base/0/0/humaneval_python/HumanEval/5 failed; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_python/HumanEval/7
+  base/0/0/humaneval_python/HumanEval/6 passed; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_python/HumanEval/8
+  base/0/0/humaneval_python/HumanEval/8 passed; 1700 tokens, 36.3s
+Generating base/0/0/humaneval_python/HumanEval/9
+  base/0/0/humaneval_python/HumanEval/7 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/10
+  base/0/0/humaneval_python/HumanEval/9 failed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/11
+  base/0/0/humaneval_python/HumanEval/10 failed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/12
+  base/0/0/humaneval_python/HumanEval/11 failed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/13
+  base/0/0/humaneval_python/HumanEval/12 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/14
+  base/0/0/humaneval_python/HumanEval/13 passed; 535 tokens, 11.5s
+Generating base/0/0/humaneval_python/HumanEval/15
+  base/0/0/humaneval_python/HumanEval/14 failed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/16
+  base/0/0/humaneval_python/HumanEval/15 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/17
+  base/0/0/humaneval_python/HumanEval/16 passed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/18
+  base/0/0/humaneval_python/HumanEval/17 failed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/19
+  base/0/0/humaneval_python/HumanEval/18 passed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/20
+  base/0/0/humaneval_python/HumanEval/19 failed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/21
+  base/0/0/humaneval_python/HumanEval/20 passed; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_python/HumanEval/22
+  base/0/0/humaneval_python/HumanEval/21 passed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/23
+  base/0/0/humaneval_python/HumanEval/22 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/24
+  base/0/0/humaneval_python/HumanEval/23 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/25
+  base/0/0/humaneval_python/HumanEval/24 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/26
+  base/0/0/humaneval_python/HumanEval/25 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/27
+  base/0/0/humaneval_python/HumanEval/26 failed; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_python/HumanEval/28
+  base/0/0/humaneval_python/HumanEval/27 passed; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_python/HumanEval/29
+  base/0/0/humaneval_python/HumanEval/28 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/30
+  base/0/0/humaneval_python/HumanEval/29 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/31
+  base/0/0/humaneval_python/HumanEval/30 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/32
+  base/0/0/humaneval_python/HumanEval/31 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/33
+  base/0/0/humaneval_python/HumanEval/33 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/34
+  base/0/0/humaneval_python/HumanEval/32 failed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/35
+  base/0/0/humaneval_python/HumanEval/34 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/36
+  base/0/0/humaneval_python/HumanEval/35 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/37
+  base/0/0/humaneval_python/HumanEval/36 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/38
+  base/0/0/humaneval_python/HumanEval/37 failed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/39
+  base/0/0/humaneval_python/HumanEval/38 failed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/40
+  base/0/0/humaneval_python/HumanEval/39 parse_error; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/41
+  base/0/0/humaneval_python/HumanEval/40 passed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/42
+  base/0/0/humaneval_python/HumanEval/41 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/43
+  base/0/0/humaneval_python/HumanEval/42 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/44
+  base/0/0/humaneval_python/HumanEval/43 failed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/45
+  base/0/0/humaneval_python/HumanEval/44 passed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/46
+  base/0/0/humaneval_python/HumanEval/45 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/47
+  base/0/0/humaneval_python/HumanEval/47 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/48
+  base/0/0/humaneval_python/HumanEval/46 parse_error; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/49
+  base/0/0/humaneval_python/HumanEval/48 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/50
+  base/0/0/humaneval_python/HumanEval/49 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/51
+  base/0/0/humaneval_python/HumanEval/50 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/52
+  base/0/0/humaneval_python/HumanEval/51 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/53
+  base/0/0/humaneval_python/HumanEval/52 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/54
+  base/0/0/humaneval_python/HumanEval/53 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/55
+  base/0/0/humaneval_python/HumanEval/54 failed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/56
+  base/0/0/humaneval_python/HumanEval/55 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/57
+  base/0/0/humaneval_python/HumanEval/56 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/58
+  base/0/0/humaneval_python/HumanEval/57 failed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/59
+  base/0/0/humaneval_python/HumanEval/58 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/60
+  base/0/0/humaneval_python/HumanEval/59 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/61
+  base/0/0/humaneval_python/HumanEval/60 passed; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_python/HumanEval/62
+  base/0/0/humaneval_python/HumanEval/61 passed; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_python/HumanEval/63
+  base/0/0/humaneval_python/HumanEval/62 passed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/64
+  base/0/0/humaneval_python/HumanEval/63 passed; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_python/HumanEval/65
+  base/0/0/humaneval_python/HumanEval/64 failed; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_python/HumanEval/66
+  base/0/0/humaneval_python/HumanEval/65 passed; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_python/HumanEval/67
+  base/0/0/humaneval_python/HumanEval/66 passed; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_python/HumanEval/68
+  base/0/0/humaneval_python/HumanEval/67 failed; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_python/HumanEval/69
+  base/0/0/humaneval_python/HumanEval/68 passed; 2048 tokens, 44.7s
+Generating base/0/0/humaneval_python/HumanEval/70
+  base/0/0/humaneval_python/HumanEval/69 passed; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_python/HumanEval/71
+  base/0/0/humaneval_python/HumanEval/70 failed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/72
+  base/0/0/humaneval_python/HumanEval/71 passed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/73
+  base/0/0/humaneval_python/HumanEval/72 passed; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_python/HumanEval/74
+  base/0/0/humaneval_python/HumanEval/73 passed; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_python/HumanEval/75
+  base/0/0/humaneval_python/HumanEval/74 passed; 2048 tokens, 45.4s
+Generating base/0/0/humaneval_python/HumanEval/76
+  base/0/0/humaneval_python/HumanEval/75 failed; 2048 tokens, 45.4s
+Generating base/0/0/humaneval_python/HumanEval/77
+  base/0/0/humaneval_python/HumanEval/77 failed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/78
+  base/0/0/humaneval_python/HumanEval/76 passed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/79
+  base/0/0/humaneval_python/HumanEval/79 passed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/80
+  base/0/0/humaneval_python/HumanEval/78 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/81
+  base/0/0/humaneval_python/HumanEval/80 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/82
+  base/0/0/humaneval_python/HumanEval/81 parse_error; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/83
+  base/0/0/humaneval_python/HumanEval/82 passed; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_python/HumanEval/84
+  base/0/0/humaneval_python/HumanEval/83 failed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/85
+  base/0/0/humaneval_python/HumanEval/84 parse_error; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/86
+  base/0/0/humaneval_python/HumanEval/85 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/87
+  base/0/0/humaneval_python/HumanEval/86 passed; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_python/HumanEval/88
+  base/0/0/humaneval_python/HumanEval/87 failed; 2048 tokens, 44.6s
+Generating base/0/0/humaneval_python/HumanEval/89
+  base/0/0/humaneval_python/HumanEval/88 passed; 2048 tokens, 45.2s
+Generating base/0/0/humaneval_python/HumanEval/90
+  base/0/0/humaneval_python/HumanEval/89 failed; 2048 tokens, 45.1s
+Generating base/0/0/humaneval_python/HumanEval/91
+  base/0/0/humaneval_python/HumanEval/90 passed; 2048 tokens, 44.5s
+Generating base/0/0/humaneval_python/HumanEval/92
+  base/0/0/humaneval_python/HumanEval/91 failed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/93
+  base/0/0/humaneval_python/HumanEval/92 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/94
+  base/0/0/humaneval_python/HumanEval/93 failed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/95
+  base/0/0/humaneval_python/HumanEval/94 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/96
+  base/0/0/humaneval_python/HumanEval/95 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/97
+  base/0/0/humaneval_python/HumanEval/96 passed; 1988 tokens, 42.6s
+Generating base/0/0/humaneval_python/HumanEval/98
+  base/0/0/humaneval_python/HumanEval/97 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/99
+  base/0/0/humaneval_python/HumanEval/98 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/100
+  base/0/0/humaneval_python/HumanEval/99 passed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/101
+  base/0/0/humaneval_python/HumanEval/100 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/102
+  base/0/0/humaneval_python/HumanEval/101 failed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/103
+  base/0/0/humaneval_python/HumanEval/102 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/104
+  base/0/0/humaneval_python/HumanEval/103 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/105
+  base/0/0/humaneval_python/HumanEval/105 passed; 1190 tokens, 25.6s
+Generating base/0/0/humaneval_python/HumanEval/106
+  base/0/0/humaneval_python/HumanEval/104 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/107
+  base/0/0/humaneval_python/HumanEval/106 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/108
+  base/0/0/humaneval_python/HumanEval/107 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/109
+  base/0/0/humaneval_python/HumanEval/108 parse_error; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/110
+  base/0/0/humaneval_python/HumanEval/109 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/111
+  base/0/0/humaneval_python/HumanEval/110 passed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/112
+  base/0/0/humaneval_python/HumanEval/111 passed; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_python/HumanEval/113
+  base/0/0/humaneval_python/HumanEval/112 passed; 788 tokens, 17.1s
+Generating base/0/0/humaneval_python/HumanEval/114
+  base/0/0/humaneval_python/HumanEval/113 failed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/115
+  base/0/0/humaneval_python/HumanEval/114 passed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/116
+  base/0/0/humaneval_python/HumanEval/115 failed; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_python/HumanEval/117
+  base/0/0/humaneval_python/HumanEval/116 parse_error; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/118
+  base/0/0/humaneval_python/HumanEval/117 failed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/119
+  base/0/0/humaneval_python/HumanEval/118 parse_error; 2048 tokens, 44.4s
+Generating base/0/0/humaneval_python/HumanEval/120
+  base/0/0/humaneval_python/HumanEval/119 passed; 2048 tokens, 44.9s
+Generating base/0/0/humaneval_python/HumanEval/121
+  base/0/0/humaneval_python/HumanEval/120 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/122
+  base/0/0/humaneval_python/HumanEval/121 passed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/123
+  base/0/0/humaneval_python/HumanEval/122 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/124
+  base/0/0/humaneval_python/HumanEval/123 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/125
+  base/0/0/humaneval_python/HumanEval/124 passed; 2048 tokens, 44.2s
+Generating base/0/0/humaneval_python/HumanEval/126
+  base/0/0/humaneval_python/HumanEval/125 failed; 2048 tokens, 44.3s
+Generating base/0/0/humaneval_python/HumanEval/127
+  base/0/0/humaneval_python/HumanEval/126 failed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/128
+  base/0/0/humaneval_python/HumanEval/128 failed; 750 tokens, 16.1s
+Generating base/0/0/humaneval_python/HumanEval/129
+  base/0/0/humaneval_python/HumanEval/127 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/130
+  base/0/0/humaneval_python/HumanEval/129 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/131
+  base/0/0/humaneval_python/HumanEval/130 parse_error; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/132
+  base/0/0/humaneval_python/HumanEval/131 failed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/133
+  base/0/0/humaneval_python/HumanEval/132 parse_error; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/134
+  base/0/0/humaneval_python/HumanEval/133 passed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/135
+  base/0/0/humaneval_python/HumanEval/134 parse_error; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/136
+  base/0/0/humaneval_python/HumanEval/135 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/137
+  base/0/0/humaneval_python/HumanEval/136 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/138
+  base/0/0/humaneval_python/HumanEval/137 failed; 2048 tokens, 43.9s
+Generating base/0/0/humaneval_python/HumanEval/139
+  base/0/0/humaneval_python/HumanEval/138 passed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/140
+  base/0/0/humaneval_python/HumanEval/139 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/141
+  base/0/0/humaneval_python/HumanEval/140 failed; 2048 tokens, 44.1s
+Generating base/0/0/humaneval_python/HumanEval/142
+  base/0/0/humaneval_python/HumanEval/141 passed; 2048 tokens, 44.0s
+Generating base/0/0/humaneval_python/HumanEval/143
+  base/0/0/humaneval_python/HumanEval/142 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/144
+  base/0/0/humaneval_python/HumanEval/143 failed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/145
+  base/0/0/humaneval_python/HumanEval/144 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/146
+  base/0/0/humaneval_python/HumanEval/145 failed; 2001 tokens, 42.5s
+Generating base/0/0/humaneval_python/HumanEval/147
+  base/0/0/humaneval_python/HumanEval/146 passed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/148
+  base/0/0/humaneval_python/HumanEval/147 failed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/149
+  base/0/0/humaneval_python/HumanEval/148 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/150
+  base/0/0/humaneval_python/HumanEval/149 failed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/151
+  base/0/0/humaneval_python/HumanEval/150 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/152
+  base/0/0/humaneval_python/HumanEval/151 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/153
+  base/0/0/humaneval_python/HumanEval/152 passed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/154
+  base/0/0/humaneval_python/HumanEval/153 passed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/155
+  base/0/0/humaneval_python/HumanEval/154 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/156
+  base/0/0/humaneval_python/HumanEval/155 passed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/157
+  base/0/0/humaneval_python/HumanEval/156 failed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/158
+  base/0/0/humaneval_python/HumanEval/157 passed; 2048 tokens, 43.5s
+Generating base/0/0/humaneval_python/HumanEval/159
+  base/0/0/humaneval_python/HumanEval/158 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/160
+  base/0/0/humaneval_python/HumanEval/159 failed; 2048 tokens, 43.7s
+Generating base/0/0/humaneval_python/HumanEval/161
+  base/0/0/humaneval_python/HumanEval/160 passed; 2048 tokens, 43.6s
+Generating base/0/0/humaneval_python/HumanEval/162
+  base/0/0/humaneval_python/HumanEval/161 passed; 2048 tokens, 43.8s
+Generating base/0/0/humaneval_python/HumanEval/163
+  base/0/0/humaneval_python/HumanEval/162 passed; 2048 tokens, 44.2s
+  base/0/0/humaneval_python/HumanEval/163 failed; 2048 tokens, 35.8s
+Generating base/0/0/aime2024/aime2024/60
+  base/0/0/aime2024/aime2024/60 scored; 2048 tokens, 24.7s
+aime2024: 2 generation worker(s), pilot peak 4.3 GB, free 13.2 GB
+Generating base/0/0/aime2024/aime2024/61
+Generating base/0/0/aime2024/aime2024/62
+  base/0/0/aime2024/aime2024/61 scored; 2048 tokens, 43.5s
+  base/0/0/aime2024/aime2024/62 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2024/aime2024/63
+Generating base/0/0/aime2024/aime2024/64
+  base/0/0/aime2024/aime2024/63 scored; 2048 tokens, 43.4s
+Generating base/0/0/aime2024/aime2024/65
+  base/0/0/aime2024/aime2024/64 scored; 2048 tokens, 43.4s
+Generating base/0/0/aime2024/aime2024/66
+  base/0/0/aime2024/aime2024/66 scored; 2048 tokens, 43.4s
+Generating base/0/0/aime2024/aime2024/67
+  base/0/0/aime2024/aime2024/65 answer_missing; 2048 tokens, 43.4s
+Generating base/0/0/aime2024/aime2024/68
+  base/0/0/aime2024/aime2024/67 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2024/aime2024/69
+  base/0/0/aime2024/aime2024/68 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2024/aime2024/70
+  base/0/0/aime2024/aime2024/69 scored; 1086 tokens, 23.1s
+Generating base/0/0/aime2024/aime2024/71
+  base/0/0/aime2024/aime2024/70 scored; 2048 tokens, 43.4s
+Generating base/0/0/aime2024/aime2024/72
+  base/0/0/aime2024/aime2024/71 scored; 2048 tokens, 43.4s
+Generating base/0/0/aime2024/aime2024/73
+  base/0/0/aime2024/aime2024/72 answer_missing; 2048 tokens, 43.6s
+Generating base/0/0/aime2024/aime2024/74
+  base/0/0/aime2024/aime2024/73 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2024/aime2024/75
+  base/0/0/aime2024/aime2024/74 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2024/aime2024/76
+  base/0/0/aime2024/aime2024/75 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2024/aime2024/77
+  base/0/0/aime2024/aime2024/76 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2024/aime2024/78
+  base/0/0/aime2024/aime2024/77 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2024/aime2024/79
+  base/0/0/aime2024/aime2024/78 scored; 2048 tokens, 43.7s
+Generating base/0/0/aime2024/aime2024/80
+  base/0/0/aime2024/aime2024/79 scored; 2048 tokens, 43.9s
+Generating base/0/0/aime2024/aime2024/81
+  base/0/0/aime2024/aime2024/80 answer_missing; 2048 tokens, 44.1s
+Generating base/0/0/aime2024/aime2024/82
+  base/0/0/aime2024/aime2024/81 answer_missing; 2048 tokens, 43.8s
+Generating base/0/0/aime2024/aime2024/83
+  base/0/0/aime2024/aime2024/82 scored; 2048 tokens, 43.7s
+Generating base/0/0/aime2024/aime2024/84
+  base/0/0/aime2024/aime2024/83 scored; 2048 tokens, 43.7s
+Generating base/0/0/aime2024/aime2024/85
+  base/0/0/aime2024/aime2024/84 scored; 2048 tokens, 43.7s
+Generating base/0/0/aime2024/aime2024/86
+  base/0/0/aime2024/aime2024/85 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2024/aime2024/87
+  base/0/0/aime2024/aime2024/86 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2024/aime2024/88
+  base/0/0/aime2024/aime2024/87 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2024/aime2024/89
+  base/0/0/aime2024/aime2024/88 answer_missing; 2048 tokens, 43.8s
+  base/0/0/aime2024/aime2024/89 answer_missing; 2048 tokens, 34.7s
+Generating base/0/0/aime2025/aime2025/0
+  base/0/0/aime2025/aime2025/0 scored; 1139 tokens, 13.7s
+aime2025: 2 generation worker(s), pilot peak 3.9 GB, free 14.2 GB
+Generating base/0/0/aime2025/aime2025/1
+Generating base/0/0/aime2025/aime2025/2
+  base/0/0/aime2025/aime2025/2 scored; 1455 tokens, 31.1s
+Generating base/0/0/aime2025/aime2025/3
+  base/0/0/aime2025/aime2025/1 scored; 2048 tokens, 43.7s
+Generating base/0/0/aime2025/aime2025/4
+  base/0/0/aime2025/aime2025/3 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/5
+  base/0/0/aime2025/aime2025/4 answer_missing; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/6
+  base/0/0/aime2025/aime2025/5 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/7
+  base/0/0/aime2025/aime2025/6 scored; 2048 tokens, 43.7s
+Generating base/0/0/aime2025/aime2025/8
+  base/0/0/aime2025/aime2025/7 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/9
+  base/0/0/aime2025/aime2025/8 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/10
+  base/0/0/aime2025/aime2025/9 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/11
+  base/0/0/aime2025/aime2025/10 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/12
+  base/0/0/aime2025/aime2025/11 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/13
+  base/0/0/aime2025/aime2025/12 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/14
+  base/0/0/aime2025/aime2025/13 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/15
+  base/0/0/aime2025/aime2025/14 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/16
+  base/0/0/aime2025/aime2025/15 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/17
+  base/0/0/aime2025/aime2025/16 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/18
+  base/0/0/aime2025/aime2025/17 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/19
+  base/0/0/aime2025/aime2025/18 answer_missing; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/20
+  base/0/0/aime2025/aime2025/19 scored; 2048 tokens, 43.8s
+Generating base/0/0/aime2025/aime2025/21
+  base/0/0/aime2025/aime2025/20 scored; 2048 tokens, 43.9s
+Generating base/0/0/aime2025/aime2025/22
+  base/0/0/aime2025/aime2025/21 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/23
+  base/0/0/aime2025/aime2025/22 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/24
+  base/0/0/aime2025/aime2025/23 scored; 2048 tokens, 43.5s
+Generating base/0/0/aime2025/aime2025/25
+  base/0/0/aime2025/aime2025/24 scored; 1986 tokens, 42.2s
+Generating base/0/0/aime2025/aime2025/26
+  base/0/0/aime2025/aime2025/25 scored; 2048 tokens, 43.4s
+Generating base/0/0/aime2025/aime2025/27
+  base/0/0/aime2025/aime2025/26 answer_missing; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/28
+  base/0/0/aime2025/aime2025/27 scored; 2048 tokens, 43.6s
+Generating base/0/0/aime2025/aime2025/29
+  base/0/0/aime2025/aime2025/28 scored; 2048 tokens, 43.5s
+  base/0/0/aime2025/aime2025/29 scored; 2048 tokens, 30.1s
+Generating base/0/0/gpqa/gpqa/0
+  base/0/0/gpqa/gpqa/0 scored; 1093 tokens, 13.2s
+gpqa: 2 generation worker(s), pilot peak 4.0 GB, free 15.4 GB
+Generating base/0/0/gpqa/gpqa/1
+Generating base/0/0/gpqa/gpqa/2
+  base/0/0/gpqa/gpqa/1 scored; 2048 tokens, 43.6s
+  base/0/0/gpqa/gpqa/2 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/3
+Generating base/0/0/gpqa/gpqa/4
+  base/0/0/gpqa/gpqa/3 scored; 292 tokens, 6.3s
+Generating base/0/0/gpqa/gpqa/5
+  base/0/0/gpqa/gpqa/4 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/6
+  base/0/0/gpqa/gpqa/5 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/7
+  base/0/0/gpqa/gpqa/6 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/8
+  base/0/0/gpqa/gpqa/7 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/9
+  base/0/0/gpqa/gpqa/9 scored; 790 tokens, 16.8s
+Generating base/0/0/gpqa/gpqa/10
+  base/0/0/gpqa/gpqa/10 scored; 518 tokens, 11.1s
+Generating base/0/0/gpqa/gpqa/11
+  base/0/0/gpqa/gpqa/8 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/12
+  base/0/0/gpqa/gpqa/11 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/13
+  base/0/0/gpqa/gpqa/12 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/14
+  base/0/0/gpqa/gpqa/13 scored; 1105 tokens, 23.5s
+Generating base/0/0/gpqa/gpqa/15
+  base/0/0/gpqa/gpqa/14 scored; 959 tokens, 20.4s
+Generating base/0/0/gpqa/gpqa/16
+  base/0/0/gpqa/gpqa/15 scored; 1472 tokens, 31.2s
+Generating base/0/0/gpqa/gpqa/17
+  base/0/0/gpqa/gpqa/16 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/18
+  base/0/0/gpqa/gpqa/18 scored; 660 tokens, 14.2s
+Generating base/0/0/gpqa/gpqa/19
+  base/0/0/gpqa/gpqa/17 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/20
+  base/0/0/gpqa/gpqa/19 scored; 574 tokens, 12.3s
+Generating base/0/0/gpqa/gpqa/21
+  base/0/0/gpqa/gpqa/21 scored; 501 tokens, 10.7s
+Generating base/0/0/gpqa/gpqa/22
+  base/0/0/gpqa/gpqa/20 scored; 934 tokens, 19.8s
+Generating base/0/0/gpqa/gpqa/23
+  base/0/0/gpqa/gpqa/22 scored; 1080 tokens, 22.9s
+Generating base/0/0/gpqa/gpqa/24
+  base/0/0/gpqa/gpqa/23 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/25
+  base/0/0/gpqa/gpqa/24 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/26
+  base/0/0/gpqa/gpqa/26 scored; 1270 tokens, 26.9s
+Generating base/0/0/gpqa/gpqa/27
+  base/0/0/gpqa/gpqa/25 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/28
+  base/0/0/gpqa/gpqa/27 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/29
+  base/0/0/gpqa/gpqa/28 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/30
+  base/0/0/gpqa/gpqa/29 scored; 1152 tokens, 24.6s
+Generating base/0/0/gpqa/gpqa/31
+  base/0/0/gpqa/gpqa/30 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/32
+  base/0/0/gpqa/gpqa/31 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/33
+  base/0/0/gpqa/gpqa/32 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/34
+  base/0/0/gpqa/gpqa/33 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/35
+  base/0/0/gpqa/gpqa/34 scored; 1952 tokens, 41.5s
+Generating base/0/0/gpqa/gpqa/36
+  base/0/0/gpqa/gpqa/35 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/37
+  base/0/0/gpqa/gpqa/36 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/38
+  base/0/0/gpqa/gpqa/38 scored; 820 tokens, 17.5s
+Generating base/0/0/gpqa/gpqa/39
+  base/0/0/gpqa/gpqa/37 scored; 1711 tokens, 36.4s
+Generating base/0/0/gpqa/gpqa/40
+  base/0/0/gpqa/gpqa/39 scored; 449 tokens, 9.6s
+Generating base/0/0/gpqa/gpqa/41
+  base/0/0/gpqa/gpqa/40 scored; 846 tokens, 18.0s
+Generating base/0/0/gpqa/gpqa/42
+  base/0/0/gpqa/gpqa/41 scored; 939 tokens, 19.9s
+Generating base/0/0/gpqa/gpqa/43
+  base/0/0/gpqa/gpqa/43 scored; 925 tokens, 19.7s
+Generating base/0/0/gpqa/gpqa/44
+  base/0/0/gpqa/gpqa/42 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/45
+  base/0/0/gpqa/gpqa/45 scored; 1216 tokens, 25.8s
+Generating base/0/0/gpqa/gpqa/46
+  base/0/0/gpqa/gpqa/44 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/47
+  base/0/0/gpqa/gpqa/46 scored; 2021 tokens, 43.0s
+Generating base/0/0/gpqa/gpqa/48
+  base/0/0/gpqa/gpqa/47 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/49
+  base/0/0/gpqa/gpqa/48 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/50
+  base/0/0/gpqa/gpqa/49 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/51
+  base/0/0/gpqa/gpqa/50 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/52
+  base/0/0/gpqa/gpqa/51 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/53
+  base/0/0/gpqa/gpqa/52 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/54
+  base/0/0/gpqa/gpqa/53 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/55
+  base/0/0/gpqa/gpqa/54 scored; 906 tokens, 19.4s
+Generating base/0/0/gpqa/gpqa/56
+  base/0/0/gpqa/gpqa/55 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/57
+  base/0/0/gpqa/gpqa/57 scored; 511 tokens, 10.8s
+Generating base/0/0/gpqa/gpqa/58
+  base/0/0/gpqa/gpqa/56 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/59
+  base/0/0/gpqa/gpqa/58 scored; 1244 tokens, 26.5s
+Generating base/0/0/gpqa/gpqa/60
+  base/0/0/gpqa/gpqa/59 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/61
+  base/0/0/gpqa/gpqa/60 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/62
+  base/0/0/gpqa/gpqa/61 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/63
+  base/0/0/gpqa/gpqa/62 scored; 1846 tokens, 39.4s
+Generating base/0/0/gpqa/gpqa/64
+  base/0/0/gpqa/gpqa/63 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/65
+  base/0/0/gpqa/gpqa/65 scored; 822 tokens, 17.4s
+Generating base/0/0/gpqa/gpqa/66
+  base/0/0/gpqa/gpqa/64 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/67
+  base/0/0/gpqa/gpqa/66 scored; 2023 tokens, 43.0s
+Generating base/0/0/gpqa/gpqa/68
+  base/0/0/gpqa/gpqa/67 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/69
+  base/0/0/gpqa/gpqa/69 scored; 879 tokens, 18.7s
+Generating base/0/0/gpqa/gpqa/70
+  base/0/0/gpqa/gpqa/68 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/71
+  base/0/0/gpqa/gpqa/70 scored; 1525 tokens, 32.6s
+Generating base/0/0/gpqa/gpqa/72
+  base/0/0/gpqa/gpqa/72 scored; 1064 tokens, 22.6s
+Generating base/0/0/gpqa/gpqa/73
+  base/0/0/gpqa/gpqa/71 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/74
+  base/0/0/gpqa/gpqa/73 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/75
+  base/0/0/gpqa/gpqa/74 scored; 2048 tokens, 43.9s
+Generating base/0/0/gpqa/gpqa/76
+  base/0/0/gpqa/gpqa/75 scored; 716 tokens, 15.4s
+Generating base/0/0/gpqa/gpqa/77
+  base/0/0/gpqa/gpqa/76 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/78
+  base/0/0/gpqa/gpqa/77 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/79
+  base/0/0/gpqa/gpqa/78 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/80
+  base/0/0/gpqa/gpqa/79 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/81
+  base/0/0/gpqa/gpqa/80 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/82
+  base/0/0/gpqa/gpqa/81 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/83
+  base/0/0/gpqa/gpqa/83 scored; 477 tokens, 10.1s
+Generating base/0/0/gpqa/gpqa/84
+  base/0/0/gpqa/gpqa/82 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/85
+  base/0/0/gpqa/gpqa/84 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/86
+  base/0/0/gpqa/gpqa/86 scored; 1248 tokens, 26.6s
+Generating base/0/0/gpqa/gpqa/87
+  base/0/0/gpqa/gpqa/85 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/88
+  base/0/0/gpqa/gpqa/87 scored; 368 tokens, 8.0s
+Generating base/0/0/gpqa/gpqa/89
+  base/0/0/gpqa/gpqa/88 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/90
+  base/0/0/gpqa/gpqa/89 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/91
+  base/0/0/gpqa/gpqa/90 scored; 1134 tokens, 24.2s
+Generating base/0/0/gpqa/gpqa/92
+  base/0/0/gpqa/gpqa/91 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/93
+  base/0/0/gpqa/gpqa/92 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/94
+  base/0/0/gpqa/gpqa/93 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/95
+  base/0/0/gpqa/gpqa/94 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/96
+  base/0/0/gpqa/gpqa/95 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/97
+  base/0/0/gpqa/gpqa/96 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/98
+  base/0/0/gpqa/gpqa/97 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/99
+  base/0/0/gpqa/gpqa/98 scored; 1876 tokens, 40.0s
+Generating base/0/0/gpqa/gpqa/100
+  base/0/0/gpqa/gpqa/99 scored; 2048 tokens, 43.4s
+Generating base/0/0/gpqa/gpqa/101
+  base/0/0/gpqa/gpqa/100 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/102
+  base/0/0/gpqa/gpqa/101 scored; 1002 tokens, 21.5s
+Generating base/0/0/gpqa/gpqa/103
+  base/0/0/gpqa/gpqa/102 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/104
+  base/0/0/gpqa/gpqa/103 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/105
+  base/0/0/gpqa/gpqa/105 scored; 1087 tokens, 23.2s
+Generating base/0/0/gpqa/gpqa/106
+  base/0/0/gpqa/gpqa/106 scored; 314 tokens, 6.8s
+Generating base/0/0/gpqa/gpqa/107
+  base/0/0/gpqa/gpqa/104 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/108
+  base/0/0/gpqa/gpqa/107 scored; 1005 tokens, 21.4s
+Generating base/0/0/gpqa/gpqa/109
+  base/0/0/gpqa/gpqa/108 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/110
+  base/0/0/gpqa/gpqa/109 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/111
+  base/0/0/gpqa/gpqa/110 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/112
+  base/0/0/gpqa/gpqa/111 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/113
+  base/0/0/gpqa/gpqa/113 scored; 664 tokens, 14.2s
+Generating base/0/0/gpqa/gpqa/114
+  base/0/0/gpqa/gpqa/112 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/115
+  base/0/0/gpqa/gpqa/114 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/116
+  base/0/0/gpqa/gpqa/116 scored; 755 tokens, 16.1s
+Generating base/0/0/gpqa/gpqa/117
+  base/0/0/gpqa/gpqa/115 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/118
+  base/0/0/gpqa/gpqa/117 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/119
+  base/0/0/gpqa/gpqa/118 scored; 2048 tokens, 43.9s
+Generating base/0/0/gpqa/gpqa/120
+  base/0/0/gpqa/gpqa/119 scored; 2002 tokens, 42.7s
+Generating base/0/0/gpqa/gpqa/121
+  base/0/0/gpqa/gpqa/120 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/122
+  base/0/0/gpqa/gpqa/122 scored; 1063 tokens, 22.6s
+Generating base/0/0/gpqa/gpqa/123
+  base/0/0/gpqa/gpqa/121 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/124
+  base/0/0/gpqa/gpqa/123 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/125
+  base/0/0/gpqa/gpqa/124 scored; 1283 tokens, 27.4s
+Generating base/0/0/gpqa/gpqa/126
+  base/0/0/gpqa/gpqa/126 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/127
+  base/0/0/gpqa/gpqa/125 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/128
+  base/0/0/gpqa/gpqa/128 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/129
+  base/0/0/gpqa/gpqa/127 scored; 2048 tokens, 44.9s
+Generating base/0/0/gpqa/gpqa/130
+  base/0/0/gpqa/gpqa/129 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/131
+  base/0/0/gpqa/gpqa/130 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/132
+  base/0/0/gpqa/gpqa/131 scored; 2048 tokens, 43.8s
+Generating base/0/0/gpqa/gpqa/133
+  base/0/0/gpqa/gpqa/132 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/134
+  base/0/0/gpqa/gpqa/133 scored; 999 tokens, 21.4s
+Generating base/0/0/gpqa/gpqa/135
+  base/0/0/gpqa/gpqa/134 scored; 1605 tokens, 34.2s
+Generating base/0/0/gpqa/gpqa/136
+  base/0/0/gpqa/gpqa/135 scored; 1996 tokens, 42.4s
+Generating base/0/0/gpqa/gpqa/137
+  base/0/0/gpqa/gpqa/137 scored; 781 tokens, 16.7s
+Generating base/0/0/gpqa/gpqa/138
+  base/0/0/gpqa/gpqa/136 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/139
+  base/0/0/gpqa/gpqa/138 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/140
+  base/0/0/gpqa/gpqa/139 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/141
+  base/0/0/gpqa/gpqa/141 scored; 857 tokens, 18.3s
+Generating base/0/0/gpqa/gpqa/142
+  base/0/0/gpqa/gpqa/140 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/143
+  base/0/0/gpqa/gpqa/142 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/144
+  base/0/0/gpqa/gpqa/143 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/145
+  base/0/0/gpqa/gpqa/144 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/146
+  base/0/0/gpqa/gpqa/145 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/147
+  base/0/0/gpqa/gpqa/146 scored; 1515 tokens, 32.3s
+Generating base/0/0/gpqa/gpqa/148
+  base/0/0/gpqa/gpqa/148 scored; 1222 tokens, 26.1s
+Generating base/0/0/gpqa/gpqa/149
+  base/0/0/gpqa/gpqa/147 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/150
+  base/0/0/gpqa/gpqa/149 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/151
+  base/0/0/gpqa/gpqa/150 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/152
+  base/0/0/gpqa/gpqa/151 scored; 668 tokens, 14.4s
+Generating base/0/0/gpqa/gpqa/153
+  base/0/0/gpqa/gpqa/153 scored; 1432 tokens, 30.5s
+Generating base/0/0/gpqa/gpqa/154
+  base/0/0/gpqa/gpqa/152 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/155
+  base/0/0/gpqa/gpqa/154 scored; 1175 tokens, 25.2s
+Generating base/0/0/gpqa/gpqa/156
+  base/0/0/gpqa/gpqa/156 scored; 342 tokens, 7.3s
+Generating base/0/0/gpqa/gpqa/157
+  base/0/0/gpqa/gpqa/155 scored; 1383 tokens, 29.4s
+Generating base/0/0/gpqa/gpqa/158
+  base/0/0/gpqa/gpqa/157 scored; 2005 tokens, 42.6s
+Generating base/0/0/gpqa/gpqa/159
+  base/0/0/gpqa/gpqa/158 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/160
+  base/0/0/gpqa/gpqa/160 scored; 263 tokens, 5.7s
+Generating base/0/0/gpqa/gpqa/161
+  base/0/0/gpqa/gpqa/159 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/162
+  base/0/0/gpqa/gpqa/161 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/163
+  base/0/0/gpqa/gpqa/162 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/164
+  base/0/0/gpqa/gpqa/163 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/165
+  base/0/0/gpqa/gpqa/164 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/166
+  base/0/0/gpqa/gpqa/165 scored; 1690 tokens, 36.3s
+Generating base/0/0/gpqa/gpqa/167
+  base/0/0/gpqa/gpqa/167 scored; 304 tokens, 6.5s
+Generating base/0/0/gpqa/gpqa/168
+  base/0/0/gpqa/gpqa/168 scored; 536 tokens, 11.5s
+Generating base/0/0/gpqa/gpqa/169
+  base/0/0/gpqa/gpqa/166 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/170
+  base/0/0/gpqa/gpqa/169 scored; 969 tokens, 20.8s
+Generating base/0/0/gpqa/gpqa/171
+  base/0/0/gpqa/gpqa/170 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/172
+  base/0/0/gpqa/gpqa/171 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/173
+  base/0/0/gpqa/gpqa/172 scored; 885 tokens, 18.9s
+Generating base/0/0/gpqa/gpqa/174
+  base/0/0/gpqa/gpqa/174 scored; 1267 tokens, 26.9s
+Generating base/0/0/gpqa/gpqa/175
+  base/0/0/gpqa/gpqa/173 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/176
+  base/0/0/gpqa/gpqa/176 scored; 614 tokens, 13.1s
+Generating base/0/0/gpqa/gpqa/177
+  base/0/0/gpqa/gpqa/177 scored; 1235 tokens, 26.3s
+Generating base/0/0/gpqa/gpqa/178
+  base/0/0/gpqa/gpqa/175 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/179
+  base/0/0/gpqa/gpqa/178 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/180
+  base/0/0/gpqa/gpqa/179 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/181
+  base/0/0/gpqa/gpqa/181 scored; 468 tokens, 10.0s
+Generating base/0/0/gpqa/gpqa/182
+  base/0/0/gpqa/gpqa/180 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/183
+  base/0/0/gpqa/gpqa/182 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/184
+  base/0/0/gpqa/gpqa/184 scored; 784 tokens, 16.7s
+Generating base/0/0/gpqa/gpqa/185
+  base/0/0/gpqa/gpqa/183 scored; 2048 tokens, 43.7s
+Generating base/0/0/gpqa/gpqa/186
+  base/0/0/gpqa/gpqa/185 scored; 1229 tokens, 26.3s
+Generating base/0/0/gpqa/gpqa/187
+  base/0/0/gpqa/gpqa/186 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/188
+  base/0/0/gpqa/gpqa/187 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/189
+  base/0/0/gpqa/gpqa/188 scored; 631 tokens, 13.5s
+Generating base/0/0/gpqa/gpqa/190
+  base/0/0/gpqa/gpqa/189 scored; 1964 tokens, 41.8s
+Generating base/0/0/gpqa/gpqa/191
+  base/0/0/gpqa/gpqa/190 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/192
+  base/0/0/gpqa/gpqa/192 scored; 202 tokens, 4.3s
+Generating base/0/0/gpqa/gpqa/193
+  base/0/0/gpqa/gpqa/191 scored; 1080 tokens, 23.1s
+Generating base/0/0/gpqa/gpqa/194
+  base/0/0/gpqa/gpqa/193 scored; 2048 tokens, 43.5s
+Generating base/0/0/gpqa/gpqa/195
+  base/0/0/gpqa/gpqa/194 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/196
+  base/0/0/gpqa/gpqa/195 scored; 2048 tokens, 43.6s
+Generating base/0/0/gpqa/gpqa/197
+  base/0/0/gpqa/gpqa/196 scored; 2048 tokens, 43.7s
+  base/0/0/gpqa/gpqa/197 scored; 1351 tokens, 22.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/0
+  base/0/1/humaneval_synthetic/HumanEval/0 parse_error; 2048 tokens, 24.8s
+humaneval_synthetic: 2 generation worker(s), pilot peak 4.3 GB, free 13.5 GB
+Generating base/0/1/humaneval_synthetic/HumanEval/1
+Generating base/0/1/humaneval_synthetic/HumanEval/2
+  base/0/1/humaneval_synthetic/HumanEval/2 failed; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/3
+  base/0/1/humaneval_synthetic/HumanEval/1 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/4
+  base/0/1/humaneval_synthetic/HumanEval/3 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/5
+  base/0/1/humaneval_synthetic/HumanEval/4 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/6
+  base/0/1/humaneval_synthetic/HumanEval/5 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/7
+  base/0/1/humaneval_synthetic/HumanEval/6 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/8
+  base/0/1/humaneval_synthetic/HumanEval/7 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/9
+  base/0/1/humaneval_synthetic/HumanEval/8 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/10
+  base/0/1/humaneval_synthetic/HumanEval/9 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/11
+  base/0/1/humaneval_synthetic/HumanEval/10 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/12
+  base/0/1/humaneval_synthetic/HumanEval/11 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/13
+  base/0/1/humaneval_synthetic/HumanEval/12 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/14
+  base/0/1/humaneval_synthetic/HumanEval/13 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/15
+  base/0/1/humaneval_synthetic/HumanEval/14 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/16
+  base/0/1/humaneval_synthetic/HumanEval/15 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/17
+  base/0/1/humaneval_synthetic/HumanEval/16 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/18
+  base/0/1/humaneval_synthetic/HumanEval/17 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/19
+  base/0/1/humaneval_synthetic/HumanEval/18 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/20
+  base/0/1/humaneval_synthetic/HumanEval/19 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/21
+  base/0/1/humaneval_synthetic/HumanEval/20 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/22
+  base/0/1/humaneval_synthetic/HumanEval/21 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/23
+  base/0/1/humaneval_synthetic/HumanEval/22 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/24
+  base/0/1/humaneval_synthetic/HumanEval/23 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/25
+  base/0/1/humaneval_synthetic/HumanEval/24 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/26
+  base/0/1/humaneval_synthetic/HumanEval/25 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/27
+  base/0/1/humaneval_synthetic/HumanEval/26 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/28
+  base/0/1/humaneval_synthetic/HumanEval/27 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/29
+  base/0/1/humaneval_synthetic/HumanEval/28 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/30
+  base/0/1/humaneval_synthetic/HumanEval/29 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/31
+  base/0/1/humaneval_synthetic/HumanEval/30 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/32
+  base/0/1/humaneval_synthetic/HumanEval/31 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/33
+  base/0/1/humaneval_synthetic/HumanEval/32 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/34
+  base/0/1/humaneval_synthetic/HumanEval/33 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/35
+  base/0/1/humaneval_synthetic/HumanEval/34 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/36
+  base/0/1/humaneval_synthetic/HumanEval/35 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/37
+  base/0/1/humaneval_synthetic/HumanEval/36 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/38
+  base/0/1/humaneval_synthetic/HumanEval/37 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/39
+  base/0/1/humaneval_synthetic/HumanEval/38 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/40
+  base/0/1/humaneval_synthetic/HumanEval/39 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/41
+  base/0/1/humaneval_synthetic/HumanEval/40 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/42
+  base/0/1/humaneval_synthetic/HumanEval/41 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/43
+  base/0/1/humaneval_synthetic/HumanEval/42 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/44
+  base/0/1/humaneval_synthetic/HumanEval/43 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/45
+  base/0/1/humaneval_synthetic/HumanEval/44 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/46
+  base/0/1/humaneval_synthetic/HumanEval/45 parse_error; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_synthetic/HumanEval/47
+  base/0/1/humaneval_synthetic/HumanEval/46 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/48
+  base/0/1/humaneval_synthetic/HumanEval/47 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/49
+  base/0/1/humaneval_synthetic/HumanEval/48 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/50
+  base/0/1/humaneval_synthetic/HumanEval/49 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/51
+  base/0/1/humaneval_synthetic/HumanEval/50 failed; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/52
+  base/0/1/humaneval_synthetic/HumanEval/51 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/53
+  base/0/1/humaneval_synthetic/HumanEval/52 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/54
+  base/0/1/humaneval_synthetic/HumanEval/53 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/55
+  base/0/1/humaneval_synthetic/HumanEval/54 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/56
+  base/0/1/humaneval_synthetic/HumanEval/55 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/57
+  base/0/1/humaneval_synthetic/HumanEval/56 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/58
+  base/0/1/humaneval_synthetic/HumanEval/57 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/59
+  base/0/1/humaneval_synthetic/HumanEval/58 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/60
+  base/0/1/humaneval_synthetic/HumanEval/59 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/61
+  base/0/1/humaneval_synthetic/HumanEval/60 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/62
+  base/0/1/humaneval_synthetic/HumanEval/61 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/63
+  base/0/1/humaneval_synthetic/HumanEval/62 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/64
+  base/0/1/humaneval_synthetic/HumanEval/63 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/65
+  base/0/1/humaneval_synthetic/HumanEval/64 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/66
+  base/0/1/humaneval_synthetic/HumanEval/65 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/67
+  base/0/1/humaneval_synthetic/HumanEval/66 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/68
+  base/0/1/humaneval_synthetic/HumanEval/67 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/69
+  base/0/1/humaneval_synthetic/HumanEval/68 parse_error; 2048 tokens, 44.1s
+Generating base/0/1/humaneval_synthetic/HumanEval/70
+  base/0/1/humaneval_synthetic/HumanEval/69 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/71
+  base/0/1/humaneval_synthetic/HumanEval/70 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/72
+  base/0/1/humaneval_synthetic/HumanEval/71 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/73
+  base/0/1/humaneval_synthetic/HumanEval/72 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/74
+  base/0/1/humaneval_synthetic/HumanEval/73 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/75
+  base/0/1/humaneval_synthetic/HumanEval/74 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/76
+  base/0/1/humaneval_synthetic/HumanEval/76 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/77
+  base/0/1/humaneval_synthetic/HumanEval/75 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/78
+  base/0/1/humaneval_synthetic/HumanEval/77 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/79
+  base/0/1/humaneval_synthetic/HumanEval/78 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/80
+  base/0/1/humaneval_synthetic/HumanEval/80 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/81
+  base/0/1/humaneval_synthetic/HumanEval/79 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/82
+  base/0/1/humaneval_synthetic/HumanEval/81 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/83
+  base/0/1/humaneval_synthetic/HumanEval/82 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/84
+  base/0/1/humaneval_synthetic/HumanEval/83 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/85
+  base/0/1/humaneval_synthetic/HumanEval/84 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/86
+  base/0/1/humaneval_synthetic/HumanEval/85 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/87
+  base/0/1/humaneval_synthetic/HumanEval/86 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/88
+  base/0/1/humaneval_synthetic/HumanEval/87 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/89
+  base/0/1/humaneval_synthetic/HumanEval/88 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/90
+  base/0/1/humaneval_synthetic/HumanEval/89 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/91
+  base/0/1/humaneval_synthetic/HumanEval/90 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/92
+  base/0/1/humaneval_synthetic/HumanEval/91 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/93
+  base/0/1/humaneval_synthetic/HumanEval/92 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/94
+  base/0/1/humaneval_synthetic/HumanEval/93 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/95
+  base/0/1/humaneval_synthetic/HumanEval/94 entry_point_missing; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/96
+  base/0/1/humaneval_synthetic/HumanEval/95 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/97
+  base/0/1/humaneval_synthetic/HumanEval/96 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/98
+  base/0/1/humaneval_synthetic/HumanEval/98 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/99
+  base/0/1/humaneval_synthetic/HumanEval/97 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/100
+  base/0/1/humaneval_synthetic/HumanEval/100 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/101
+  base/0/1/humaneval_synthetic/HumanEval/99 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/102
+  base/0/1/humaneval_synthetic/HumanEval/101 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/103
+  base/0/1/humaneval_synthetic/HumanEval/102 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/104
+  base/0/1/humaneval_synthetic/HumanEval/103 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/105
+  base/0/1/humaneval_synthetic/HumanEval/104 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/106
+  base/0/1/humaneval_synthetic/HumanEval/106 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/107
+  base/0/1/humaneval_synthetic/HumanEval/105 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/108
+  base/0/1/humaneval_synthetic/HumanEval/107 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/109
+  base/0/1/humaneval_synthetic/HumanEval/108 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/110
+  base/0/1/humaneval_synthetic/HumanEval/109 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/111
+  base/0/1/humaneval_synthetic/HumanEval/110 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/112
+  base/0/1/humaneval_synthetic/HumanEval/111 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/113
+  base/0/1/humaneval_synthetic/HumanEval/112 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/114
+  base/0/1/humaneval_synthetic/HumanEval/113 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/115
+  base/0/1/humaneval_synthetic/HumanEval/114 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/116
+  base/0/1/humaneval_synthetic/HumanEval/115 failed; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/117
+  base/0/1/humaneval_synthetic/HumanEval/116 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/118
+  base/0/1/humaneval_synthetic/HumanEval/117 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/119
+  base/0/1/humaneval_synthetic/HumanEval/118 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/120
+  base/0/1/humaneval_synthetic/HumanEval/119 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/121
+  base/0/1/humaneval_synthetic/HumanEval/120 parse_error; 2048 tokens, 44.0s
+Generating base/0/1/humaneval_synthetic/HumanEval/122
+  base/0/1/humaneval_synthetic/HumanEval/121 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/123
+  base/0/1/humaneval_synthetic/HumanEval/122 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/124
+  base/0/1/humaneval_synthetic/HumanEval/123 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/125
+  base/0/1/humaneval_synthetic/HumanEval/124 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/126
+  base/0/1/humaneval_synthetic/HumanEval/125 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/127
+  base/0/1/humaneval_synthetic/HumanEval/126 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/128
+  base/0/1/humaneval_synthetic/HumanEval/127 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/129
+  base/0/1/humaneval_synthetic/HumanEval/128 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/130
+  base/0/1/humaneval_synthetic/HumanEval/129 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/131
+  base/0/1/humaneval_synthetic/HumanEval/130 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/132
+  base/0/1/humaneval_synthetic/HumanEval/131 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/133
+  base/0/1/humaneval_synthetic/HumanEval/132 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/134
+  base/0/1/humaneval_synthetic/HumanEval/133 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/135
+  base/0/1/humaneval_synthetic/HumanEval/134 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/136
+  base/0/1/humaneval_synthetic/HumanEval/135 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/137
+  base/0/1/humaneval_synthetic/HumanEval/136 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/138
+  base/0/1/humaneval_synthetic/HumanEval/137 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/139
+  base/0/1/humaneval_synthetic/HumanEval/138 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/140
+  base/0/1/humaneval_synthetic/HumanEval/139 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/141
+  base/0/1/humaneval_synthetic/HumanEval/140 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/142
+  base/0/1/humaneval_synthetic/HumanEval/141 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/143
+  base/0/1/humaneval_synthetic/HumanEval/142 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/144
+  base/0/1/humaneval_synthetic/HumanEval/143 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/145
+  base/0/1/humaneval_synthetic/HumanEval/144 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/146
+  base/0/1/humaneval_synthetic/HumanEval/145 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/147
+  base/0/1/humaneval_synthetic/HumanEval/146 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/148
+  base/0/1/humaneval_synthetic/HumanEval/147 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/149
+  base/0/1/humaneval_synthetic/HumanEval/148 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/150
+  base/0/1/humaneval_synthetic/HumanEval/149 parse_error; 2048 tokens, 43.9s
+Generating base/0/1/humaneval_synthetic/HumanEval/151
+  base/0/1/humaneval_synthetic/HumanEval/151 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/152
+  base/0/1/humaneval_synthetic/HumanEval/150 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/153
+  base/0/1/humaneval_synthetic/HumanEval/152 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/154
+  base/0/1/humaneval_synthetic/HumanEval/153 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/155
+  base/0/1/humaneval_synthetic/HumanEval/155 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/156
+  base/0/1/humaneval_synthetic/HumanEval/154 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/157
+  base/0/1/humaneval_synthetic/HumanEval/156 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/158
+  base/0/1/humaneval_synthetic/HumanEval/157 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/159
+  base/0/1/humaneval_synthetic/HumanEval/158 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_synthetic/HumanEval/160
+  base/0/1/humaneval_synthetic/HumanEval/159 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/161
+  base/0/1/humaneval_synthetic/HumanEval/161 failed; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_synthetic/HumanEval/162
+  base/0/1/humaneval_synthetic/HumanEval/160 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_synthetic/HumanEval/163
+  base/0/1/humaneval_synthetic/HumanEval/162 parse_error; 2048 tokens, 43.6s
+  base/0/1/humaneval_synthetic/HumanEval/163 parse_error; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_python/HumanEval/0
+  base/0/1/humaneval_python/HumanEval/0 passed; 2048 tokens, 24.7s
+humaneval_python: 2 generation worker(s), pilot peak 4.3 GB, free 14.2 GB
+Generating base/0/1/humaneval_python/HumanEval/1
+Generating base/0/1/humaneval_python/HumanEval/2
+  base/0/1/humaneval_python/HumanEval/2 passed; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_python/HumanEval/3
+  base/0/1/humaneval_python/HumanEval/1 parse_error; 2048 tokens, 43.8s
+Generating base/0/1/humaneval_python/HumanEval/4
+  base/0/1/humaneval_python/HumanEval/3 passed; 2048 tokens, 43.3s
+Generating base/0/1/humaneval_python/HumanEval/5
+  base/0/1/humaneval_python/HumanEval/4 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/6
+  base/0/1/humaneval_python/HumanEval/5 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/7
+  base/0/1/humaneval_python/HumanEval/6 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/8
+  base/0/1/humaneval_python/HumanEval/7 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/9
+  base/0/1/humaneval_python/HumanEval/8 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/10
+  base/0/1/humaneval_python/HumanEval/9 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/11
+  base/0/1/humaneval_python/HumanEval/10 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/12
+  base/0/1/humaneval_python/HumanEval/11 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/13
+  base/0/1/humaneval_python/HumanEval/12 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/14
+  base/0/1/humaneval_python/HumanEval/13 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/15
+  base/0/1/humaneval_python/HumanEval/14 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/16
+  base/0/1/humaneval_python/HumanEval/15 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/17
+  base/0/1/humaneval_python/HumanEval/16 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/18
+  base/0/1/humaneval_python/HumanEval/17 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/19
+  base/0/1/humaneval_python/HumanEval/18 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/20
+  base/0/1/humaneval_python/HumanEval/19 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/21
+  base/0/1/humaneval_python/HumanEval/20 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/22
+  base/0/1/humaneval_python/HumanEval/21 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/23
+  base/0/1/humaneval_python/HumanEval/22 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/24
+  base/0/1/humaneval_python/HumanEval/23 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/25
+  base/0/1/humaneval_python/HumanEval/24 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/26
+  base/0/1/humaneval_python/HumanEval/25 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/27
+  base/0/1/humaneval_python/HumanEval/26 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/28
+  base/0/1/humaneval_python/HumanEval/27 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/29
+  base/0/1/humaneval_python/HumanEval/28 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/30
+  base/0/1/humaneval_python/HumanEval/29 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/31
+  base/0/1/humaneval_python/HumanEval/30 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/32
+  base/0/1/humaneval_python/HumanEval/31 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/33
+  base/0/1/humaneval_python/HumanEval/32 parse_error; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/34
+  base/0/1/humaneval_python/HumanEval/33 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/35
+  base/0/1/humaneval_python/HumanEval/34 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/36
+  base/0/1/humaneval_python/HumanEval/35 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/37
+  base/0/1/humaneval_python/HumanEval/36 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/38
+  base/0/1/humaneval_python/HumanEval/37 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/39
+  base/0/1/humaneval_python/HumanEval/38 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/40
+  base/0/1/humaneval_python/HumanEval/39 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/41
+  base/0/1/humaneval_python/HumanEval/40 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/42
+  base/0/1/humaneval_python/HumanEval/41 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/43
+  base/0/1/humaneval_python/HumanEval/42 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/44
+  base/0/1/humaneval_python/HumanEval/43 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/45
+  base/0/1/humaneval_python/HumanEval/44 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/46
+  base/0/1/humaneval_python/HumanEval/45 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/47
+  base/0/1/humaneval_python/HumanEval/46 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/48
+  base/0/1/humaneval_python/HumanEval/47 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/49
+  base/0/1/humaneval_python/HumanEval/48 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/50
+  base/0/1/humaneval_python/HumanEval/49 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/51
+  base/0/1/humaneval_python/HumanEval/50 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/52
+  base/0/1/humaneval_python/HumanEval/51 passed; 1783 tokens, 37.9s
+Generating base/0/1/humaneval_python/HumanEval/53
+  base/0/1/humaneval_python/HumanEval/52 passed; 2048 tokens, 43.3s
+Generating base/0/1/humaneval_python/HumanEval/54
+  base/0/1/humaneval_python/HumanEval/53 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/55
+  base/0/1/humaneval_python/HumanEval/55 passed; 525 tokens, 11.1s
+Generating base/0/1/humaneval_python/HumanEval/56
+  base/0/1/humaneval_python/HumanEval/54 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/57
+  base/0/1/humaneval_python/HumanEval/56 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/58
+  base/0/1/humaneval_python/HumanEval/57 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/59
+  base/0/1/humaneval_python/HumanEval/58 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/60
+  base/0/1/humaneval_python/HumanEval/60 failed; 2048 tokens, 37.1s
+Generating base/0/1/humaneval_python/HumanEval/61
+  base/0/1/humaneval_python/HumanEval/59 timeout; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/62
+  base/0/1/humaneval_python/HumanEval/61 passed; 2048 tokens, 43.2s
+Generating base/0/1/humaneval_python/HumanEval/63
+  base/0/1/humaneval_python/HumanEval/62 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/64
+  base/0/1/humaneval_python/HumanEval/63 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/65
+  base/0/1/humaneval_python/HumanEval/64 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/66
+  base/0/1/humaneval_python/HumanEval/65 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/67
+  base/0/1/humaneval_python/HumanEval/66 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/68
+  base/0/1/humaneval_python/HumanEval/67 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/69
+  base/0/1/humaneval_python/HumanEval/68 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/70
+  base/0/1/humaneval_python/HumanEval/69 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/71
+  base/0/1/humaneval_python/HumanEval/70 parse_error; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/72
+  base/0/1/humaneval_python/HumanEval/71 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/73
+  base/0/1/humaneval_python/HumanEval/72 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/74
+  base/0/1/humaneval_python/HumanEval/73 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/75
+  base/0/1/humaneval_python/HumanEval/74 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/76
+  base/0/1/humaneval_python/HumanEval/75 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/77
+  base/0/1/humaneval_python/HumanEval/76 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/78
+  base/0/1/humaneval_python/HumanEval/77 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/79
+  base/0/1/humaneval_python/HumanEval/78 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/80
+  base/0/1/humaneval_python/HumanEval/79 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/81
+  base/0/1/humaneval_python/HumanEval/80 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/82
+  base/0/1/humaneval_python/HumanEval/81 passed; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_python/HumanEval/83
+  base/0/1/humaneval_python/HumanEval/82 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/84
+  base/0/1/humaneval_python/HumanEval/83 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/85
+  base/0/1/humaneval_python/HumanEval/84 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/86
+  base/0/1/humaneval_python/HumanEval/85 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/87
+  base/0/1/humaneval_python/HumanEval/86 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/88
+  base/0/1/humaneval_python/HumanEval/87 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/89
+  base/0/1/humaneval_python/HumanEval/88 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/90
+  base/0/1/humaneval_python/HumanEval/89 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/91
+  base/0/1/humaneval_python/HumanEval/90 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/92
+  base/0/1/humaneval_python/HumanEval/91 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/93
+  base/0/1/humaneval_python/HumanEval/92 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/94
+  base/0/1/humaneval_python/HumanEval/93 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/95
+  base/0/1/humaneval_python/HumanEval/94 passed; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_python/HumanEval/96
+  base/0/1/humaneval_python/HumanEval/95 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/97
+  base/0/1/humaneval_python/HumanEval/96 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/98
+  base/0/1/humaneval_python/HumanEval/97 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/99
+  base/0/1/humaneval_python/HumanEval/98 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/100
+  base/0/1/humaneval_python/HumanEval/99 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/101
+  base/0/1/humaneval_python/HumanEval/100 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/102
+  base/0/1/humaneval_python/HumanEval/101 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/103
+  base/0/1/humaneval_python/HumanEval/102 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/104
+  base/0/1/humaneval_python/HumanEval/103 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/105
+  base/0/1/humaneval_python/HumanEval/104 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/106
+  base/0/1/humaneval_python/HumanEval/105 passed; 2048 tokens, 43.7s
+Generating base/0/1/humaneval_python/HumanEval/107
+  base/0/1/humaneval_python/HumanEval/106 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/108
+  base/0/1/humaneval_python/HumanEval/107 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/109
+  base/0/1/humaneval_python/HumanEval/108 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/110
+  base/0/1/humaneval_python/HumanEval/109 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/111
+  base/0/1/humaneval_python/HumanEval/110 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/112
+  base/0/1/humaneval_python/HumanEval/111 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/113
+  base/0/1/humaneval_python/HumanEval/112 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/114
+  base/0/1/humaneval_python/HumanEval/113 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/115
+  base/0/1/humaneval_python/HumanEval/114 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/116
+  base/0/1/humaneval_python/HumanEval/115 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/117
+  base/0/1/humaneval_python/HumanEval/116 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/118
+  base/0/1/humaneval_python/HumanEval/117 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/119
+  base/0/1/humaneval_python/HumanEval/118 parse_error; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/120
+  base/0/1/humaneval_python/HumanEval/119 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/121
+  base/0/1/humaneval_python/HumanEval/120 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/122
+  base/0/1/humaneval_python/HumanEval/121 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/123
+  base/0/1/humaneval_python/HumanEval/122 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/124
+  base/0/1/humaneval_python/HumanEval/123 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/125
+  base/0/1/humaneval_python/HumanEval/124 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/126
+  base/0/1/humaneval_python/HumanEval/125 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/127
+  base/0/1/humaneval_python/HumanEval/126 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/128
+  base/0/1/humaneval_python/HumanEval/127 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/129
+  base/0/1/humaneval_python/HumanEval/128 failed; 1634 tokens, 34.7s
+Generating base/0/1/humaneval_python/HumanEval/130
+  base/0/1/humaneval_python/HumanEval/129 parse_error; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/131
+  base/0/1/humaneval_python/HumanEval/130 parse_error; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/132
+  base/0/1/humaneval_python/HumanEval/131 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/133
+  base/0/1/humaneval_python/HumanEval/132 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/134
+  base/0/1/humaneval_python/HumanEval/133 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/135
+  base/0/1/humaneval_python/HumanEval/134 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/136
+  base/0/1/humaneval_python/HumanEval/135 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/137
+  base/0/1/humaneval_python/HumanEval/136 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/138
+  base/0/1/humaneval_python/HumanEval/137 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/139
+  base/0/1/humaneval_python/HumanEval/138 passed; 1242 tokens, 26.4s
+Generating base/0/1/humaneval_python/HumanEval/140
+  base/0/1/humaneval_python/HumanEval/139 passed; 2048 tokens, 43.3s
+Generating base/0/1/humaneval_python/HumanEval/141
+  base/0/1/humaneval_python/HumanEval/140 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/142
+  base/0/1/humaneval_python/HumanEval/141 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/143
+  base/0/1/humaneval_python/HumanEval/142 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/144
+  base/0/1/humaneval_python/HumanEval/143 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/145
+  base/0/1/humaneval_python/HumanEval/144 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/146
+  base/0/1/humaneval_python/HumanEval/145 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/147
+  base/0/1/humaneval_python/HumanEval/146 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/148
+  base/0/1/humaneval_python/HumanEval/147 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/149
+  base/0/1/humaneval_python/HumanEval/148 failed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/150
+  base/0/1/humaneval_python/HumanEval/149 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/151
+  base/0/1/humaneval_python/HumanEval/150 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/152
+  base/0/1/humaneval_python/HumanEval/152 passed; 1133 tokens, 24.1s
+Generating base/0/1/humaneval_python/HumanEval/153
+  base/0/1/humaneval_python/HumanEval/151 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/154
+  base/0/1/humaneval_python/HumanEval/153 passed; 2048 tokens, 43.6s
+Generating base/0/1/humaneval_python/HumanEval/155
+  base/0/1/humaneval_python/HumanEval/154 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/156
+  base/0/1/humaneval_python/HumanEval/155 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/157
+  base/0/1/humaneval_python/HumanEval/156 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/158
+  base/0/1/humaneval_python/HumanEval/157 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/159
+  base/0/1/humaneval_python/HumanEval/158 passed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/160
+  base/0/1/humaneval_python/HumanEval/159 failed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/161
+  base/0/1/humaneval_python/HumanEval/160 passed; 2048 tokens, 43.5s
+Generating base/0/1/humaneval_python/HumanEval/162
+  base/0/1/humaneval_python/HumanEval/161 failed; 2048 tokens, 43.4s
+Generating base/0/1/humaneval_python/HumanEval/163
+  base/0/1/humaneval_python/HumanEval/162 passed; 2048 tokens, 43.4s
+  base/0/1/humaneval_python/HumanEval/163 failed; 2048 tokens, 31.8s
+Generating base/0/1/aime2024/aime2024/60
+  base/0/1/aime2024/aime2024/60 scored; 2048 tokens, 24.6s
+aime2024: 2 generation worker(s), pilot peak 4.3 GB, free 14.2 GB
+Generating base/0/1/aime2024/aime2024/61
+Generating base/0/1/aime2024/aime2024/62
+  base/0/1/aime2024/aime2024/62 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/63
+  base/0/1/aime2024/aime2024/61 answer_missing; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/64
+  base/0/1/aime2024/aime2024/63 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/65
+  base/0/1/aime2024/aime2024/64 scored; 2048 tokens, 43.6s
+Generating base/0/1/aime2024/aime2024/66
+  base/0/1/aime2024/aime2024/65 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/67
+  base/0/1/aime2024/aime2024/66 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/68
+  base/0/1/aime2024/aime2024/68 scored; 1259 tokens, 26.7s
+Generating base/0/1/aime2024/aime2024/69
+  base/0/1/aime2024/aime2024/67 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/70
+  base/0/1/aime2024/aime2024/69 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/71
+  base/0/1/aime2024/aime2024/70 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/72
+  base/0/1/aime2024/aime2024/71 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/73
+  base/0/1/aime2024/aime2024/72 answer_missing; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/74
+  base/0/1/aime2024/aime2024/73 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/75
+  base/0/1/aime2024/aime2024/74 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/76
+  base/0/1/aime2024/aime2024/75 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/77
+  base/0/1/aime2024/aime2024/76 scored; 2048 tokens, 43.3s
+Generating base/0/1/aime2024/aime2024/78
+  base/0/1/aime2024/aime2024/77 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/79
+  base/0/1/aime2024/aime2024/78 scored; 2048 tokens, 43.6s
+Generating base/0/1/aime2024/aime2024/80
+  base/0/1/aime2024/aime2024/79 answer_missing; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/81
+  base/0/1/aime2024/aime2024/80 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/82
+  base/0/1/aime2024/aime2024/81 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/83
+  base/0/1/aime2024/aime2024/82 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/84
+  base/0/1/aime2024/aime2024/83 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/85
+  base/0/1/aime2024/aime2024/84 scored; 1661 tokens, 35.3s
+Generating base/0/1/aime2024/aime2024/86
+  base/0/1/aime2024/aime2024/85 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2024/aime2024/87
+  base/0/1/aime2024/aime2024/86 scored; 2048 tokens, 43.6s
+Generating base/0/1/aime2024/aime2024/88
+  base/0/1/aime2024/aime2024/87 answer_missing; 2048 tokens, 43.5s
+Generating base/0/1/aime2024/aime2024/89
+  base/0/1/aime2024/aime2024/88 scored; 2048 tokens, 43.6s
+  base/0/1/aime2024/aime2024/89 scored; 1015 tokens, 15.8s
+Generating base/0/1/aime2025/aime2025/0
+  base/0/1/aime2025/aime2025/0 scored; 1074 tokens, 13.0s
+aime2025: 2 generation worker(s), pilot peak 3.9 GB, free 14.5 GB
+Generating base/0/1/aime2025/aime2025/1
+Generating base/0/1/aime2025/aime2025/2
+  base/0/1/aime2025/aime2025/2 scored; 1347 tokens, 28.7s
+Generating base/0/1/aime2025/aime2025/3
+  base/0/1/aime2025/aime2025/1 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/4
+  base/0/1/aime2025/aime2025/3 scored; 974 tokens, 20.7s
+Generating base/0/1/aime2025/aime2025/5
+  base/0/1/aime2025/aime2025/4 scored; 2048 tokens, 43.3s
+Generating base/0/1/aime2025/aime2025/6
+  base/0/1/aime2025/aime2025/5 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/7
+  base/0/1/aime2025/aime2025/6 scored; 2048 tokens, 43.3s
+Generating base/0/1/aime2025/aime2025/8
+  base/0/1/aime2025/aime2025/7 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/9
+  base/0/1/aime2025/aime2025/8 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/10
+  base/0/1/aime2025/aime2025/9 scored; 2048 tokens, 43.6s
+Generating base/0/1/aime2025/aime2025/11
+  base/0/1/aime2025/aime2025/10 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/12
+  base/0/1/aime2025/aime2025/11 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/13
+  base/0/1/aime2025/aime2025/12 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2025/aime2025/14
+  base/0/1/aime2025/aime2025/13 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/15
+  base/0/1/aime2025/aime2025/14 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2025/aime2025/16
+  base/0/1/aime2025/aime2025/15 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2025/aime2025/17
+  base/0/1/aime2025/aime2025/16 scored; 1142 tokens, 24.4s
+Generating base/0/1/aime2025/aime2025/18
+  base/0/1/aime2025/aime2025/17 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/19
+  base/0/1/aime2025/aime2025/18 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/20
+  base/0/1/aime2025/aime2025/19 scored; 2048 tokens, 43.8s
+Generating base/0/1/aime2025/aime2025/21
+  base/0/1/aime2025/aime2025/20 scored; 2048 tokens, 43.9s
+Generating base/0/1/aime2025/aime2025/22
+  base/0/1/aime2025/aime2025/21 scored; 2048 tokens, 43.4s
+Generating base/0/1/aime2025/aime2025/23
+  base/0/1/aime2025/aime2025/22 scored; 2048 tokens, 43.6s
+Generating base/0/1/aime2025/aime2025/24
+  base/0/1/aime2025/aime2025/23 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/25
+  base/0/1/aime2025/aime2025/24 scored; 1728 tokens, 36.6s
+Generating base/0/1/aime2025/aime2025/26
+  base/0/1/aime2025/aime2025/25 answer_missing; 2048 tokens, 43.3s
+Generating base/0/1/aime2025/aime2025/27
+  base/0/1/aime2025/aime2025/26 answer_missing; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/28
+  base/0/1/aime2025/aime2025/27 scored; 2048 tokens, 43.5s
+Generating base/0/1/aime2025/aime2025/29
+  base/0/1/aime2025/aime2025/28 scored; 2048 tokens, 43.4s
+  base/0/1/aime2025/aime2025/29 scored; 2048 tokens, 30.2s
+Generating base/0/1/gpqa/gpqa/0
+  base/0/1/gpqa/gpqa/0 scored; 2048 tokens, 24.7s
+gpqa: 2 generation worker(s), pilot peak 4.3 GB, free 14.8 GB
+Generating base/0/1/gpqa/gpqa/1
+Generating base/0/1/gpqa/gpqa/2
+  base/0/1/gpqa/gpqa/1 scored; 2048 tokens, 43.6s
+  base/0/1/gpqa/gpqa/2 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/3
+Generating base/0/1/gpqa/gpqa/4
+  base/0/1/gpqa/gpqa/3 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/5
+  base/0/1/gpqa/gpqa/4 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/6
+  base/0/1/gpqa/gpqa/6 scored; 904 tokens, 19.2s
+Generating base/0/1/gpqa/gpqa/7
+  base/0/1/gpqa/gpqa/5 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/8
+  base/0/1/gpqa/gpqa/8 scored; 602 tokens, 12.8s
+Generating base/0/1/gpqa/gpqa/9
+  base/0/1/gpqa/gpqa/7 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/10
+  base/0/1/gpqa/gpqa/10 scored; 754 tokens, 16.1s
+Generating base/0/1/gpqa/gpqa/11
+  base/0/1/gpqa/gpqa/9 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/12
+  base/0/1/gpqa/gpqa/11 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/13
+  base/0/1/gpqa/gpqa/13 scored; 287 tokens, 6.1s
+Generating base/0/1/gpqa/gpqa/14
+  base/0/1/gpqa/gpqa/12 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/15
+  base/0/1/gpqa/gpqa/14 scored; 1047 tokens, 22.4s
+Generating base/0/1/gpqa/gpqa/16
+  base/0/1/gpqa/gpqa/16 scored; 881 tokens, 18.7s
+Generating base/0/1/gpqa/gpqa/17
+  base/0/1/gpqa/gpqa/15 scored; 1302 tokens, 27.6s
+Generating base/0/1/gpqa/gpqa/18
+  base/0/1/gpqa/gpqa/17 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/19
+  base/0/1/gpqa/gpqa/18 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/20
+  base/0/1/gpqa/gpqa/19 scored; 1026 tokens, 22.0s
+Generating base/0/1/gpqa/gpqa/21
+  base/0/1/gpqa/gpqa/20 scored; 937 tokens, 20.0s
+Generating base/0/1/gpqa/gpqa/22
+  base/0/1/gpqa/gpqa/21 scored; 391 tokens, 8.3s
+Generating base/0/1/gpqa/gpqa/23
+  base/0/1/gpqa/gpqa/22 scored; 820 tokens, 17.4s
+Generating base/0/1/gpqa/gpqa/24
+  base/0/1/gpqa/gpqa/24 scored; 1339 tokens, 28.5s
+Generating base/0/1/gpqa/gpqa/25
+  base/0/1/gpqa/gpqa/23 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/26
+  base/0/1/gpqa/gpqa/26 scored; 686 tokens, 14.5s
+Generating base/0/1/gpqa/gpqa/27
+  base/0/1/gpqa/gpqa/25 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/28
+  base/0/1/gpqa/gpqa/27 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/29
+  base/0/1/gpqa/gpqa/29 scored; 642 tokens, 13.6s
+Generating base/0/1/gpqa/gpqa/30
+  base/0/1/gpqa/gpqa/28 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/31
+  base/0/1/gpqa/gpqa/30 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/32
+  base/0/1/gpqa/gpqa/31 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/33
+  base/0/1/gpqa/gpqa/32 scored; 1028 tokens, 22.0s
+Generating base/0/1/gpqa/gpqa/34
+  base/0/1/gpqa/gpqa/33 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/35
+  base/0/1/gpqa/gpqa/34 scored; 1783 tokens, 37.9s
+Generating base/0/1/gpqa/gpqa/36
+  base/0/1/gpqa/gpqa/35 scored; 425 tokens, 9.0s
+Generating base/0/1/gpqa/gpqa/37
+  base/0/1/gpqa/gpqa/36 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/38
+  base/0/1/gpqa/gpqa/37 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/39
+  base/0/1/gpqa/gpqa/39 scored; 519 tokens, 11.0s
+Generating base/0/1/gpqa/gpqa/40
+  base/0/1/gpqa/gpqa/38 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/41
+  base/0/1/gpqa/gpqa/40 scored; 1873 tokens, 39.8s
+Generating base/0/1/gpqa/gpqa/42
+  base/0/1/gpqa/gpqa/41 scored; 1063 tokens, 22.5s
+Generating base/0/1/gpqa/gpqa/43
+  base/0/1/gpqa/gpqa/43 scored; 774 tokens, 16.5s
+Generating base/0/1/gpqa/gpqa/44
+  base/0/1/gpqa/gpqa/42 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/45
+  base/0/1/gpqa/gpqa/44 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/46
+  base/0/1/gpqa/gpqa/45 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/47
+  base/0/1/gpqa/gpqa/46 scored; 1090 tokens, 23.2s
+Generating base/0/1/gpqa/gpqa/48
+  base/0/1/gpqa/gpqa/47 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/49
+  base/0/1/gpqa/gpqa/48 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/50
+  base/0/1/gpqa/gpqa/49 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/51
+  base/0/1/gpqa/gpqa/50 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/52
+  base/0/1/gpqa/gpqa/51 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/53
+  base/0/1/gpqa/gpqa/52 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/54
+  base/0/1/gpqa/gpqa/53 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/55
+  base/0/1/gpqa/gpqa/54 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/56
+  base/0/1/gpqa/gpqa/55 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/57
+  base/0/1/gpqa/gpqa/56 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/58
+  base/0/1/gpqa/gpqa/57 scored; 528 tokens, 11.3s
+Generating base/0/1/gpqa/gpqa/59
+  base/0/1/gpqa/gpqa/58 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/60
+  base/0/1/gpqa/gpqa/59 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/61
+  base/0/1/gpqa/gpqa/61 scored; 1329 tokens, 28.1s
+Generating base/0/1/gpqa/gpqa/62
+  base/0/1/gpqa/gpqa/60 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/63
+  base/0/1/gpqa/gpqa/62 scored; 956 tokens, 20.4s
+Generating base/0/1/gpqa/gpqa/64
+  base/0/1/gpqa/gpqa/63 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/65
+  base/0/1/gpqa/gpqa/64 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/66
+  base/0/1/gpqa/gpqa/65 scored; 675 tokens, 14.4s
+Generating base/0/1/gpqa/gpqa/67
+  base/0/1/gpqa/gpqa/66 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/68
+  base/0/1/gpqa/gpqa/67 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/69
+  base/0/1/gpqa/gpqa/68 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/70
+  base/0/1/gpqa/gpqa/69 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/71
+  base/0/1/gpqa/gpqa/70 scored; 614 tokens, 13.2s
+Generating base/0/1/gpqa/gpqa/72
+  base/0/1/gpqa/gpqa/72 scored; 983 tokens, 20.8s
+Generating base/0/1/gpqa/gpqa/73
+  base/0/1/gpqa/gpqa/71 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/74
+  base/0/1/gpqa/gpqa/73 scored; 1908 tokens, 40.6s
+Generating base/0/1/gpqa/gpqa/75
+  base/0/1/gpqa/gpqa/74 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/76
+  base/0/1/gpqa/gpqa/75 scored; 1345 tokens, 28.6s
+Generating base/0/1/gpqa/gpqa/77
+  base/0/1/gpqa/gpqa/77 scored; 1705 tokens, 36.5s
+Generating base/0/1/gpqa/gpqa/78
+  base/0/1/gpqa/gpqa/76 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/79
+  base/0/1/gpqa/gpqa/78 scored; 1519 tokens, 32.3s
+Generating base/0/1/gpqa/gpqa/80
+  base/0/1/gpqa/gpqa/79 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/81
+  base/0/1/gpqa/gpqa/81 scored; 1006 tokens, 21.6s
+Generating base/0/1/gpqa/gpqa/82
+  base/0/1/gpqa/gpqa/80 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/83
+  base/0/1/gpqa/gpqa/83 scored; 223 tokens, 4.8s
+Generating base/0/1/gpqa/gpqa/84
+  base/0/1/gpqa/gpqa/82 scored; 1760 tokens, 37.4s
+Generating base/0/1/gpqa/gpqa/85
+  base/0/1/gpqa/gpqa/84 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/86
+  base/0/1/gpqa/gpqa/85 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/87
+  base/0/1/gpqa/gpqa/87 scored; 371 tokens, 7.9s
+Generating base/0/1/gpqa/gpqa/88
+  base/0/1/gpqa/gpqa/86 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/89
+  base/0/1/gpqa/gpqa/88 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/90
+  base/0/1/gpqa/gpqa/89 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/91
+  base/0/1/gpqa/gpqa/90 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/92
+  base/0/1/gpqa/gpqa/91 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/93
+  base/0/1/gpqa/gpqa/92 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/94
+  base/0/1/gpqa/gpqa/93 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/95
+  base/0/1/gpqa/gpqa/94 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/96
+  base/0/1/gpqa/gpqa/95 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/97
+  base/0/1/gpqa/gpqa/96 scored; 728 tokens, 15.6s
+Generating base/0/1/gpqa/gpqa/98
+  base/0/1/gpqa/gpqa/97 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/99
+  base/0/1/gpqa/gpqa/98 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/100
+  base/0/1/gpqa/gpqa/99 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/101
+  base/0/1/gpqa/gpqa/100 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/102
+  base/0/1/gpqa/gpqa/101 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/103
+  base/0/1/gpqa/gpqa/102 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/104
+  base/0/1/gpqa/gpqa/103 scored; 852 tokens, 18.3s
+Generating base/0/1/gpqa/gpqa/105
+  base/0/1/gpqa/gpqa/104 scored; 1639 tokens, 34.8s
+Generating base/0/1/gpqa/gpqa/106
+  base/0/1/gpqa/gpqa/106 scored; 323 tokens, 7.0s
+Generating base/0/1/gpqa/gpqa/107
+  base/0/1/gpqa/gpqa/105 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/108
+  base/0/1/gpqa/gpqa/107 scored; 1002 tokens, 21.3s
+Generating base/0/1/gpqa/gpqa/109
+  base/0/1/gpqa/gpqa/109 scored; 1083 tokens, 23.2s
+Generating base/0/1/gpqa/gpqa/110
+  base/0/1/gpqa/gpqa/108 scored; 1745 tokens, 37.2s
+Generating base/0/1/gpqa/gpqa/111
+  base/0/1/gpqa/gpqa/110 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/112
+  base/0/1/gpqa/gpqa/111 scored; 2015 tokens, 42.9s
+Generating base/0/1/gpqa/gpqa/113
+  base/0/1/gpqa/gpqa/113 scored; 1154 tokens, 24.5s
+Generating base/0/1/gpqa/gpqa/114
+  base/0/1/gpqa/gpqa/112 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/115
+  base/0/1/gpqa/gpqa/114 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/116
+  base/0/1/gpqa/gpqa/115 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/117
+  base/0/1/gpqa/gpqa/116 scored; 658 tokens, 14.2s
+Generating base/0/1/gpqa/gpqa/118
+  base/0/1/gpqa/gpqa/118 scored; 462 tokens, 9.9s
+Generating base/0/1/gpqa/gpqa/119
+  base/0/1/gpqa/gpqa/119 scored; 239 tokens, 5.1s
+Generating base/0/1/gpqa/gpqa/120
+  base/0/1/gpqa/gpqa/117 scored; 2048 tokens, 43.4s
+Generating base/0/1/gpqa/gpqa/121
+  base/0/1/gpqa/gpqa/120 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/122
+  base/0/1/gpqa/gpqa/122 scored; 922 tokens, 20.2s
+Generating base/0/1/gpqa/gpqa/123
+  base/0/1/gpqa/gpqa/121 scored; 2048 tokens, 44.2s
+Generating base/0/1/gpqa/gpqa/124
+  base/0/1/gpqa/gpqa/124 scored; 748 tokens, 16.0s
+Generating base/0/1/gpqa/gpqa/125
+  base/0/1/gpqa/gpqa/123 scored; 2048 tokens, 43.9s
+Generating base/0/1/gpqa/gpqa/126
+  base/0/1/gpqa/gpqa/125 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/127
+  base/0/1/gpqa/gpqa/126 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/128
+  base/0/1/gpqa/gpqa/127 scored; 2048 tokens, 44.9s
+Generating base/0/1/gpqa/gpqa/129
+  base/0/1/gpqa/gpqa/128 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/130
+  base/0/1/gpqa/gpqa/129 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/131
+  base/0/1/gpqa/gpqa/130 scored; 2048 tokens, 43.9s
+Generating base/0/1/gpqa/gpqa/132
+  base/0/1/gpqa/gpqa/131 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/133
+  base/0/1/gpqa/gpqa/132 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/134
+  base/0/1/gpqa/gpqa/133 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/135
+  base/0/1/gpqa/gpqa/134 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/136
+  base/0/1/gpqa/gpqa/135 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/137
+  base/0/1/gpqa/gpqa/137 scored; 407 tokens, 8.7s
+Generating base/0/1/gpqa/gpqa/138
+  base/0/1/gpqa/gpqa/136 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/139
+  base/0/1/gpqa/gpqa/138 scored; 2048 tokens, 44.0s
+Generating base/0/1/gpqa/gpqa/140
+  base/0/1/gpqa/gpqa/139 scored; 2048 tokens, 44.0s
+Generating base/0/1/gpqa/gpqa/141
+  base/0/1/gpqa/gpqa/141 scored; 1067 tokens, 22.8s
+Generating base/0/1/gpqa/gpqa/142
+  base/0/1/gpqa/gpqa/140 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/143
+  base/0/1/gpqa/gpqa/142 scored; 2048 tokens, 43.9s
+Generating base/0/1/gpqa/gpqa/144
+  base/0/1/gpqa/gpqa/143 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/145
+  base/0/1/gpqa/gpqa/144 scored; 2048 tokens, 43.5s
+Generating base/0/1/gpqa/gpqa/146
+  base/0/1/gpqa/gpqa/145 scored; 2048 tokens, 43.6s
+Generating base/0/1/gpqa/gpqa/147
+  base/0/1/gpqa/gpqa/146 scored; 2048 tokens, 43.9s
+Generating base/0/1/gpqa/gpqa/148
+  base/0/1/gpqa/gpqa/147 scored; 2048 tokens, 44.0s
+Generating base/0/1/gpqa/gpqa/149
+  base/0/1/gpqa/gpqa/148 scored; 675 tokens, 14.7s
+Generating base/0/1/gpqa/gpqa/150
+  base/0/1/gpqa/gpqa/150 scored; 1307 tokens, 28.2s
+Generating base/0/1/gpqa/gpqa/151
+  base/0/1/gpqa/gpqa/149 scored; 2048 tokens, 44.2s
+Generating base/0/1/gpqa/gpqa/152
+  base/0/1/gpqa/gpqa/151 scored; 2048 tokens, 44.3s
+Generating base/0/1/gpqa/gpqa/153
+  base/0/1/gpqa/gpqa/152 scored; 2048 tokens, 44.1s
+Generating base/0/1/gpqa/gpqa/154
+  base/0/1/gpqa/gpqa/154 scored; 924 tokens, 19.8s
+Generating base/0/1/gpqa/gpqa/155
+  base/0/1/gpqa/gpqa/153 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/156
+  base/0/1/gpqa/gpqa/156 scored; 323 tokens, 7.0s
+Generating base/0/1/gpqa/gpqa/157
+  base/0/1/gpqa/gpqa/155 scored; 1180 tokens, 25.5s
+Generating base/0/1/gpqa/gpqa/158
+  base/0/1/gpqa/gpqa/157 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/159
+  base/0/1/gpqa/gpqa/158 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/160
+  base/0/1/gpqa/gpqa/159 scored; 2048 tokens, 44.1s
+Generating base/0/1/gpqa/gpqa/161
+  base/0/1/gpqa/gpqa/160 scored; 2048 tokens, 44.2s
+Generating base/0/1/gpqa/gpqa/162
+  base/0/1/gpqa/gpqa/161 scored; 2048 tokens, 44.2s
+Generating base/0/1/gpqa/gpqa/163
+  base/0/1/gpqa/gpqa/162 scored; 2048 tokens, 44.3s
+Generating base/0/1/gpqa/gpqa/164
+  base/0/1/gpqa/gpqa/163 scored; 2048 tokens, 44.1s
+Generating base/0/1/gpqa/gpqa/165
+  base/0/1/gpqa/gpqa/164 scored; 2048 tokens, 44.1s
+Generating base/0/1/gpqa/gpqa/166
+  base/0/1/gpqa/gpqa/165 scored; 2048 tokens, 44.6s
+Generating base/0/1/gpqa/gpqa/167
+  base/0/1/gpqa/gpqa/166 scored; 2048 tokens, 44.3s
+Generating base/0/1/gpqa/gpqa/168
+  base/0/1/gpqa/gpqa/167 scored; 263 tokens, 5.7s
+Generating base/0/1/gpqa/gpqa/169
+  base/0/1/gpqa/gpqa/168 scored; 1170 tokens, 25.1s
+Generating base/0/1/gpqa/gpqa/170
+  base/0/1/gpqa/gpqa/169 scored; 2048 tokens, 43.8s
+Generating base/0/1/gpqa/gpqa/171
+  base/0/1/gpqa/gpqa/170 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/172
+  base/0/1/gpqa/gpqa/171 scored; 1228 tokens, 26.2s
+Generating base/0/1/gpqa/gpqa/173
+  base/0/1/gpqa/gpqa/172 scored; 2048 tokens, 44.4s
+Generating base/0/1/gpqa/gpqa/174
+  base/0/1/gpqa/gpqa/173 scored; 2048 tokens, 44.6s
+Generating base/0/1/gpqa/gpqa/175
+  base/0/1/gpqa/gpqa/174 scored; 695 tokens, 14.9s
+Generating base/0/1/gpqa/gpqa/176
+  base/0/1/gpqa/gpqa/176 scored; 724 tokens, 15.4s
+Generating base/0/1/gpqa/gpqa/177
+  base/0/1/gpqa/gpqa/175 scored; 2048 tokens, 43.7s
+Generating base/0/1/gpqa/gpqa/178
+  base/0/1/gpqa/gpqa/177 scored; 2048 tokens, 44.1s
+Generating base/0/1/gpqa/gpqa/179
+  base/0/1/gpqa/gpqa/178 scored; 2048 tokens, 44.4s
+Generating base/0/1/gpqa/gpqa/180
+  base/0/1/gpqa/gpqa/179 scored; 2048 tokens, 44.4s
+Generating base/0/1/gpqa/gpqa/181
+  base/0/1/gpqa/gpqa/181 scored; 593 tokens, 12.8s
+Generating base/0/1/gpqa/gpqa/182
+  base/0/1/gpqa/gpqa/180 scored; 2048 tokens, 44.2s
+Generating base/0/1/gpqa/gpqa/183
+  base/0/1/gpqa/gpqa/182 scored; 703 tokens, 15.2s
+Generating base/0/1/gpqa/gpqa/184
+  base/0/1/gpqa/gpqa/184 scored; 821 tokens, 17.7s
+Generating base/0/1/gpqa/gpqa/185
+  base/0/1/gpqa/gpqa/183 scored; 2048 tokens, 44.3s
+Generating base/0/1/gpqa/gpqa/186
+  base/0/1/gpqa/gpqa/186 scored; 1135 tokens, 24.7s
+Generating base/0/1/gpqa/gpqa/187
+  base/0/1/gpqa/gpqa/185 scored; 2048 tokens, 44.5s
+Generating base/0/1/gpqa/gpqa/188
+  base/0/1/gpqa/gpqa/188 scored; 629 tokens, 13.5s
+Generating base/0/1/gpqa/gpqa/189
+  base/0/1/gpqa/gpqa/187 scored; 2048 tokens, 44.1s
+Generating base/0/1/gpqa/gpqa/190
+  base/0/1/gpqa/gpqa/189 scored; 2048 tokens, 44.1s
+Generating base/0/1/gpqa/gpqa/191
+  base/0/1/gpqa/gpqa/190 scored; 2048 tokens, 44.0s
+Generating base/0/1/gpqa/gpqa/192
+  base/0/1/gpqa/gpqa/192 scored; 183 tokens, 4.0s
+Generating base/0/1/gpqa/gpqa/193
+  base/0/1/gpqa/gpqa/191 scored; 1527 tokens, 32.8s
+Generating base/0/1/gpqa/gpqa/194
+  base/0/1/gpqa/gpqa/193 scored; 2048 tokens, 43.9s
+Generating base/0/1/gpqa/gpqa/195
+  base/0/1/gpqa/gpqa/194 scored; 2048 tokens, 44.0s
+Generating base/0/1/gpqa/gpqa/196
+  base/0/1/gpqa/gpqa/195 scored; 1275 tokens, 27.3s
+Generating base/0/1/gpqa/gpqa/197
+  base/0/1/gpqa/gpqa/196 scored; 1377 tokens, 29.5s
+  base/0/1/gpqa/gpqa/197 scored; 2048 tokens, 25.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/0
+  base/0/2/humaneval_synthetic/HumanEval/0 failed; 2048 tokens, 25.0s
+humaneval_synthetic: 1 generation worker(s), pilot peak 4.3 GB, free 11.2 GB
+Generating base/0/2/humaneval_synthetic/HumanEval/1
+  base/0/2/humaneval_synthetic/HumanEval/1 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/2
+  base/0/2/humaneval_synthetic/HumanEval/2 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/3
+  base/0/2/humaneval_synthetic/HumanEval/3 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/4
+  base/0/2/humaneval_synthetic/HumanEval/4 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/5
+  base/0/2/humaneval_synthetic/HumanEval/5 failed; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/6
+  base/0/2/humaneval_synthetic/HumanEval/6 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/7
+  base/0/2/humaneval_synthetic/HumanEval/7 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/8
+  base/0/2/humaneval_synthetic/HumanEval/8 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/9
+  base/0/2/humaneval_synthetic/HumanEval/9 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/10
+  base/0/2/humaneval_synthetic/HumanEval/10 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/11
+  base/0/2/humaneval_synthetic/HumanEval/11 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/12
+  base/0/2/humaneval_synthetic/HumanEval/12 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/13
+  base/0/2/humaneval_synthetic/HumanEval/13 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/14
+  base/0/2/humaneval_synthetic/HumanEval/14 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/15
+  base/0/2/humaneval_synthetic/HumanEval/15 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/16
+  base/0/2/humaneval_synthetic/HumanEval/16 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/17
+  base/0/2/humaneval_synthetic/HumanEval/17 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/18
+  base/0/2/humaneval_synthetic/HumanEval/18 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/19
+  base/0/2/humaneval_synthetic/HumanEval/19 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/20
+  base/0/2/humaneval_synthetic/HumanEval/20 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/21
+  base/0/2/humaneval_synthetic/HumanEval/21 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/22
+  base/0/2/humaneval_synthetic/HumanEval/22 failed; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/23
+  base/0/2/humaneval_synthetic/HumanEval/23 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/24
+  base/0/2/humaneval_synthetic/HumanEval/24 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/25
+  base/0/2/humaneval_synthetic/HumanEval/25 failed; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/26
+  base/0/2/humaneval_synthetic/HumanEval/26 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/27
+  base/0/2/humaneval_synthetic/HumanEval/27 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/28
+  base/0/2/humaneval_synthetic/HumanEval/28 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/29
+  base/0/2/humaneval_synthetic/HumanEval/29 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/30
+  base/0/2/humaneval_synthetic/HumanEval/30 failed; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/31
+  base/0/2/humaneval_synthetic/HumanEval/31 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/32
+  base/0/2/humaneval_synthetic/HumanEval/32 failed; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/33
+  base/0/2/humaneval_synthetic/HumanEval/33 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/34
+  base/0/2/humaneval_synthetic/HumanEval/34 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/35
+  base/0/2/humaneval_synthetic/HumanEval/35 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/36
+  base/0/2/humaneval_synthetic/HumanEval/36 failed; 2048 tokens, 25.1s
+Generating base/0/2/humaneval_synthetic/HumanEval/37
+  base/0/2/humaneval_synthetic/HumanEval/37 parse_error; 2048 tokens, 25.2s
+Generating base/0/2/humaneval_synthetic/HumanEval/38
+  base/0/2/humaneval_synthetic/HumanEval/38 failed; 2048 tokens, 25.2s
+Generating base/0/2/humaneval_synthetic/HumanEval/39
+  base/0/2/humaneval_synthetic/HumanEval/39 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/40
+  base/0/2/humaneval_synthetic/HumanEval/40 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/41
+  base/0/2/humaneval_synthetic/HumanEval/41 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/42
+  base/0/2/humaneval_synthetic/HumanEval/42 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/43
+  base/0/2/humaneval_synthetic/HumanEval/43 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/44
+  base/0/2/humaneval_synthetic/HumanEval/44 failed; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/45
+  base/0/2/humaneval_synthetic/HumanEval/45 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/46
+  base/0/2/humaneval_synthetic/HumanEval/46 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/47
+  base/0/2/humaneval_synthetic/HumanEval/47 failed; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/48
+  base/0/2/humaneval_synthetic/HumanEval/48 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/49
+  base/0/2/humaneval_synthetic/HumanEval/49 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/50
+  base/0/2/humaneval_synthetic/HumanEval/50 failed; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/51
+  base/0/2/humaneval_synthetic/HumanEval/51 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/52
+  base/0/2/humaneval_synthetic/HumanEval/52 failed; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/53
+  base/0/2/humaneval_synthetic/HumanEval/53 failed; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/54
+  base/0/2/humaneval_synthetic/HumanEval/54 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/55
+  base/0/2/humaneval_synthetic/HumanEval/55 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/56
+  base/0/2/humaneval_synthetic/HumanEval/56 failed; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/57
+  base/0/2/humaneval_synthetic/HumanEval/57 parse_error; 2048 tokens, 25.1s
+Generating base/0/2/humaneval_synthetic/HumanEval/58
+  base/0/2/humaneval_synthetic/HumanEval/58 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/59
+  base/0/2/humaneval_synthetic/HumanEval/59 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/60
+  base/0/2/humaneval_synthetic/HumanEval/60 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/61
+  base/0/2/humaneval_synthetic/HumanEval/61 parse_error; 2048 tokens, 25.3s
+Generating base/0/2/humaneval_synthetic/HumanEval/62
+  base/0/2/humaneval_synthetic/HumanEval/62 parse_error; 2048 tokens, 25.3s
+Generating base/0/2/humaneval_synthetic/HumanEval/63
+  base/0/2/humaneval_synthetic/HumanEval/63 parse_error; 2048 tokens, 25.3s
+Generating base/0/2/humaneval_synthetic/HumanEval/64
+  base/0/2/humaneval_synthetic/HumanEval/64 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/65
+  base/0/2/humaneval_synthetic/HumanEval/65 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/66
+  base/0/2/humaneval_synthetic/HumanEval/66 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/67
+  base/0/2/humaneval_synthetic/HumanEval/67 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/68
+  base/0/2/humaneval_synthetic/HumanEval/68 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/69
+  base/0/2/humaneval_synthetic/HumanEval/69 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/70
+  base/0/2/humaneval_synthetic/HumanEval/70 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/71
+  base/0/2/humaneval_synthetic/HumanEval/71 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/72
+  base/0/2/humaneval_synthetic/HumanEval/72 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/73
+  base/0/2/humaneval_synthetic/HumanEval/73 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/74
+  base/0/2/humaneval_synthetic/HumanEval/74 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/75
+  base/0/2/humaneval_synthetic/HumanEval/75 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/76
+  base/0/2/humaneval_synthetic/HumanEval/76 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/77
+  base/0/2/humaneval_synthetic/HumanEval/77 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/78
+  base/0/2/humaneval_synthetic/HumanEval/78 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/79
+  base/0/2/humaneval_synthetic/HumanEval/79 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/80
+  base/0/2/humaneval_synthetic/HumanEval/80 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/81
+  base/0/2/humaneval_synthetic/HumanEval/81 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/82
+  base/0/2/humaneval_synthetic/HumanEval/82 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/83
+  base/0/2/humaneval_synthetic/HumanEval/83 parse_error; 2048 tokens, 25.1s
+Generating base/0/2/humaneval_synthetic/HumanEval/84
+  base/0/2/humaneval_synthetic/HumanEval/84 parse_error; 2048 tokens, 25.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/85
+  base/0/2/humaneval_synthetic/HumanEval/85 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/86
+  base/0/2/humaneval_synthetic/HumanEval/86 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/87
+  base/0/2/humaneval_synthetic/HumanEval/87 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/88
+  base/0/2/humaneval_synthetic/HumanEval/88 failed; 2048 tokens, 25.1s
+Generating base/0/2/humaneval_synthetic/HumanEval/89
+  base/0/2/humaneval_synthetic/HumanEval/89 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/90
+  base/0/2/humaneval_synthetic/HumanEval/90 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/91
+  base/0/2/humaneval_synthetic/HumanEval/91 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/92
+  base/0/2/humaneval_synthetic/HumanEval/92 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/93
+  base/0/2/humaneval_synthetic/HumanEval/93 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/94
+  base/0/2/humaneval_synthetic/HumanEval/94 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/95
+  base/0/2/humaneval_synthetic/HumanEval/95 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/96
+  base/0/2/humaneval_synthetic/HumanEval/96 parse_error; 2048 tokens, 25.2s
+Generating base/0/2/humaneval_synthetic/HumanEval/97
+  base/0/2/humaneval_synthetic/HumanEval/97 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/98
+  base/0/2/humaneval_synthetic/HumanEval/98 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/99
+  base/0/2/humaneval_synthetic/HumanEval/99 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/100
+  base/0/2/humaneval_synthetic/HumanEval/100 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/101
+  base/0/2/humaneval_synthetic/HumanEval/101 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/102
+  base/0/2/humaneval_synthetic/HumanEval/102 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/103
+  base/0/2/humaneval_synthetic/HumanEval/103 parse_error; 2048 tokens, 25.5s
+Generating base/0/2/humaneval_synthetic/HumanEval/104
+  base/0/2/humaneval_synthetic/HumanEval/104 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/105
+  base/0/2/humaneval_synthetic/HumanEval/105 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/106
+  base/0/2/humaneval_synthetic/HumanEval/106 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/107
+  base/0/2/humaneval_synthetic/HumanEval/107 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/108
+  base/0/2/humaneval_synthetic/HumanEval/108 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/109
+  base/0/2/humaneval_synthetic/HumanEval/109 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/110
+  base/0/2/humaneval_synthetic/HumanEval/110 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/111
+  base/0/2/humaneval_synthetic/HumanEval/111 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/112
+  base/0/2/humaneval_synthetic/HumanEval/112 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/113
+  base/0/2/humaneval_synthetic/HumanEval/113 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/114
+  base/0/2/humaneval_synthetic/HumanEval/114 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/115
+  base/0/2/humaneval_synthetic/HumanEval/115 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/116
+  base/0/2/humaneval_synthetic/HumanEval/116 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/117
+  base/0/2/humaneval_synthetic/HumanEval/117 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/118
+  base/0/2/humaneval_synthetic/HumanEval/118 parse_error; 2048 tokens, 25.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/119
+  base/0/2/humaneval_synthetic/HumanEval/119 parse_error; 2048 tokens, 27.2s
+Generating base/0/2/humaneval_synthetic/HumanEval/120
+  base/0/2/humaneval_synthetic/HumanEval/120 parse_error; 2048 tokens, 25.2s
+Generating base/0/2/humaneval_synthetic/HumanEval/121
+  base/0/2/humaneval_synthetic/HumanEval/121 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/122
+  base/0/2/humaneval_synthetic/HumanEval/122 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/123
+  base/0/2/humaneval_synthetic/HumanEval/123 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/124
+  base/0/2/humaneval_synthetic/HumanEval/124 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/125
+  base/0/2/humaneval_synthetic/HumanEval/125 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/126
+  base/0/2/humaneval_synthetic/HumanEval/126 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/127
+  base/0/2/humaneval_synthetic/HumanEval/127 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/128
+  base/0/2/humaneval_synthetic/HumanEval/128 parse_error; 2048 tokens, 25.2s
+Generating base/0/2/humaneval_synthetic/HumanEval/129
+  base/0/2/humaneval_synthetic/HumanEval/129 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/130
+  base/0/2/humaneval_synthetic/HumanEval/130 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/131
+  base/0/2/humaneval_synthetic/HumanEval/131 parse_error; 2048 tokens, 25.1s
+Generating base/0/2/humaneval_synthetic/HumanEval/132
+  base/0/2/humaneval_synthetic/HumanEval/132 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/133
+  base/0/2/humaneval_synthetic/HumanEval/133 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/134
+  base/0/2/humaneval_synthetic/HumanEval/134 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/135
+  base/0/2/humaneval_synthetic/HumanEval/135 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/136
+  base/0/2/humaneval_synthetic/HumanEval/136 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/137
+  base/0/2/humaneval_synthetic/HumanEval/137 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/138
+  base/0/2/humaneval_synthetic/HumanEval/138 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/139
+  base/0/2/humaneval_synthetic/HumanEval/139 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/140
+  base/0/2/humaneval_synthetic/HumanEval/140 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/141
+  base/0/2/humaneval_synthetic/HumanEval/141 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/142
+  base/0/2/humaneval_synthetic/HumanEval/142 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/143
+  base/0/2/humaneval_synthetic/HumanEval/143 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/144
+  base/0/2/humaneval_synthetic/HumanEval/144 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/145
+  base/0/2/humaneval_synthetic/HumanEval/145 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/146
+  base/0/2/humaneval_synthetic/HumanEval/146 parse_error; 2048 tokens, 25.5s
+Generating base/0/2/humaneval_synthetic/HumanEval/147
+  base/0/2/humaneval_synthetic/HumanEval/147 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/148
+  base/0/2/humaneval_synthetic/HumanEval/148 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/149
+  base/0/2/humaneval_synthetic/HumanEval/149 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/150
+  base/0/2/humaneval_synthetic/HumanEval/150 entry_point_missing; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/151
+  base/0/2/humaneval_synthetic/HumanEval/151 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/152
+  base/0/2/humaneval_synthetic/HumanEval/152 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/153
+  base/0/2/humaneval_synthetic/HumanEval/153 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/154
+  base/0/2/humaneval_synthetic/HumanEval/154 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/155
+  base/0/2/humaneval_synthetic/HumanEval/155 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/156
+  base/0/2/humaneval_synthetic/HumanEval/156 parse_error; 2048 tokens, 24.8s
+Generating base/0/2/humaneval_synthetic/HumanEval/157
+  base/0/2/humaneval_synthetic/HumanEval/157 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/158
+  base/0/2/humaneval_synthetic/HumanEval/158 parse_error; 2048 tokens, 25.0s
+Generating base/0/2/humaneval_synthetic/HumanEval/159
+  base/0/2/humaneval_synthetic/HumanEval/159 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/160
+  base/0/2/humaneval_synthetic/HumanEval/160 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/161
+  base/0/2/humaneval_synthetic/HumanEval/161 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/162
+  base/0/2/humaneval_synthetic/HumanEval/162 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_synthetic/HumanEval/163
+  base/0/2/humaneval_synthetic/HumanEval/163 parse_error; 2048 tokens, 24.9s
+Generating base/0/2/humaneval_python/HumanEval/0
+  base/0/2/humaneval_python/HumanEval/0 passed; 1843 tokens, 22.4s
+humaneval_python: 2 generation worker(s), pilot peak 4.1 GB, free 13.5 GB
+Generating base/0/2/humaneval_python/HumanEval/1
+Generating base/0/2/humaneval_python/HumanEval/2
+  base/0/2/humaneval_python/HumanEval/2 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/3
+  base/0/2/humaneval_python/HumanEval/1 parse_error; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/4
+  base/0/2/humaneval_python/HumanEval/4 passed; 1343 tokens, 28.7s
+Generating base/0/2/humaneval_python/HumanEval/5
+  base/0/2/humaneval_python/HumanEval/3 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/6
+  base/0/2/humaneval_python/HumanEval/6 passed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/7
+  base/0/2/humaneval_python/HumanEval/5 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/8
+  base/0/2/humaneval_python/HumanEval/7 passed; 1130 tokens, 24.1s
+Generating base/0/2/humaneval_python/HumanEval/9
+  base/0/2/humaneval_python/HumanEval/8 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/10
+  base/0/2/humaneval_python/HumanEval/9 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/11
+  base/0/2/humaneval_python/HumanEval/10 parse_error; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/12
+  base/0/2/humaneval_python/HumanEval/11 passed; 2048 tokens, 44.1s
+Generating base/0/2/humaneval_python/HumanEval/13
+  base/0/2/humaneval_python/HumanEval/12 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/14
+  base/0/2/humaneval_python/HumanEval/13 passed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/15
+  base/0/2/humaneval_python/HumanEval/14 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/16
+  base/0/2/humaneval_python/HumanEval/15 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/17
+  base/0/2/humaneval_python/HumanEval/16 passed; 467 tokens, 10.0s
+Generating base/0/2/humaneval_python/HumanEval/18
+  base/0/2/humaneval_python/HumanEval/17 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/19
+  base/0/2/humaneval_python/HumanEval/18 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/20
+  base/0/2/humaneval_python/HumanEval/19 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/21
+  base/0/2/humaneval_python/HumanEval/20 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/22
+  base/0/2/humaneval_python/HumanEval/21 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/23
+  base/0/2/humaneval_python/HumanEval/22 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/24
+  base/0/2/humaneval_python/HumanEval/23 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/25
+  base/0/2/humaneval_python/HumanEval/24 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/26
+  base/0/2/humaneval_python/HumanEval/25 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/27
+  base/0/2/humaneval_python/HumanEval/26 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/28
+  base/0/2/humaneval_python/HumanEval/27 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/29
+  base/0/2/humaneval_python/HumanEval/28 passed; 2025 tokens, 43.3s
+Generating base/0/2/humaneval_python/HumanEval/30
+  base/0/2/humaneval_python/HumanEval/29 passed; 799 tokens, 17.0s
+Generating base/0/2/humaneval_python/HumanEval/31
+  base/0/2/humaneval_python/HumanEval/30 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/32
+  base/0/2/humaneval_python/HumanEval/31 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/33
+  base/0/2/humaneval_python/HumanEval/32 parse_error; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/34
+  base/0/2/humaneval_python/HumanEval/33 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/35
+  base/0/2/humaneval_python/HumanEval/34 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/36
+  base/0/2/humaneval_python/HumanEval/35 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/37
+  base/0/2/humaneval_python/HumanEval/36 failed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/38
+  base/0/2/humaneval_python/HumanEval/37 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/39
+  base/0/2/humaneval_python/HumanEval/39 failed; 966 tokens, 20.7s
+Generating base/0/2/humaneval_python/HumanEval/40
+  base/0/2/humaneval_python/HumanEval/38 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/41
+  base/0/2/humaneval_python/HumanEval/40 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/42
+  base/0/2/humaneval_python/HumanEval/41 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/43
+  base/0/2/humaneval_python/HumanEval/42 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/44
+  base/0/2/humaneval_python/HumanEval/44 passed; 894 tokens, 19.2s
+Generating base/0/2/humaneval_python/HumanEval/45
+  base/0/2/humaneval_python/HumanEval/43 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/46
+  base/0/2/humaneval_python/HumanEval/45 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/47
+  base/0/2/humaneval_python/HumanEval/46 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/48
+  base/0/2/humaneval_python/HumanEval/47 failed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/49
+  base/0/2/humaneval_python/HumanEval/48 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/50
+  base/0/2/humaneval_python/HumanEval/49 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/51
+  base/0/2/humaneval_python/HumanEval/50 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/52
+  base/0/2/humaneval_python/HumanEval/51 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/53
+  base/0/2/humaneval_python/HumanEval/52 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/54
+  base/0/2/humaneval_python/HumanEval/53 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/55
+  base/0/2/humaneval_python/HumanEval/54 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/56
+  base/0/2/humaneval_python/HumanEval/55 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/57
+  base/0/2/humaneval_python/HumanEval/56 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/58
+  base/0/2/humaneval_python/HumanEval/57 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/59
+  base/0/2/humaneval_python/HumanEval/58 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/60
+  base/0/2/humaneval_python/HumanEval/59 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/61
+  base/0/2/humaneval_python/HumanEval/60 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/62
+  base/0/2/humaneval_python/HumanEval/61 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/63
+  base/0/2/humaneval_python/HumanEval/62 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/64
+  base/0/2/humaneval_python/HumanEval/63 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/65
+  base/0/2/humaneval_python/HumanEval/64 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/66
+  base/0/2/humaneval_python/HumanEval/66 passed; 1955 tokens, 41.9s
+Generating base/0/2/humaneval_python/HumanEval/67
+  base/0/2/humaneval_python/HumanEval/65 parse_error; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/68
+  base/0/2/humaneval_python/HumanEval/67 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/69
+  base/0/2/humaneval_python/HumanEval/68 passed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/70
+  base/0/2/humaneval_python/HumanEval/69 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/71
+  base/0/2/humaneval_python/HumanEval/70 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/72
+  base/0/2/humaneval_python/HumanEval/71 passed; 1653 tokens, 35.4s
+Generating base/0/2/humaneval_python/HumanEval/73
+  base/0/2/humaneval_python/HumanEval/72 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/74
+  base/0/2/humaneval_python/HumanEval/73 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/75
+  base/0/2/humaneval_python/HumanEval/74 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/76
+  base/0/2/humaneval_python/HumanEval/75 parse_error; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/77
+  base/0/2/humaneval_python/HumanEval/76 passed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/78
+  base/0/2/humaneval_python/HumanEval/77 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/79
+  base/0/2/humaneval_python/HumanEval/78 passed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/80
+  base/0/2/humaneval_python/HumanEval/79 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/81
+  base/0/2/humaneval_python/HumanEval/80 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/82
+  base/0/2/humaneval_python/HumanEval/82 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/83
+  base/0/2/humaneval_python/HumanEval/81 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/84
+  base/0/2/humaneval_python/HumanEval/83 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/85
+  base/0/2/humaneval_python/HumanEval/84 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/86
+  base/0/2/humaneval_python/HumanEval/85 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/87
+  base/0/2/humaneval_python/HumanEval/86 parse_error; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/88
+  base/0/2/humaneval_python/HumanEval/87 passed; 2048 tokens, 44.2s
+Generating base/0/2/humaneval_python/HumanEval/89
+  base/0/2/humaneval_python/HumanEval/88 passed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/90
+  base/0/2/humaneval_python/HumanEval/89 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/91
+  base/0/2/humaneval_python/HumanEval/90 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/92
+  base/0/2/humaneval_python/HumanEval/91 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/93
+  base/0/2/humaneval_python/HumanEval/92 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/94
+  base/0/2/humaneval_python/HumanEval/93 failed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/95
+  base/0/2/humaneval_python/HumanEval/94 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/96
+  base/0/2/humaneval_python/HumanEval/95 passed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/97
+  base/0/2/humaneval_python/HumanEval/96 passed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/98
+  base/0/2/humaneval_python/HumanEval/97 passed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/99
+  base/0/2/humaneval_python/HumanEval/98 passed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/100
+  base/0/2/humaneval_python/HumanEval/99 parse_error; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/101
+  base/0/2/humaneval_python/HumanEval/100 failed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/102
+  base/0/2/humaneval_python/HumanEval/101 passed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/103
+  base/0/2/humaneval_python/HumanEval/102 passed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/104
+  base/0/2/humaneval_python/HumanEval/103 failed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/105
+  base/0/2/humaneval_python/HumanEval/104 passed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/106
+  base/0/2/humaneval_python/HumanEval/105 passed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/107
+  base/0/2/humaneval_python/HumanEval/106 passed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/108
+  base/0/2/humaneval_python/HumanEval/107 passed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/109
+  base/0/2/humaneval_python/HumanEval/108 failed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/110
+  base/0/2/humaneval_python/HumanEval/109 parse_error; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/111
+  base/0/2/humaneval_python/HumanEval/110 failed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/112
+  base/0/2/humaneval_python/HumanEval/111 passed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/113
+  base/0/2/humaneval_python/HumanEval/112 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/114
+  base/0/2/humaneval_python/HumanEval/113 passed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/115
+  base/0/2/humaneval_python/HumanEval/114 failed; 2048 tokens, 43.5s
+Generating base/0/2/humaneval_python/HumanEval/116
+  base/0/2/humaneval_python/HumanEval/115 failed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/117
+  base/0/2/humaneval_python/HumanEval/116 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/118
+  base/0/2/humaneval_python/HumanEval/117 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/119
+  base/0/2/humaneval_python/HumanEval/118 parse_error; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/120
+  base/0/2/humaneval_python/HumanEval/119 failed; 816 tokens, 17.4s
+Generating base/0/2/humaneval_python/HumanEval/121
+  base/0/2/humaneval_python/HumanEval/120 failed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/122
+  base/0/2/humaneval_python/HumanEval/121 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/123
+  base/0/2/humaneval_python/HumanEval/122 passed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/124
+  base/0/2/humaneval_python/HumanEval/123 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/125
+  base/0/2/humaneval_python/HumanEval/125 failed; 2048 tokens, 44.2s
+Generating base/0/2/humaneval_python/HumanEval/126
+  base/0/2/humaneval_python/HumanEval/124 parse_error; 2048 tokens, 44.1s
+Generating base/0/2/humaneval_python/HumanEval/127
+  base/0/2/humaneval_python/HumanEval/127 passed; 1005 tokens, 21.6s
+Generating base/0/2/humaneval_python/HumanEval/128
+  base/0/2/humaneval_python/HumanEval/126 failed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/129
+  base/0/2/humaneval_python/HumanEval/128 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/130
+  base/0/2/humaneval_python/HumanEval/129 parse_error; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/131
+  base/0/2/humaneval_python/HumanEval/130 parse_error; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/132
+  base/0/2/humaneval_python/HumanEval/131 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/133
+  base/0/2/humaneval_python/HumanEval/132 parse_error; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/134
+  base/0/2/humaneval_python/HumanEval/133 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/135
+  base/0/2/humaneval_python/HumanEval/134 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/136
+  base/0/2/humaneval_python/HumanEval/135 parse_error; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/137
+  base/0/2/humaneval_python/HumanEval/136 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/138
+  base/0/2/humaneval_python/HumanEval/137 parse_error; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/139
+  base/0/2/humaneval_python/HumanEval/138 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/140
+  base/0/2/humaneval_python/HumanEval/139 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/141
+  base/0/2/humaneval_python/HumanEval/140 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/142
+  base/0/2/humaneval_python/HumanEval/141 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/143
+  base/0/2/humaneval_python/HumanEval/142 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/144
+  base/0/2/humaneval_python/HumanEval/143 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/145
+  base/0/2/humaneval_python/HumanEval/144 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/146
+  base/0/2/humaneval_python/HumanEval/145 parse_error; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/147
+  base/0/2/humaneval_python/HumanEval/146 failed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/148
+  base/0/2/humaneval_python/HumanEval/147 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/149
+  base/0/2/humaneval_python/HumanEval/148 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/150
+  base/0/2/humaneval_python/HumanEval/149 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/151
+  base/0/2/humaneval_python/HumanEval/150 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/152
+  base/0/2/humaneval_python/HumanEval/151 passed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/153
+  base/0/2/humaneval_python/HumanEval/152 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/154
+  base/0/2/humaneval_python/HumanEval/153 passed; 2048 tokens, 44.1s
+Generating base/0/2/humaneval_python/HumanEval/155
+  base/0/2/humaneval_python/HumanEval/154 passed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/156
+  base/0/2/humaneval_python/HumanEval/155 passed; 2048 tokens, 43.6s
+Generating base/0/2/humaneval_python/HumanEval/157
+  base/0/2/humaneval_python/HumanEval/156 failed; 2048 tokens, 43.8s
+Generating base/0/2/humaneval_python/HumanEval/158
+  base/0/2/humaneval_python/HumanEval/157 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/159
+  base/0/2/humaneval_python/HumanEval/158 passed; 2048 tokens, 43.9s
+Generating base/0/2/humaneval_python/HumanEval/160
+  base/0/2/humaneval_python/HumanEval/159 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/161
+  base/0/2/humaneval_python/HumanEval/160 failed; 2048 tokens, 44.0s
+Generating base/0/2/humaneval_python/HumanEval/162
+  base/0/2/humaneval_python/HumanEval/161 passed; 2048 tokens, 43.7s
+Generating base/0/2/humaneval_python/HumanEval/163
+  base/0/2/humaneval_python/HumanEval/162 passed; 2048 tokens, 43.8s
+  base/0/2/humaneval_python/HumanEval/163 parse_error; 2048 tokens, 25.1s
+Generating base/0/2/aime2024/aime2024/60
+  base/0/2/aime2024/aime2024/60 scored; 2048 tokens, 24.8s
+aime2024: 2 generation worker(s), pilot peak 4.3 GB, free 13.2 GB
+Generating base/0/2/aime2024/aime2024/61
+Generating base/0/2/aime2024/aime2024/62
+  base/0/2/aime2024/aime2024/61 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/63
+  base/0/2/aime2024/aime2024/62 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/64
+  base/0/2/aime2024/aime2024/63 scored; 2048 tokens, 43.7s
+Generating base/0/2/aime2024/aime2024/65
+  base/0/2/aime2024/aime2024/64 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2024/aime2024/66
+  base/0/2/aime2024/aime2024/65 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/67
+  base/0/2/aime2024/aime2024/66 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/68
+  base/0/2/aime2024/aime2024/68 scored; 1714 tokens, 36.6s
+Generating base/0/2/aime2024/aime2024/69
+  base/0/2/aime2024/aime2024/67 scored; 2048 tokens, 43.7s
+Generating base/0/2/aime2024/aime2024/70
+  base/0/2/aime2024/aime2024/69 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/71
+  base/0/2/aime2024/aime2024/70 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/72
+  base/0/2/aime2024/aime2024/71 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2024/aime2024/73
+  base/0/2/aime2024/aime2024/72 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/74
+  base/0/2/aime2024/aime2024/73 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/75
+  base/0/2/aime2024/aime2024/74 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/76
+  base/0/2/aime2024/aime2024/75 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/77
+  base/0/2/aime2024/aime2024/76 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/78
+  base/0/2/aime2024/aime2024/77 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2024/aime2024/79
+  base/0/2/aime2024/aime2024/78 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/80
+  base/0/2/aime2024/aime2024/79 scored; 1947 tokens, 41.6s
+Generating base/0/2/aime2024/aime2024/81
+  base/0/2/aime2024/aime2024/80 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2024/aime2024/82
+  base/0/2/aime2024/aime2024/81 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/83
+  base/0/2/aime2024/aime2024/82 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/84
+  base/0/2/aime2024/aime2024/83 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/85
+  base/0/2/aime2024/aime2024/84 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2024/aime2024/86
+  base/0/2/aime2024/aime2024/85 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2024/aime2024/87
+  base/0/2/aime2024/aime2024/86 answer_missing; 2048 tokens, 43.8s
+Generating base/0/2/aime2024/aime2024/88
+  base/0/2/aime2024/aime2024/87 answer_missing; 2048 tokens, 43.8s
+Generating base/0/2/aime2024/aime2024/89
+  base/0/2/aime2024/aime2024/88 scored; 2048 tokens, 43.9s
+  base/0/2/aime2024/aime2024/89 scored; 2048 tokens, 29.8s
+Generating base/0/2/aime2025/aime2025/0
+  base/0/2/aime2025/aime2025/0 scored; 875 tokens, 10.8s
+aime2025: 2 generation worker(s), pilot peak 3.9 GB, free 13.2 GB
+Generating base/0/2/aime2025/aime2025/1
+Generating base/0/2/aime2025/aime2025/2
+  base/0/2/aime2025/aime2025/2 scored; 1264 tokens, 27.2s
+Generating base/0/2/aime2025/aime2025/3
+  base/0/2/aime2025/aime2025/1 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/4
+  base/0/2/aime2025/aime2025/3 scored; 1700 tokens, 36.4s
+Generating base/0/2/aime2025/aime2025/5
+  base/0/2/aime2025/aime2025/4 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2025/aime2025/6
+  base/0/2/aime2025/aime2025/5 scored; 1432 tokens, 30.8s
+Generating base/0/2/aime2025/aime2025/7
+  base/0/2/aime2025/aime2025/6 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2025/aime2025/8
+  base/0/2/aime2025/aime2025/7 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/9
+  base/0/2/aime2025/aime2025/8 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/10
+  base/0/2/aime2025/aime2025/9 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/11
+  base/0/2/aime2025/aime2025/10 scored; 2048 tokens, 44.0s
+Generating base/0/2/aime2025/aime2025/12
+  base/0/2/aime2025/aime2025/11 scored; 2048 tokens, 44.0s
+Generating base/0/2/aime2025/aime2025/13
+  base/0/2/aime2025/aime2025/12 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/14
+  base/0/2/aime2025/aime2025/13 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/15
+  base/0/2/aime2025/aime2025/14 scored; 2048 tokens, 43.8s
+Generating base/0/2/aime2025/aime2025/16
+  base/0/2/aime2025/aime2025/15 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/17
+  base/0/2/aime2025/aime2025/17 scored; 1525 tokens, 32.7s
+Generating base/0/2/aime2025/aime2025/18
+  base/0/2/aime2025/aime2025/16 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/19
+  base/0/2/aime2025/aime2025/18 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/20
+  base/0/2/aime2025/aime2025/19 scored; 2048 tokens, 44.2s
+Generating base/0/2/aime2025/aime2025/21
+  base/0/2/aime2025/aime2025/20 scored; 2048 tokens, 44.2s
+Generating base/0/2/aime2025/aime2025/22
+  base/0/2/aime2025/aime2025/21 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/23
+  base/0/2/aime2025/aime2025/22 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/24
+  base/0/2/aime2025/aime2025/23 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/25
+  base/0/2/aime2025/aime2025/24 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/26
+  base/0/2/aime2025/aime2025/25 answer_missing; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/27
+  base/0/2/aime2025/aime2025/26 answer_missing; 2048 tokens, 44.0s
+Generating base/0/2/aime2025/aime2025/28
+  base/0/2/aime2025/aime2025/27 scored; 2048 tokens, 43.9s
+Generating base/0/2/aime2025/aime2025/29
+  base/0/2/aime2025/aime2025/28 scored; 2048 tokens, 43.8s
+  base/0/2/aime2025/aime2025/29 scored; 2048 tokens, 41.4s
+Generating base/0/2/gpqa/gpqa/0
+  base/0/2/gpqa/gpqa/0 scored; 949 tokens, 11.6s
+gpqa: 2 generation worker(s), pilot peak 4.0 GB, free 14.6 GB
+Generating base/0/2/gpqa/gpqa/1
+Generating base/0/2/gpqa/gpqa/2
+  base/0/2/gpqa/gpqa/1 scored; 933 tokens, 20.1s
+Generating base/0/2/gpqa/gpqa/3
+  base/0/2/gpqa/gpqa/2 scored; 1310 tokens, 28.1s
+Generating base/0/2/gpqa/gpqa/4
+  base/0/2/gpqa/gpqa/3 scored; 396 tokens, 8.5s
+Generating base/0/2/gpqa/gpqa/5
+  base/0/2/gpqa/gpqa/4 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/6
+  base/0/2/gpqa/gpqa/5 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/7
+  base/0/2/gpqa/gpqa/6 scored; 1200 tokens, 25.8s
+Generating base/0/2/gpqa/gpqa/8
+  base/0/2/gpqa/gpqa/8 scored; 774 tokens, 16.7s
+Generating base/0/2/gpqa/gpqa/9
+  base/0/2/gpqa/gpqa/7 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/10
+  base/0/2/gpqa/gpqa/9 scored; 621 tokens, 13.5s
+Generating base/0/2/gpqa/gpqa/11
+  base/0/2/gpqa/gpqa/10 scored; 789 tokens, 17.0s
+Generating base/0/2/gpqa/gpqa/12
+  base/0/2/gpqa/gpqa/11 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/13
+  base/0/2/gpqa/gpqa/12 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/14
+  base/0/2/gpqa/gpqa/13 scored; 499 tokens, 10.8s
+Generating base/0/2/gpqa/gpqa/15
+  base/0/2/gpqa/gpqa/15 scored; 1053 tokens, 22.5s
+Generating base/0/2/gpqa/gpqa/16
+  base/0/2/gpqa/gpqa/14 scored; 1276 tokens, 27.3s
+Generating base/0/2/gpqa/gpqa/17
+  base/0/2/gpqa/gpqa/16 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/18
+  base/0/2/gpqa/gpqa/17 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/19
+  base/0/2/gpqa/gpqa/19 scored; 1517 tokens, 32.4s
+Generating base/0/2/gpqa/gpqa/20
+  base/0/2/gpqa/gpqa/18 scored; 2048 tokens, 44.1s
+Generating base/0/2/gpqa/gpqa/21
+  base/0/2/gpqa/gpqa/21 scored; 472 tokens, 10.2s
+Generating base/0/2/gpqa/gpqa/22
+  base/0/2/gpqa/gpqa/20 scored; 1570 tokens, 33.7s
+Generating base/0/2/gpqa/gpqa/23
+  base/0/2/gpqa/gpqa/22 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/24
+  base/0/2/gpqa/gpqa/23 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/25
+  base/0/2/gpqa/gpqa/24 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/26
+  base/0/2/gpqa/gpqa/25 scored; 2048 tokens, 44.1s
+Generating base/0/2/gpqa/gpqa/27
+  base/0/2/gpqa/gpqa/26 scored; 787 tokens, 17.1s
+Generating base/0/2/gpqa/gpqa/28
+  base/0/2/gpqa/gpqa/27 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/29
+  base/0/2/gpqa/gpqa/28 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/30
+  base/0/2/gpqa/gpqa/30 scored; 1287 tokens, 27.5s
+Generating base/0/2/gpqa/gpqa/31
+  base/0/2/gpqa/gpqa/29 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/32
+  base/0/2/gpqa/gpqa/31 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/33
+  base/0/2/gpqa/gpqa/32 scored; 2028 tokens, 43.3s
+Generating base/0/2/gpqa/gpqa/34
+  base/0/2/gpqa/gpqa/33 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/35
+  base/0/2/gpqa/gpqa/34 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/36
+  base/0/2/gpqa/gpqa/35 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/37
+  base/0/2/gpqa/gpqa/36 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/38
+  base/0/2/gpqa/gpqa/38 scored; 817 tokens, 17.4s
+Generating base/0/2/gpqa/gpqa/39
+  base/0/2/gpqa/gpqa/39 scored; 220 tokens, 4.7s
+Generating base/0/2/gpqa/gpqa/40
+  base/0/2/gpqa/gpqa/37 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/41
+  base/0/2/gpqa/gpqa/40 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/42
+  base/0/2/gpqa/gpqa/41 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/43
+  base/0/2/gpqa/gpqa/43 scored; 523 tokens, 11.4s
+Generating base/0/2/gpqa/gpqa/44
+  base/0/2/gpqa/gpqa/42 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/45
+  base/0/2/gpqa/gpqa/44 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/46
+  base/0/2/gpqa/gpqa/45 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/47
+  base/0/2/gpqa/gpqa/46 scored; 1038 tokens, 22.3s
+Generating base/0/2/gpqa/gpqa/48
+  base/0/2/gpqa/gpqa/47 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/49
+  base/0/2/gpqa/gpqa/48 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/50
+  base/0/2/gpqa/gpqa/49 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/51
+  base/0/2/gpqa/gpqa/50 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/52
+  base/0/2/gpqa/gpqa/51 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/53
+  base/0/2/gpqa/gpqa/52 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/54
+  base/0/2/gpqa/gpqa/53 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/55
+  base/0/2/gpqa/gpqa/54 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/56
+  base/0/2/gpqa/gpqa/55 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/57
+  base/0/2/gpqa/gpqa/56 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/58
+  base/0/2/gpqa/gpqa/57 scored; 375 tokens, 8.2s
+Generating base/0/2/gpqa/gpqa/59
+  base/0/2/gpqa/gpqa/58 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/60
+  base/0/2/gpqa/gpqa/59 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/61
+  base/0/2/gpqa/gpqa/60 scored; 800 tokens, 17.2s
+Generating base/0/2/gpqa/gpqa/62
+  base/0/2/gpqa/gpqa/62 scored; 1281 tokens, 27.4s
+Generating base/0/2/gpqa/gpqa/63
+  base/0/2/gpqa/gpqa/61 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/64
+  base/0/2/gpqa/gpqa/63 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/65
+  base/0/2/gpqa/gpqa/64 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/66
+  base/0/2/gpqa/gpqa/65 scored; 501 tokens, 10.9s
+Generating base/0/2/gpqa/gpqa/67
+  base/0/2/gpqa/gpqa/66 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/68
+  base/0/2/gpqa/gpqa/67 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/69
+  base/0/2/gpqa/gpqa/68 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/70
+  base/0/2/gpqa/gpqa/69 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/71
+  base/0/2/gpqa/gpqa/70 scored; 574 tokens, 12.4s
+Generating base/0/2/gpqa/gpqa/72
+  base/0/2/gpqa/gpqa/72 scored; 1111 tokens, 23.7s
+Generating base/0/2/gpqa/gpqa/73
+  base/0/2/gpqa/gpqa/71 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/74
+  base/0/2/gpqa/gpqa/73 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/75
+  base/0/2/gpqa/gpqa/74 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/76
+  base/0/2/gpqa/gpqa/75 scored; 1263 tokens, 27.1s
+Generating base/0/2/gpqa/gpqa/77
+  base/0/2/gpqa/gpqa/76 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/78
+  base/0/2/gpqa/gpqa/77 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/79
+  base/0/2/gpqa/gpqa/78 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/80
+  base/0/2/gpqa/gpqa/79 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/81
+  base/0/2/gpqa/gpqa/80 scored; 2048 tokens, 44.3s
+Generating base/0/2/gpqa/gpqa/82
+  base/0/2/gpqa/gpqa/81 scored; 2048 tokens, 44.6s
+Generating base/0/2/gpqa/gpqa/83
+  base/0/2/gpqa/gpqa/83 scored; 486 tokens, 10.4s
+Generating base/0/2/gpqa/gpqa/84
+  base/0/2/gpqa/gpqa/82 scored; 1481 tokens, 31.9s
+Generating base/0/2/gpqa/gpqa/85
+  base/0/2/gpqa/gpqa/84 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/86
+  base/0/2/gpqa/gpqa/85 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/87
+  base/0/2/gpqa/gpqa/87 scored; 453 tokens, 9.7s
+Generating base/0/2/gpqa/gpqa/88
+  base/0/2/gpqa/gpqa/86 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/89
+  base/0/2/gpqa/gpqa/88 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/90
+  base/0/2/gpqa/gpqa/89 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/91
+  base/0/2/gpqa/gpqa/90 scored; 2048 tokens, 44.1s
+Generating base/0/2/gpqa/gpqa/92
+  base/0/2/gpqa/gpqa/92 scored; 1249 tokens, 26.8s
+Generating base/0/2/gpqa/gpqa/93
+  base/0/2/gpqa/gpqa/91 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/94
+  base/0/2/gpqa/gpqa/93 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/95
+  base/0/2/gpqa/gpqa/94 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/96
+  base/0/2/gpqa/gpqa/96 scored; 865 tokens, 18.5s
+Generating base/0/2/gpqa/gpqa/97
+  base/0/2/gpqa/gpqa/95 scored; 1660 tokens, 35.5s
+Generating base/0/2/gpqa/gpqa/98
+  base/0/2/gpqa/gpqa/97 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/99
+  base/0/2/gpqa/gpqa/98 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/100
+  base/0/2/gpqa/gpqa/99 scored; 1589 tokens, 34.1s
+Generating base/0/2/gpqa/gpqa/101
+  base/0/2/gpqa/gpqa/100 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/102
+  base/0/2/gpqa/gpqa/101 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/103
+  base/0/2/gpqa/gpqa/103 scored; 848 tokens, 18.1s
+Generating base/0/2/gpqa/gpqa/104
+  base/0/2/gpqa/gpqa/102 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/105
+  base/0/2/gpqa/gpqa/104 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/106
+  base/0/2/gpqa/gpqa/106 scored; 391 tokens, 8.5s
+Generating base/0/2/gpqa/gpqa/107
+  base/0/2/gpqa/gpqa/105 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/108
+  base/0/2/gpqa/gpqa/107 scored; 1488 tokens, 31.9s
+Generating base/0/2/gpqa/gpqa/109
+  base/0/2/gpqa/gpqa/108 scored; 1723 tokens, 37.0s
+Generating base/0/2/gpqa/gpqa/110
+  base/0/2/gpqa/gpqa/109 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/111
+  base/0/2/gpqa/gpqa/110 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/112
+  base/0/2/gpqa/gpqa/111 scored; 1705 tokens, 36.7s
+Generating base/0/2/gpqa/gpqa/113
+  base/0/2/gpqa/gpqa/112 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/114
+  base/0/2/gpqa/gpqa/113 scored; 1069 tokens, 22.9s
+Generating base/0/2/gpqa/gpqa/115
+  base/0/2/gpqa/gpqa/114 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/116
+  base/0/2/gpqa/gpqa/115 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/117
+  base/0/2/gpqa/gpqa/117 scored; 890 tokens, 18.9s
+Generating base/0/2/gpqa/gpqa/118
+  base/0/2/gpqa/gpqa/116 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/119
+  base/0/2/gpqa/gpqa/119 scored; 500 tokens, 10.7s
+Generating base/0/2/gpqa/gpqa/120
+  base/0/2/gpqa/gpqa/118 scored; 1794 tokens, 38.2s
+Generating base/0/2/gpqa/gpqa/121
+  base/0/2/gpqa/gpqa/120 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/122
+  base/0/2/gpqa/gpqa/121 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/123
+  base/0/2/gpqa/gpqa/122 scored; 1003 tokens, 21.5s
+Generating base/0/2/gpqa/gpqa/124
+  base/0/2/gpqa/gpqa/123 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/125
+  base/0/2/gpqa/gpqa/124 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/126
+  base/0/2/gpqa/gpqa/125 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/127
+  base/0/2/gpqa/gpqa/126 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/128
+  base/0/2/gpqa/gpqa/127 scored; 2048 tokens, 44.9s
+Generating base/0/2/gpqa/gpqa/129
+  base/0/2/gpqa/gpqa/128 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/130
+  base/0/2/gpqa/gpqa/129 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/131
+  base/0/2/gpqa/gpqa/130 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/132
+  base/0/2/gpqa/gpqa/131 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/133
+  base/0/2/gpqa/gpqa/132 scored; 1795 tokens, 38.4s
+Generating base/0/2/gpqa/gpqa/134
+  base/0/2/gpqa/gpqa/134 scored; 1224 tokens, 26.1s
+Generating base/0/2/gpqa/gpqa/135
+  base/0/2/gpqa/gpqa/133 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/136
+  base/0/2/gpqa/gpqa/135 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/137
+  base/0/2/gpqa/gpqa/137 scored; 432 tokens, 9.3s
+Generating base/0/2/gpqa/gpqa/138
+  base/0/2/gpqa/gpqa/136 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/139
+  base/0/2/gpqa/gpqa/138 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/140
+  base/0/2/gpqa/gpqa/139 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/141
+  base/0/2/gpqa/gpqa/141 scored; 1191 tokens, 25.4s
+Generating base/0/2/gpqa/gpqa/142
+  base/0/2/gpqa/gpqa/140 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/143
+  base/0/2/gpqa/gpqa/142 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/144
+  base/0/2/gpqa/gpqa/143 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/145
+  base/0/2/gpqa/gpqa/145 scored; 1144 tokens, 24.5s
+Generating base/0/2/gpqa/gpqa/146
+  base/0/2/gpqa/gpqa/144 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/147
+  base/0/2/gpqa/gpqa/146 scored; 1226 tokens, 26.3s
+Generating base/0/2/gpqa/gpqa/148
+  base/0/2/gpqa/gpqa/148 scored; 476 tokens, 10.2s
+Generating base/0/2/gpqa/gpqa/149
+  base/0/2/gpqa/gpqa/147 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/150
+  base/0/2/gpqa/gpqa/149 scored; 2048 tokens, 43.9s
+Generating base/0/2/gpqa/gpqa/151
+  base/0/2/gpqa/gpqa/150 scored; 1382 tokens, 29.6s
+Generating base/0/2/gpqa/gpqa/152
+  base/0/2/gpqa/gpqa/151 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/153
+  base/0/2/gpqa/gpqa/152 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/154
+  base/0/2/gpqa/gpqa/154 scored; 1212 tokens, 26.1s
+Generating base/0/2/gpqa/gpqa/155
+  base/0/2/gpqa/gpqa/153 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/156
+  base/0/2/gpqa/gpqa/156 scored; 708 tokens, 15.2s
+Generating base/0/2/gpqa/gpqa/157
+  base/0/2/gpqa/gpqa/155 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/158
+  base/0/2/gpqa/gpqa/157 scored; 2048 tokens, 44.1s
+Generating base/0/2/gpqa/gpqa/159
+  base/0/2/gpqa/gpqa/158 scored; 2048 tokens, 44.0s
+Generating base/0/2/gpqa/gpqa/160
+  base/0/2/gpqa/gpqa/160 scored; 303 tokens, 6.6s
+Generating base/0/2/gpqa/gpqa/161
+  base/0/2/gpqa/gpqa/159 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/162
+  base/0/2/gpqa/gpqa/161 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/163
+  base/0/2/gpqa/gpqa/163 scored; 737 tokens, 15.7s
+Generating base/0/2/gpqa/gpqa/164
+  base/0/2/gpqa/gpqa/162 scored; 2048 tokens, 43.8s
+Generating base/0/2/gpqa/gpqa/165
+  base/0/2/gpqa/gpqa/164 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/166
+  base/0/2/gpqa/gpqa/165 scored; 1600 tokens, 34.4s
+Generating base/0/2/gpqa/gpqa/167
+  base/0/2/gpqa/gpqa/167 scored; 369 tokens, 7.9s
+Generating base/0/2/gpqa/gpqa/168
+  base/0/2/gpqa/gpqa/166 scored; 2048 tokens, 43.5s
+Generating base/0/2/gpqa/gpqa/169
+  base/0/2/gpqa/gpqa/168 scored; 2048 tokens, 43.5s
+Generating base/0/2/gpqa/gpqa/170
+  base/0/2/gpqa/gpqa/169 scored; 1234 tokens, 26.3s
+Generating base/0/2/gpqa/gpqa/171
+  base/0/2/gpqa/gpqa/170 scored; 2048 tokens, 43.4s
+Generating base/0/2/gpqa/gpqa/172
+  base/0/2/gpqa/gpqa/171 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/173
+  base/0/2/gpqa/gpqa/172 scored; 1754 tokens, 37.4s
+Generating base/0/2/gpqa/gpqa/174
+  base/0/2/gpqa/gpqa/173 scored; 2048 tokens, 43.5s
+Generating base/0/2/gpqa/gpqa/175
+  base/0/2/gpqa/gpqa/174 scored; 1326 tokens, 28.3s
+Generating base/0/2/gpqa/gpqa/176
+  base/0/2/gpqa/gpqa/176 scored; 919 tokens, 19.5s
+Generating base/0/2/gpqa/gpqa/177
+  base/0/2/gpqa/gpqa/175 scored; 2048 tokens, 43.5s
+Generating base/0/2/gpqa/gpqa/178
+  base/0/2/gpqa/gpqa/177 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/179
+  base/0/2/gpqa/gpqa/178 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/180
+  base/0/2/gpqa/gpqa/179 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/181
+  base/0/2/gpqa/gpqa/181 scored; 523 tokens, 11.2s
+Generating base/0/2/gpqa/gpqa/182
+  base/0/2/gpqa/gpqa/180 scored; 2048 tokens, 43.5s
+Generating base/0/2/gpqa/gpqa/183
+  base/0/2/gpqa/gpqa/182 scored; 1692 tokens, 35.9s
+Generating base/0/2/gpqa/gpqa/184
+  base/0/2/gpqa/gpqa/184 scored; 810 tokens, 17.2s
+Generating base/0/2/gpqa/gpqa/185
+  base/0/2/gpqa/gpqa/183 scored; 2048 tokens, 43.5s
+Generating base/0/2/gpqa/gpqa/186
+  base/0/2/gpqa/gpqa/186 scored; 1090 tokens, 23.2s
+Generating base/0/2/gpqa/gpqa/187
+  base/0/2/gpqa/gpqa/185 scored; 1320 tokens, 28.1s
+Generating base/0/2/gpqa/gpqa/188
+  base/0/2/gpqa/gpqa/188 scored; 510 tokens, 10.8s
+Generating base/0/2/gpqa/gpqa/189
+  base/0/2/gpqa/gpqa/187 scored; 2048 tokens, 43.4s
+Generating base/0/2/gpqa/gpqa/190
+  base/0/2/gpqa/gpqa/189 scored; 2048 tokens, 43.7s
+Generating base/0/2/gpqa/gpqa/191
+  base/0/2/gpqa/gpqa/190 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/192
+  base/0/2/gpqa/gpqa/192 scored; 182 tokens, 3.9s
+Generating base/0/2/gpqa/gpqa/193
+  base/0/2/gpqa/gpqa/191 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/194
+  base/0/2/gpqa/gpqa/193 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/195
+  base/0/2/gpqa/gpqa/194 scored; 2048 tokens, 43.6s
+Generating base/0/2/gpqa/gpqa/196
+  base/0/2/gpqa/gpqa/195 scored; 2048 tokens, 43.5s
+Generating base/0/2/gpqa/gpqa/197
+  base/0/2/gpqa/gpqa/196 scored; 2048 tokens, 43.6s
+  base/0/2/gpqa/gpqa/197 scored; 2048 tokens, 29.1s
+Report: runs/full-keywords-v4-reviewed-gpu-v2/report.md
+Completed BASE stage
