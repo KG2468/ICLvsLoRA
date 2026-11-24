@@ -85,12 +85,57 @@ def verify_model(cfg: dict):
             raise ValueError(f"Expected FP16 weights (with FP32 stability tensors), got {dtypes}")
 
 
+def decode_blocks(model, tokenizer, prompt, cache, sampler, budget, prefill_step, block_size):
+    """Keep autoregressive token dependencies on-device until each short block ends."""
+    import mlx.core as mx
+    from mlx_lm.models.cache import make_prompt_cache
+
+    cache = make_prompt_cache(model) if cache is None else cache
+    inputs = mx.array(prompt)
+    while inputs.size > 1:
+        size = min(prefill_step, inputs.size - 1)
+        model(inputs[:size][None], cache=cache)
+        mx.eval([layer.state for layer in cache])
+        inputs = inputs[size:]
+
+    detokenizer = tokenizer.detokenizer
+    eos = tokenizer.eos_token_ids
+    count = 0
+    reason = "length"
+    while count < budget:
+        ids = []
+        for _ in range(min(block_size, budget - count)):
+            logits = model(inputs[None], cache=cache)[:, -1, :]
+            inputs = sampler(logits - mx.logsumexp(logits, keepdims=True))
+            ids.append(inputs)
+            # Submit each step without a host wait. Keep Python from building
+            # a large unevaluated graph of vocab logits and recurrent states.
+            mx.async_eval(inputs)
+        for token in mx.concatenate(ids).tolist():
+            count += 1
+            if token in eos:
+                reason = "stop"
+                break
+            detokenizer.add_token(token)
+        if reason == "stop":
+            break
+    detokenizer.finalize()
+    return detokenizer.text, count, reason
+
+
 class MLXBackend:
     def __init__(self, cfg: dict, adapter: Path | None = None):
         import mlx.core as mx
         from mlx_lm import load
 
         verify_model(cfg)
+        self.decode_block_size = int(os.environ.get("CS182_DECODE_BLOCK", "1"))
+        if not 1 <= self.decode_block_size <= 32:
+            raise ValueError("CS182_DECODE_BLOCK must be between 1 and 32")
+        mx.set_default_device(mx.gpu)
+        if self.decode_block_size > 1:
+            # Bound MLX's reusable allocation cache independently in each worker.
+            mx.set_cache_limit(256 * 1024**2)
         self.cfg = cfg
         self.model, self.tokenizer = load(
             str(model_path(cfg)), adapter_path=str(adapter) if adapter else None
@@ -144,7 +189,8 @@ class MLXBackend:
         for i in range(0, len(tokens), step):
             self.model(mx.array(tokens[i : i + step])[None], cache=cache)
             mx.eval([c.state for c in cache])
-            mx.clear_cache()
+            if self.decode_block_size == 1:
+                mx.clear_cache()
         self.prefix_tokens, self.prefix_cache = tokens, cache
         print(f"Cached {len(tokens)} prefix tokens in {time.monotonic() - start:.1f}s", flush=True)
 
@@ -190,24 +236,39 @@ class MLXBackend:
         text = ""
         last = None
         with DeviceSamples() as samples:
-            for response in stream_generate(
-                self.model,
-                self.tokenizer,
-                prompt,
-                max_tokens=budget,
-                sampler=sampler,
-                prompt_cache=cache,
-                prefill_step_size=gen["prefill_step_size"],
-            ):
-                text += response.text
-                last = response
+            if self.decode_block_size > 1:
+                text, generated_count, finish_reason = decode_blocks(
+                    self.model,
+                    self.tokenizer,
+                    prompt,
+                    cache,
+                    sampler,
+                    budget,
+                    gen["prefill_step_size"],
+                    self.decode_block_size,
+                )
+            else:
+                for response in stream_generate(
+                    self.model,
+                    self.tokenizer,
+                    prompt,
+                    max_tokens=budget,
+                    sampler=sampler,
+                    prompt_cache=cache,
+                    prefill_step_size=gen["prefill_step_size"],
+                ):
+                    text += response.text
+                    last = response
+                generated_count = last.generation_tokens if last else 0
+                finish_reason = getattr(last, "finish_reason", None)
             seconds = time.monotonic() - start
         result = {
             "text": text,
             "thinking": gen["enable_thinking"] if thinking is None else thinking,
             "prompt_tokens": len(tokens),
             "cached_tokens": cached,
-            "generation_tokens": last.generation_tokens if last else 0,
+            "generation_tokens": generated_count,
+            "decode_block_size": self.decode_block_size,
             "seconds": seconds,
             "gpu": {
                 **samples.summary(),
@@ -219,9 +280,10 @@ class MLXBackend:
                 "mlx_cache_after_bytes": mx.get_cache_memory(),
             },
             "peak_memory_gb": mx.get_peak_memory() / 1e9,
-            "finish_reason": getattr(last, "finish_reason", None),
+            "finish_reason": finish_reason,
         }
-        mx.clear_cache()
+        if self.decode_block_size == 1:
+            mx.clear_cache()
         return result
 
     def close(self):

@@ -75,3 +75,63 @@ def test_parallel_fallback_resumes_only_uncommitted_results(tmp_path, monkeypatc
     assert [r["key"] for r in rows] == [f"base/0/0/gpqa/{i}" for i in range(5)]
     assert [r["generation_workers"] for r in rows] == [1, 2, 1, 1, 1]
     assert backend.return_value.generate.call_count == 4
+
+
+def test_force_four_resumes_previous_scheduler(tmp_path, monkeypatch):
+    from pathlib import Path
+    from unittest.mock import Mock
+
+    import pytest
+
+    cfg = load_config("configs/smoke.toml")
+    cfg["experiment"].update(seeds=[0], benchmarks=["gpqa"])
+    tasks = [{"id": str(i)} for i in range(6)]
+    monkeypatch.setattr(experiment, "tasks", lambda *args: tasks)
+    monkeypatch.setattr(experiment, "preflight", lambda *args: {})
+    monkeypatch.setattr(report, "report", lambda *args: None)
+    monkeypatch.setattr(experiment, "available_bytes", Mock(side_effect=AssertionError))
+    monkeypatch.setattr(experiment, "MLXBackend", Mock(side_effect=AssertionError))
+    source = Path(experiment.__file__).parent
+    migration = json.loads((source / "scheduler_compat.json").read_text())
+    assert {k: experiment.file_hash(source / k) for k in migration["after"]} == migration["after"]
+    hash_file = experiment.file_hash
+    monkeypatch.setattr(
+        experiment, "file_hash", lambda p: hash_file(p) if p.suffix == ".py" else "fixture"
+    )
+    monkeypatch.setattr(experiment.importlib.metadata, "version", lambda p: "fixture")
+    monkeypatch.setattr(experiment, "model_path", lambda cfg: tmp_path / "model")
+    original = {
+        "cfg": cfg,
+        "weights": {},
+        "packages": dict.fromkeys(("mlx", "mlx-lm", "transformers", "datasets"), "fixture"),
+        "data": dict.fromkeys(("mbpp_train", "mbpp_valid", "gpqa"), "fixture"),
+        "implementation": {p.name: hash_file(p) for p in source.glob("*.py")} | migration["before"],
+    }
+    old_id = experiment.digest(original)
+    (tmp_path / "manifest.json").write_text(json.dumps({"identity": old_id}))
+    assert not experiment.compatible_scheduler_identity(
+        {**original, "data": {}, "implementation": original["implementation"] | migration["after"]},
+        old_id,
+    )
+    results = tmp_path / "results.jsonl"
+    results.write_text('{"key":"base/0/0/gpqa/0","generation_workers":2}\n')
+
+    def pool(executor, fn, batch, count):
+        assert count == 4
+        for _, task in batch:
+            yield {
+                "key": "base/0/0/gpqa/" + task["id"],
+                "seconds": 1,
+                "generation_tokens": 1,
+                "status": "scored",
+            }
+            if task["id"] == "1":
+                raise MemoryError("out of memory")
+
+    monkeypatch.setattr(experiment, "pool_rows", pool)
+    with pytest.raises(MemoryError):
+        experiment._run(cfg, tmp_path, "base", workers=4)
+    experiment._run(cfg, tmp_path, "base", workers=4)
+    rows = [json.loads(line) for line in results.read_text().splitlines()]
+    assert [r["generation_workers"] for r in rows] == [2, 4, 4, 4, 4, 4]
+    assert len({r["key"] for r in rows}) == 6

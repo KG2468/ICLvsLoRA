@@ -1,7 +1,6 @@
-"""Run a HumanEval candidate inside a read-only stdlib chroot on Linux Colab."""
+"""Run a HumanEval candidate inside a Linux chroot or bubblewrap mount namespace."""
 
 import ctypes
-import ctypes.util
 import errno
 import os
 import resource
@@ -14,12 +13,11 @@ def main():
     write = os.write
     root, candidate, timeout = sys.argv[1:]
     code = Path(candidate).read_bytes()
-    if os.geteuid() != 0:
-        raise RuntimeError("Colab code scoring requires permission to chroot and drop privileges")
-    library = ctypes.util.find_library("seccomp")
-    if not library:
-        raise RuntimeError("Install libseccomp2 before scoring")
-    sec = ctypes.CDLL(library)
+    # Ubuntu's runtime SONAME works even when ldconfig is outside the namespace.
+    try:
+        sec = ctypes.CDLL("libseccomp.so.2")
+    except OSError as exc:
+        raise RuntimeError("Install libseccomp2 before scoring") from exc
     sec.seccomp_init.argtypes = [ctypes.c_uint32]
     sec.seccomp_init.restype = ctypes.c_void_p
     sec.seccomp_syscall_resolve_name.argtypes = [ctypes.c_char_p]
@@ -33,6 +31,10 @@ def main():
         "write",
         "writev",
         "close",
+        # x86-64 libc and CPython can use the original stat/lstat syscalls
+        # during module discovery as well as the newer *at variants.
+        "stat",
+        "lstat",
         "fstat",
         "newfstatat",
         "statx",
@@ -80,11 +82,12 @@ def main():
         (resource.RLIMIT_CORE, 0),
     ]:
         resource.setrlimit(kind, (limit, limit))
-    os.chroot(root)
-    os.chdir("/")
-    os.setgroups([])
-    os.setgid(65534)
-    os.setuid(65534)
+    if root != "--bubblewrap":
+        os.chroot(root)
+        os.chdir("/")
+        os.setgroups([])
+        os.setgid(65534)
+        os.setuid(65534)
     sys.path[:] = ["/stdlib", "/stdlib/lib-dynload"]
     os.environ.clear()
     if sec.seccomp_load(rules):
