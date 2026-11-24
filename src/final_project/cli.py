@@ -15,6 +15,10 @@ def main():
         command.add_argument("--config", default="configs/smoke.toml")
         if name == "run":
             command.add_argument(
+                "--eval-lora", type=int, nargs=2, action="append", metavar=("SEED", "N"),
+                help="Evaluate an existing checkpoint. Repeat to select multiple jobs.",
+            )
+            command.add_argument(
                 "--workers",
                 type=int,
                 metavar="N",
@@ -82,4 +86,7 @@ def main():
         else:
             if args.workers is not None and args.workers < 1:
                 parser.error("--workers must be at least 1")
-            run(cfg, stage=args.stage, workers=args.workers)
+            jobs = {tuple(pair) for pair in args.eval_lora} if args.eval_lora else None
+            if jobs and args.stage not in ("lora", "all"):
+                parser.error("--eval-lora requires the LoRA stage")
+            run(cfg, stage="lora" if jobs else args.stage, workers=args.workers, lora_jobs=jobs)

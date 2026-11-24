@@ -167,7 +167,7 @@ def stages(stage: str = "all") -> tuple[str, ...]:
     return ("icl", "lora", "base") if stage == "all" else (stage,)
 
 
-def run(cfg: dict, stage: str = "all", *, workers: int | None = None):
+def run(cfg: dict, stage: str = "all", *, workers: int | None = None, lora_jobs=None):
     stages(stage)
     exp = cfg["experiment"]
     root = Path(exp["output_dir"]) / exp["name"]
@@ -177,7 +177,14 @@ def run(cfg: dict, stage: str = "all", *, workers: int | None = None):
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError as exc:
             raise RuntimeError("This experiment is already running") from exc
-        _run(cfg, root, stage, workers=workers)
+        if lora_jobs:
+            for seed, n in lora_jobs:
+                if stage != "lora" or seed not in exp["seeds"] or n not in exp["sizes"]:
+                    raise ValueError(f"Invalid LoRA evaluation selection: {(seed, n)}")
+                marker = root / "adapters" / f"seed{seed}-n{n}" / "complete.json"
+                if not marker.is_file():
+                    raise FileNotFoundError(marker)
+        _run(cfg, root, stage, workers=workers, lora_jobs=lora_jobs)
 
 
 def generate_row(backend, cfg, condition, n, seed, benchmark, lang, messages, example_ids, task):
@@ -290,7 +297,7 @@ def compatible_scheduler_identity(inputs, previous):
     return False
 
 
-def _run(cfg: dict, root: Path, stage: str = "all", *, workers: int | None = None):
+def _run(cfg: dict, root: Path, stage: str = "all", *, workers: int | None = None, lora_jobs=None):
     from .report import report
 
     exp = cfg["experiment"]
@@ -503,11 +510,15 @@ def _run(cfg: dict, root: Path, stage: str = "all", *, workers: int | None = Non
     for condition in stages(stage):
         print(f"Starting {condition.upper()} stage", flush=True)
         for seed in exp["seeds"]:
+            if lora_jobs and not any(s == seed for s, _ in lora_jobs):
+                continue
             if condition == "base":
                 evaluate("base", 0, seed, [])
                 continue
             train, valid = examples(cfg, Language(seed), seed)
             for n in exp["sizes"]:
+                if lora_jobs and (seed, n) not in lora_jobs:
+                    continue
                 selected = train[:n]
                 selection = {
                     "train_ids": [r["id"] for r in selected],
