@@ -40,6 +40,12 @@ For HumanEval, validity means a parsable top-level definition with the requested
 
 ![Official and generous accuracy for each benchmark](accuracy.png)
 
+![Official and generous accuracy for the non-AIME benchmarks](accuracy-no-aime.png)
+
+![Generous accuracy trends across training or in-context example counts](accuracy-trends.png)
+
+![Generous accuracy trends for the non-AIME benchmarks](accuracy-trends-no-aime.png)
+
 ## Paired task comparisons
 
 Each cell is gains / losses going from the first condition to the second under the generous parser, on identical benchmark and task IDs.
@@ -57,8 +63,10 @@ Each cell is gains / losses going from the first condition to the second under t
 | ICL 256 → LoRA 256 | 18 / 9 | 0 / 91 | 0 / 0 | 0 / 2 | 39 / 35 |
 | ICL 16 → ICL 64 | 6 / 11 | 22 / 15 | 1 / 0 | 0 / 2 | 31 / 32 |
 | ICL 64 → ICL 256 | 7 / 3 | 30 / 28 | 0 / 1 | 1 / 0 | 35 / 37 |
+| ICL 16 → ICL 256 | 9 / 10 | 27 / 18 | 0 / 0 | 1 / 2 | 32 / 35 |
 | LoRA 16 → LoRA 64 | 12 / 3 | 0 / 15 | 0 / 1 | 1 / 2 | 29 / 50 |
 | LoRA 64 → LoRA 256 | 12 / 8 | 1 / 3 | 0 / 0 | 0 / 1 | 53 / 26 |
+| LoRA 16 → LoRA 256 | 17 / 4 | 0 / 17 | 0 / 1 | 0 / 2 | 39 / 33 |
 
 ## What the parser recovered
 

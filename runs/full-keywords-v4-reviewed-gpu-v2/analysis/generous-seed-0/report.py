@@ -32,8 +32,11 @@ doc=['# Seed 0 with a more permissive answer parser',
      '## Correct answers',counttable('passed'),'## Valid outputs',counttable('valid'),
      'For HumanEval, validity means a parsable top-level definition with the requested name; correctness requires passing the original tests. On synthetic HumanEval the program still has to decode under the seeded dialect. For GPQA and AIME, validity means a recoverable single choice or integer; correctness is exact match. The pooled rates count both HumanEval variants and weight benchmarks by their numbers of prompts.',
      '![Official and generous accuracy for each benchmark](accuracy.png)',
+     '![Official and generous accuracy for the non-AIME benchmarks](accuracy-no-aime.png)',
+     '![Generous accuracy trends across training or in-context example counts](accuracy-trends.png)',
+     '![Generous accuracy trends for the non-AIME benchmarks](accuracy-trends-no-aime.png)',
      '## Paired task comparisons','Each cell is gains / losses going from the first condition to the second under the generous parser, on identical benchmark and task IDs.']
-pairs=[('Base',g) for g in groups[1:]]+[(f'ICL {n}',f'LoRA {n}') for n in (16,64,256)]+[(f'{m} {a}',f'{m} {b}') for m in ('ICL','LoRA') for a,b in ((16,64),(64,256))]
+pairs=[('Base',g) for g in groups[1:]]+[(f'ICL {n}',f'LoRA {n}') for n in (16,64,256)]+[(f'{m} {a}',f'{m} {b}') for m in ('ICL','LoRA') for a,b in ((16,64),(64,256),(16,256))]
 doc.append(tab(['Comparison',*labels],[[f'{a} → {g}',*[f'{len(ids(g,b,"passed")-ids(a,b,"passed"))} / {len(ids(a,b,"passed")-ids(g,b,"passed"))}' for b in benchmarks]] for a,g in pairs]))
 recovered=[r for r in rows if r['valid'] and not r['strict_valid']]
 doc+=['## What the parser recovered',tab(['Extraction rule','Additional valid','Additional correct'],[[k,len(v),sum(r['passed'] for r in v)] for k in sorted({r['method'] for r in recovered}) if (v:=[r for r in recovered if r['method']==k])])]
@@ -45,13 +48,38 @@ doc+=['## Scoring rules and limits',
 - For code, the parser favors the last identified submission with the requested signature, tolerates prose or Markdown around it, and can restore an omitted definition keyword on a signature matching the required name. It does not fix an algorithm, synthesize imports, close arbitrary brackets, or convert plain Python into synthetic code. Extraction uses neither the answer key nor the unit tests to choose a candidate.
 - Recovered code is executed locally using the project's isolated HumanEval scorer and 10-second timeout. Original executions retain their original platform. Base ran locally, ICL on the server, and LoRA N=16 combines Colab and local rows. Server and local FP16 model files have different checksums. These seed-0 comparisons do not establish effects across seeds.''',
 '## Reproduction','From the repository root, run the project Python on [rescore.py](rescore.py) and then [report.py](report.py). [scores.jsonl](scores.jsonl) records the strict and generous outcomes per original key, the extraction rule and attempt, and the recovered code or answer where applicable. [Official analysis](../seed-0.md).']
-fig,axs=plt.subplots(1,5,figsize=(14,4.3),sharey=True)
-for ax,b,label in zip(axs,benchmarks,labels):
-    for i,g in enumerate(groups):
-        rr=sub(g,b); a=sum(r['strict_passed'] for r in rr)*100/len(rr);z=sum(r['passed'] for r in rr)*100/len(rr)
-        ax.plot([a,z],[i,i],color='#777');ax.scatter(a,i,marker='|',color='black',s=65,zorder=3);ax.scatter(z,i,color='#207297',s=24)
-    ax.set_title(label,fontsize=10);ax.set_xlim(-3,83);ax.grid(axis='x',alpha=.2)
-axs[0].set_yticks(range(7),groups);axs[0].invert_yaxis();fig.supxlabel('Correct (%)    |  official     ●  generous');fig.tight_layout();fig.savefig(root/'accuracy.png',dpi=160);plt.close(fig)
+def make_figure(bench_subset,labels_subset,fname,width):
+    fig,axs=plt.subplots(1,len(bench_subset),figsize=(width,4.3),sharey=True)
+    for ax,b,label in zip(axs,bench_subset,labels_subset):
+        vals=[]
+        for i,g in enumerate(groups):
+            rr=sub(g,b); a=sum(r['strict_passed'] for r in rr)*100/len(rr);z=sum(r['passed'] for r in rr)*100/len(rr)
+            vals+=[a,z]
+            ax.plot([a,z],[i,i],color='#777');ax.scatter(a,i,marker='|',color='black',s=65,zorder=3);ax.scatter(z,i,color='#207297',s=24)
+        lo,hi=min(vals),max(vals);pad=max(2,(hi-lo)*.08)
+        ax.set_xlim(max(0,lo-pad),min(100,hi+pad));ax.grid(axis='x',alpha=.2)
+        ax.set_title(label,fontsize=10)
+    axs[0].set_yticks(range(7),groups);axs[0].invert_yaxis();fig.supxlabel('Correct (%)    |  official     ●  generous');fig.tight_layout();fig.savefig(root/fname,dpi=160);plt.close(fig)
+make_figure(benchmarks,labels,'accuracy.png',14)
+make_figure(benchmarks[:2]+benchmarks[4:],labels[:2]+labels[4:],'accuracy-no-aime.png',9)
+def trend_figure(bench_subset,labels_subset,fname,width):
+    fig,axs=plt.subplots(1,len(bench_subset),figsize=(width,4.3),sharey=False)
+    for ax,b,label in zip(axs,bench_subset,labels_subset):
+        base=sum(r['passed'] for r in sub('Base',b))*100/len(sub('Base',b))
+        ax.axhline(base,color='#555',ls='--',lw=1.5,zorder=1,label='Base' if b==bench_subset[0] else None)
+        for cond,marker,color in (('ICL','o','#207297'),('LoRA','s','#c1502a')):
+            ns=[16,64,256];ys=[sum(r['passed'] for r in sub(f'{cond} {n}',b))*100/len(sub(f'{cond} {n}',b)) for n in ns]
+            ax.plot(ns,ys,marker=marker,color=color,ms=6,label=cond if b==bench_subset[0] else None)
+        ax.set_xscale('log',base=2);ax.set_xticks([16,64,256],[16,64,256]);ax.minorticks_off()
+        vals=[base]+[sum(r['passed'] for r in sub(f'{c} {n}',b))*100/len(sub(f'{c} {n}',b)) for c in ('ICL','LoRA') for n in (16,64,256)]
+        lo,hi=min(vals),max(vals);pad=max(2,(hi-lo)*.08)
+        ax.set_ylim(max(0,lo-pad),min(100,hi+pad))
+        ax.set_title(label,fontsize=10);ax.grid(axis='y',alpha=.2)
+    axs[0].set_ylabel('Correct (%)');fig.supxlabel('Training or in-context examples (N)')
+    fig.legend(loc='upper center',ncol=3,frameon=False,bbox_to_anchor=(.5,1.02))
+    fig.tight_layout(rect=(0,0,1,.94));fig.savefig(root/fname,dpi=160);plt.close(fig)
+trend_figure(benchmarks,labels,'accuracy-trends.png',14)
+trend_figure(benchmarks[:2]+benchmarks[4:],labels[:2]+labels[4:],'accuracy-trends-no-aime.png',9)
 doc.insert(2, """## Findings
 
 **LoRA overtakes ICL on synthetic HumanEval at N=64 and N=256 under permissive scoring.** At N=16 ICL still leads 12 to 7. At N=64 LoRA leads 16 to 7, and at N=256 it leads 20 to 11. All 29 additional synthetic solves came from extracting existing code that passed the tests without inserting a definition keyword. At N=256 only two synthetic tasks were solved by both methods: LoRA solved 18 others and ICL solved nine others.

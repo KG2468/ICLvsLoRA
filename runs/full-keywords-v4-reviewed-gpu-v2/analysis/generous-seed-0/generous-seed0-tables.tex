@@ -2,20 +2,21 @@
 \begin{table}[htbp]
 \centering
 \footnotesize
-\setlength{\tabcolsep}{2pt}
+\setlength{\tabcolsep}{7pt}
+\renewcommand{\arraystretch}{1.5}
 \caption{Correct answers under permissive scoring (seed~0). Each cell reports the count over the total, the percentage, and the gain in tasks over the original scoring.}
 \label{tab:generous-seed0-correct}
 \begin{tabular}{@{}lcccccc@{}}
 \hline
-Condition & \shortstack{Synthetic\\HumanEval} & \shortstack{Python\\HumanEval} & AIME 2024 & AIME 2025 & GPQA & Pooled \\
+Condition & \shortstack{Synthetic\\[3pt]HumanEval} & \shortstack{Python\\[3pt]HumanEval} & AIME 2024 & AIME 2025 & GPQA & Pooled \\
 \hline
-Base & \shortstack{0/164\\0.0\%\\(+0)} & \shortstack{111/164\\67.7\%\\(+0)} & \shortstack{1/30\\3.3\%\\(+0)} & \shortstack{2/30\\6.7\%\\(+0)} & \shortstack{102/198\\51.5\%\\(+0)} & \shortstack{216/586\\36.9\%\\(+0)} \\[2pt]
-ICL 16 & \shortstack{12/164\\7.3\%\\(+0)} & \shortstack{83/164\\50.6\%\\(+0)} & \shortstack{0/30\\0.0\%\\(+0)} & \shortstack{3/30\\10.0\%\\(+0)} & \shortstack{80/198\\40.4\%\\(+0)} & \shortstack{178/586\\30.4\%\\(+0)} \\[2pt]
-ICL 64 & \shortstack{7/164\\4.3\%\\(+0)} & \shortstack{90/164\\54.9\%\\(+0)} & \shortstack{1/30\\3.3\%\\(+0)} & \shortstack{1/30\\3.3\%\\(+0)} & \shortstack{79/198\\39.9\%\\(+0)} & \shortstack{178/586\\30.4\%\\(+0)} \\[2pt]
-ICL 256 & \shortstack{11/164\\6.7\%\\(+0)} & \shortstack{92/164\\56.1\%\\(+0)} & \shortstack{0/30\\0.0\%\\(+0)} & \shortstack{2/30\\6.7\%\\(+0)} & \shortstack{77/198\\38.9\%\\(+1)} & \shortstack{182/586\\31.1\%\\(+1)} \\[2pt]
-LoRA 16 & \shortstack{7/164\\4.3\%\\(+2)} & \shortstack{18/164\\11.0\%\\(+16)} & \shortstack{1/30\\3.3\%\\(+0)} & \shortstack{2/30\\6.7\%\\(+0)} & \shortstack{75/198\\37.9\%\\(+12)} & \shortstack{103/586\\17.6\%\\(+30)} \\[2pt]
-LoRA 64 & \shortstack{16/164\\9.8\%\\(+16)} & \shortstack{3/164\\1.8\%\\(+3)} & \shortstack{0/30\\0.0\%\\(+0)} & \shortstack{1/30\\3.3\%\\(+0)} & \shortstack{54/198\\27.3\%\\(+14)} & \shortstack{74/586\\12.6\%\\(+33)} \\[2pt]
-LoRA 256 & \shortstack{20/164\\12.2\%\\(+11)} & \shortstack{1/164\\0.6\%\\(+1)} & \shortstack{0/30\\0.0\%\\(+0)} & \shortstack{0/30\\0.0\%\\(+0)} & \shortstack{81/198\\40.9\%\\(+4)} & \shortstack{102/586\\17.4\%\\(+16)} \\[2pt]
+Base & \shortstack{0/164\\[3pt]0.0\%\\[3pt](+0)} & \shortstack{111/164\\[3pt]67.7\%\\[3pt](+0)} & \shortstack{1/30\\[3pt]3.3\%\\[3pt](+0)} & \shortstack{2/30\\[3pt]6.7\%\\[3pt](+0)} & \shortstack{102/198\\[3pt]51.5\%\\[3pt](+0)} & \shortstack{216/586\\[3pt]36.9\%\\[3pt](+0)} \\[8pt]
+ICL 16 & \shortstack{12/164\\[3pt]7.3\%\\[3pt](+0)} & \shortstack{83/164\\[3pt]50.6\%\\[3pt](+0)} & \shortstack{0/30\\[3pt]0.0\%\\[3pt](+0)} & \shortstack{3/30\\[3pt]10.0\%\\[3pt](+0)} & \shortstack{80/198\\[3pt]40.4\%\\[3pt](+0)} & \shortstack{178/586\\[3pt]30.4\%\\[3pt](+0)} \\[8pt]
+ICL 64 & \shortstack{7/164\\[3pt]4.3\%\\[3pt](+0)} & \shortstack{90/164\\[3pt]54.9\%\\[3pt](+0)} & \shortstack{1/30\\[3pt]3.3\%\\[3pt](+0)} & \shortstack{1/30\\[3pt]3.3\%\\[3pt](+0)} & \shortstack{79/198\\[3pt]39.9\%\\[3pt](+0)} & \shortstack{178/586\\[3pt]30.4\%\\[3pt](+0)} \\[8pt]
+ICL 256 & \shortstack{11/164\\[3pt]6.7\%\\[3pt](+0)} & \shortstack{92/164\\[3pt]56.1\%\\[3pt](+0)} & \shortstack{0/30\\[3pt]0.0\%\\[3pt](+0)} & \shortstack{2/30\\[3pt]6.7\%\\[3pt](+0)} & \shortstack{77/198\\[3pt]38.9\%\\[3pt](+1)} & \shortstack{182/586\\[3pt]31.1\%\\[3pt](+1)} \\[8pt]
+LoRA 16 & \shortstack{7/164\\[3pt]4.3\%\\[3pt](+2)} & \shortstack{18/164\\[3pt]11.0\%\\[3pt](+16)} & \shortstack{1/30\\[3pt]3.3\%\\[3pt](+0)} & \shortstack{2/30\\[3pt]6.7\%\\[3pt](+0)} & \shortstack{75/198\\[3pt]37.9\%\\[3pt](+12)} & \shortstack{103/586\\[3pt]17.6\%\\[3pt](+30)} \\[8pt]
+LoRA 64 & \shortstack{16/164\\[3pt]9.8\%\\[3pt](+16)} & \shortstack{3/164\\[3pt]1.8\%\\[3pt](+3)} & \shortstack{0/30\\[3pt]0.0\%\\[3pt](+0)} & \shortstack{1/30\\[3pt]3.3\%\\[3pt](+0)} & \shortstack{54/198\\[3pt]27.3\%\\[3pt](+14)} & \shortstack{74/586\\[3pt]12.6\%\\[3pt](+33)} \\[8pt]
+LoRA 256 & \shortstack{20/164\\[3pt]12.2\%\\[3pt](+11)} & \shortstack{1/164\\[3pt]0.6\%\\[3pt](+1)} & \shortstack{0/30\\[3pt]0.0\%\\[3pt](+0)} & \shortstack{0/30\\[3pt]0.0\%\\[3pt](+0)} & \shortstack{81/198\\[3pt]40.9\%\\[3pt](+4)} & \shortstack{102/586\\[3pt]17.4\%\\[3pt](+16)} \\[8pt]
 \hline
 \end{tabular}
 \end{table}
@@ -23,20 +24,21 @@ LoRA 256 & \shortstack{20/164\\12.2\%\\(+11)} & \shortstack{1/164\\0.6\%\\(+1)} 
 \begin{table}[htbp]
 \centering
 \footnotesize
-\setlength{\tabcolsep}{2pt}
+\setlength{\tabcolsep}{7pt}
+\renewcommand{\arraystretch}{1.5}
 \caption{Valid outputs under permissive scoring (seed~0). Each cell reports the count over the total, the percentage, and the gain in tasks over the original scoring.}
 \label{tab:generous-seed0-valid}
 \begin{tabular}{@{}lcccccc@{}}
 \hline
-Condition & \shortstack{Synthetic\\HumanEval} & \shortstack{Python\\HumanEval} & AIME 2024 & AIME 2025 & GPQA & Pooled \\
+Condition & \shortstack{Synthetic\\[3pt]HumanEval} & \shortstack{Python\\[3pt]HumanEval} & AIME 2024 & AIME 2025 & GPQA & Pooled \\
 \hline
-Base & \shortstack{22/164\\13.4\%\\(+5)} & \shortstack{159/164\\97.0\%\\(+6)} & \shortstack{24/30\\80.0\%\\(+0)} & \shortstack{27/30\\90.0\%\\(+0)} & \shortstack{198/198\\100.0\%\\(+0)} & \shortstack{430/586\\73.4\%\\(+11)} \\[2pt]
-ICL 16 & \shortstack{67/164\\40.9\%\\(+0)} & \shortstack{150/164\\91.5\%\\(+2)} & \shortstack{24/30\\80.0\%\\(+0)} & \shortstack{29/30\\96.7\%\\(+0)} & \shortstack{197/198\\99.5\%\\(+0)} & \shortstack{467/586\\79.7\%\\(+2)} \\[2pt]
-ICL 64 & \shortstack{55/164\\33.5\%\\(+0)} & \shortstack{159/164\\97.0\%\\(+1)} & \shortstack{27/30\\90.0\%\\(+0)} & \shortstack{29/30\\96.7\%\\(+0)} & \shortstack{197/198\\99.5\%\\(+0)} & \shortstack{467/586\\79.7\%\\(+1)} \\[2pt]
-ICL 256 & \shortstack{67/164\\40.9\%\\(+0)} & \shortstack{160/164\\97.6\%\\(+2)} & \shortstack{25/30\\83.3\%\\(+0)} & \shortstack{30/30\\100.0\%\\(+0)} & \shortstack{197/198\\99.5\%\\(+5)} & \shortstack{479/586\\81.7\%\\(+7)} \\[2pt]
-LoRA 16 & \shortstack{14/164\\8.5\%\\(+4)} & \shortstack{89/164\\54.3\%\\(+81)} & \shortstack{9/30\\30.0\%\\(+0)} & \shortstack{8/30\\26.7\%\\(+2)} & \shortstack{173/198\\87.4\%\\(+33)} & \shortstack{293/586\\50.0\%\\(+120)} \\[2pt]
-LoRA 64 & \shortstack{108/164\\65.9\%\\(+107)} & \shortstack{57/164\\34.8\%\\(+50)} & \shortstack{6/30\\20.0\%\\(+1)} & \shortstack{8/30\\26.7\%\\(+3)} & \shortstack{147/198\\74.2\%\\(+34)} & \shortstack{326/586\\55.6\%\\(+195)} \\[2pt]
-LoRA 256 & \shortstack{115/164\\70.1\%\\(+75)} & \shortstack{54/164\\32.9\%\\(+52)} & \shortstack{18/30\\60.0\%\\(+4)} & \shortstack{15/30\\50.0\%\\(+1)} & \shortstack{197/198\\99.5\%\\(+10)} & \shortstack{399/586\\68.1\%\\(+142)} \\[2pt]
+Base & \shortstack{22/164\\[3pt]13.4\%\\[3pt](+5)} & \shortstack{159/164\\[3pt]97.0\%\\[3pt](+6)} & \shortstack{24/30\\[3pt]80.0\%\\[3pt](+0)} & \shortstack{27/30\\[3pt]90.0\%\\[3pt](+0)} & \shortstack{198/198\\[3pt]100.0\%\\[3pt](+0)} & \shortstack{430/586\\[3pt]73.4\%\\[3pt](+11)} \\[8pt]
+ICL 16 & \shortstack{67/164\\[3pt]40.9\%\\[3pt](+0)} & \shortstack{150/164\\[3pt]91.5\%\\[3pt](+2)} & \shortstack{24/30\\[3pt]80.0\%\\[3pt](+0)} & \shortstack{29/30\\[3pt]96.7\%\\[3pt](+0)} & \shortstack{197/198\\[3pt]99.5\%\\[3pt](+0)} & \shortstack{467/586\\[3pt]79.7\%\\[3pt](+2)} \\[8pt]
+ICL 64 & \shortstack{55/164\\[3pt]33.5\%\\[3pt](+0)} & \shortstack{159/164\\[3pt]97.0\%\\[3pt](+1)} & \shortstack{27/30\\[3pt]90.0\%\\[3pt](+0)} & \shortstack{29/30\\[3pt]96.7\%\\[3pt](+0)} & \shortstack{197/198\\[3pt]99.5\%\\[3pt](+0)} & \shortstack{467/586\\[3pt]79.7\%\\[3pt](+1)} \\[8pt]
+ICL 256 & \shortstack{67/164\\[3pt]40.9\%\\[3pt](+0)} & \shortstack{160/164\\[3pt]97.6\%\\[3pt](+2)} & \shortstack{25/30\\[3pt]83.3\%\\[3pt](+0)} & \shortstack{30/30\\[3pt]100.0\%\\[3pt](+0)} & \shortstack{197/198\\[3pt]99.5\%\\[3pt](+5)} & \shortstack{479/586\\[3pt]81.7\%\\[3pt](+7)} \\[8pt]
+LoRA 16 & \shortstack{14/164\\[3pt]8.5\%\\[3pt](+4)} & \shortstack{89/164\\[3pt]54.3\%\\[3pt](+81)} & \shortstack{9/30\\[3pt]30.0\%\\[3pt](+0)} & \shortstack{8/30\\[3pt]26.7\%\\[3pt](+2)} & \shortstack{173/198\\[3pt]87.4\%\\[3pt](+33)} & \shortstack{293/586\\[3pt]50.0\%\\[3pt](+120)} \\[8pt]
+LoRA 64 & \shortstack{108/164\\[3pt]65.9\%\\[3pt](+107)} & \shortstack{57/164\\[3pt]34.8\%\\[3pt](+50)} & \shortstack{6/30\\[3pt]20.0\%\\[3pt](+1)} & \shortstack{8/30\\[3pt]26.7\%\\[3pt](+3)} & \shortstack{147/198\\[3pt]74.2\%\\[3pt](+34)} & \shortstack{326/586\\[3pt]55.6\%\\[3pt](+195)} \\[8pt]
+LoRA 256 & \shortstack{115/164\\[3pt]70.1\%\\[3pt](+75)} & \shortstack{54/164\\[3pt]32.9\%\\[3pt](+52)} & \shortstack{18/30\\[3pt]60.0\%\\[3pt](+4)} & \shortstack{15/30\\[3pt]50.0\%\\[3pt](+1)} & \shortstack{197/198\\[3pt]99.5\%\\[3pt](+10)} & \shortstack{399/586\\[3pt]68.1\%\\[3pt](+142)} \\[8pt]
 \hline
 \end{tabular}
 \end{table}

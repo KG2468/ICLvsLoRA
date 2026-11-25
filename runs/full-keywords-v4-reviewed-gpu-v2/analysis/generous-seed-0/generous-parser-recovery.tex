@@ -1,0 +1,38 @@
+% Seed 0 generous-parser recovery by extraction rule. Requires no LaTeX packages.
+% Counts from analysis/generous-seed-0/scores.jsonl: rows that became valid under
+% the permissive parser but were invalid under the original scorer.
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\caption{Additional submissions recovered by each permissive extraction rule (seed~0).
+Each row is one rule of the generous parser applied to submissions the original scorer
+rejected. Valid means a readable submission was identified; correct means it passed the
+benchmark's scoring. Rules operate only on previously invalid responses.}
+\label{tab:generous-parser-recovery}
+\begin{tabular}{@{}p{0.28\textwidth}rrp{0.42\textwidth}@{}}
+\hline
+Extraction rule & \multicolumn{1}{r}{Valid} & \multicolumn{1}{r}{Correct} & What the rule accepts \\
+\hline
+Extract code block & 221 & 33 & The last fenced or plain code block containing the
+required signature, even when prose, Markdown, or reasoning surrounds it. The strict
+scorer only read the final fenced block of the post-thinking text. \\
+Insert definition keyword & 164 & 16 & A function body whose header omitted the
+definition keyword (e.g.\ a bare \texttt{name(args):} line) but otherwise matched the
+required entry point; the keyword is restored before parsing. \\
+Leading option letter & 69 & 26 & A GPQA response that opens with a single choice
+letter, optionally parenthesized, when no competing option label or reconsideration
+language follows. \\
+Marked answer line & 16 & 5 & Answer statements in looser forms than the strict
+\texttt{ANSWER:} pattern, such as ``the answer is (B)'' or ``correct choice: C'',
+including when they appear before the final line. \\
+Leading integer & 6 & 0 & An AIME response whose first line is a standalone integer,
+when the text shows no reconsideration. \\
+Final standalone answer & 2 & 0 & A response whose entire final line is a bare answer
+token, without any marker. \\
+\hline
+\textbf{Total} & \textbf{478} & \textbf{80} & \\
+\hline
+\end{tabular}
+\end{table}
